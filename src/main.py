@@ -12,16 +12,22 @@ import run_single_data_point
 import sqlite_helper_object
 import system_utils
 
+import trial_config_object_1
+import trial_config_object_2
+import trial_config_object_3
+
 ######## configuring the main file ###########
 
 # configuration objec generators matched to the latency throughput files
 CONFIG_OBJ_LIST = [
-  (config_object.ConfigObject(), os.path.join(constants.TEST_CONFIG_PATH, "override.ini")),
+  (trial_config_object_1.ConfigObject(), os.path.join(constants.TEST_CONFIG_PATH, "lt.ini")),
+  (trial_config_object_2.ConfigObject(), os.path.join(constants.TEST_CONFIG_PATH, "lt.ini")),
+  (trial_config_object_3.ConfigObject(), os.path.join(constants.TEST_CONFIG_PATH, "lt.ini")),
 ]
 
 # location of the entire database run
 unique_suffix = datetime.datetime.now().strftime("%Y%m%d_%H%M%S_%f")
-DB_DIR = os.path.join(constants.SCRATCH_DIR, "db_{0}".format(unique_suffix))
+DB_DIR = os.path.join("/proj/cops-PG0/workspaces/jl87", "db_{0}".format(unique_suffix))
 
 ######## end of configs #############
 
@@ -123,8 +129,8 @@ def main():
       except BaseException as e:
         print("Config {0} failed to run, continue with other configs. e:[{1}]"
               .format(cfg["config_fpath"], e))
-        csv_utils.write_out_data({"config_fpath": cfg["config_fpath"],
-                                  "lt_fpath": lt_fpath},
+        csv_utils.write_out_data([{"config_fpath": cfg["config_fpath"],
+                                  "lt_fpath": lt_fpath}],
                                  failed_configs_csv)
 
   db.close()
