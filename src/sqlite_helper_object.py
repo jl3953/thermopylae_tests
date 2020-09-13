@@ -22,7 +22,7 @@ class SQLiteHelperObject:
   def insert_csv_data_into_sqlite_table(self, table_name, csv_fpath, *args, **kwargs):
 
     # read in csv file data
-    header, data = csv_utils.read_in_data_as_tuples(csv_fpath)
+    header, data = csv_utils.read_in_data_as_tuples_float(csv_fpath)
 
     # create table if not exists yet
     column_names = SQLiteHelperObject.sanitize_column_names(header + list(kwargs.keys()))

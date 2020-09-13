@@ -205,7 +205,6 @@ def run_kv_workload(client_nodes, server_nodes, concurrency, keyspace, warm_up_d
     trial_processes = []
     bench_log_files = []
     for node in client_nodes:
-
       # logging output for each node
       individual_log_fpath = os.path.join(log_fpath, "bench_{}.txt".format(node["ip"]))
       bench_log_files.append(individual_log_fpath)
@@ -265,7 +264,7 @@ def run(config, log_dir):
     data = {"concurrency": config["concurrency"]}
     more_data, has_data = gather.gather_data_from_raw_kv_logs(bench_log_files)
     if not has_data:
-      raise RuntimeError("Config {0} has failed to produce any results".format(config["cfg_fpath"]))
+      raise RuntimeError("Config {0} has failed to produce any results".format(config[constants.CONFIG_FPATH_KEY]))
     data.update(more_data)
 
     # write out csv file
