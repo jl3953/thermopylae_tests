@@ -1,6 +1,7 @@
 import os
 import shlex
 import subprocess
+import time
 
 import constants
 import csv_utils
@@ -8,7 +9,8 @@ import gather
 import run_single_data_point
 
 SERVER_EXE = "/usr/local/grpc/examples/cpp/helloworld/cmake/build/greeter_server"
-CLIENT_EXE = os.path.join(constants.GRPC_GO_DIR, "benchmark", "run_bench.sh")
+CLIENT_DIR = os.path.join(constants.GRPC_GO_DIR, "benchmark")
+CLIENT_EXE = "./run_bench.sh"
 
 # def kill_client_node(node):
 #     ip = node["ip"]
@@ -41,8 +43,10 @@ def cleanup_previous_experiments(server_node, client_nodes):
 
 
 def start_server(server_node):
-    ip = server_node["ip"]
-    system_utils.call_remote(ip, SERVER_EXE)
+    cmd = "sudo ssh {0} '{1}'".format(server_node["ip"], SERVER_EXE)
+
+    subprocess.Popen(shlex.split(cmd))
+    time.sleep(2)
 
 
 def run_client_workload(client_nodes, server_node, rpcs_per_conn, connections_per_node, warm_up_duration, duration,
@@ -54,8 +58,12 @@ def run_client_workload(client_nodes, server_node, rpcs_per_conn, connections_pe
             "-addr {}".format(server_node["ip"]),
             ]
 
-    cmd = "{0} {1}".format(CLIENT_EXE, " ".join(args))
+    cmd = "cd {0}; {1} {2}".format(CLIENT_DIR, CLIENT_EXE, " ".join(args))
+
     log_fpath = os.path.join(log_dir, "logs")
+    if not os.path.exists(log_fpath):
+        os.makedirs(log_fpath)
+
     bench_log_files = []
     processes = []
     for node in client_nodes:
@@ -78,8 +86,9 @@ def run_client_workload(client_nodes, server_node, rpcs_per_conn, connections_pe
 def git_fetch_commit_on_single_node(node, commit_hash):
     cmd = ("ssh {0} 'export GOPATH=/usr/local/temp/go "
            "&& set -x && cd {1} && git fetch origin {2} && git checkout {2} && git pull origin {2} "
-           "&& (export PATH=$PATH:/usr/local/go/bin && echo $PATH && set +x'") \
+           "&& export PATH=$PATH:/usr/local/go/bin && echo $PATH && set +x'") \
         .format(node["ip"], constants.GRPC_GO_DIR, commit_hash)
+    print(cmd)
 
     return subprocess.Popen(shlex.split(cmd))
 
@@ -117,8 +126,8 @@ def run(config, log_dir):
     # start clients
     commit_hash = config["grpc_go_commit"]
     git_fetch_commit(client_nodes, commit_hash)
-    rpcs_per_conn = config["concurrency"]
-    connections_per_node = config["concurrencies"]
+    rpcs_per_conn = config["rpcs"]
+    connections_per_node = config["concurrency"]
     warm_up_duration = config["warm_up_duration"]
     duration = config["duration"]
 

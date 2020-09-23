@@ -14,8 +14,8 @@ class ConfigObject:
 
         # cluster
         self.grpc_go_commit = ["benchmark_hotshard"]
-        self.addr = node.Node(8)
-        self.client_nodes = [node.Node(i) for i in range(1, 5)]
+        self.addr = [vars(node.Node(8))]
+        self.client_nodes = [[vars(node.Node(i)) for i in range(1, 5)]]
         self.disable_cores = [0]
 
         # benchmark

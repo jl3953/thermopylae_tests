@@ -89,8 +89,8 @@ def gather_data_from_raw_kv_logs(log_fpaths):
 
 
 def extract_data_grpc_benchmark(head):
-    tp_line = head[1].strip()
-    latency_line = head[2].strip()
+    tp_line = head[-2].strip()
+    latency_line = head[-1].strip()
 
     # parse throughput
     _, throughput = [item.strip() for item in tp_line.split(":")]
@@ -142,9 +142,9 @@ def gather_data_from_raw_grpc_benchmark_logs(log_fpaths):
     for path in log_fpaths:
 
         with open(path, "r") as f:
-            # read the first three lines of f
+            # read the first four lines of f
             print(path)
-            head = f.readlines()[:3]
+            head = f.readlines()[:4]
 
             try:
                 datum = extract_data_grpc_benchmark(head)
