@@ -8,7 +8,7 @@ import csv_utils
 import gather
 import run_single_data_point
 
-SERVER_EXE = "/usr/local/grpc/examples/cpp/helloworld/cmake/build/greeter_server"
+SERVER_EXE = "/usr/local/grpc/examples/cpp/helloworld/cmake/build/greeter_async_server"
 CLIENT_DIR = os.path.join(constants.GRPC_GO_DIR, "benchmark")
 CLIENT_EXE = "./run_bench.sh"
 
@@ -24,8 +24,8 @@ import system_utils
 def kill_server_node(node):
     ip = node["ip"]
 
-    cmd = ("PID=$(! pgrep greeter_server) "
-           "|| (sudo pkill -9 greeter_server; while ps -p $PID;do sleep 1;done;)")
+    cmd = ("PID=$(! pgrep greeter_async_server) "
+           "|| (sudo pkill -9 greeter_async_server; while ps -p $PID;do sleep 1;done;)")
 
     system_utils.call_remote(ip, cmd)
 
