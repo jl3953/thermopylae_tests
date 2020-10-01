@@ -19,9 +19,12 @@ class ConfigObject:
         self.disable_cores = [0]
 
         # benchmark
-        self.warm_up_duration = [10]
-        self.duration = [2]
-        self.rpcs = [1]
+        self.warm_up_duration = [10] # warm-up duration in seconds
+        self.duration = [2] # benchmark duration in seconds
+        self.rpcs = [1] # number of RPCs
+        self.req = [1] # request size in bytes
+        self.resp = [1] # response size in bytes
+        self.rpc_type = ["unary"] # unary | streaming
         # self.connections = [1] # concurrencies
 
     def generate_config_combinations(self):

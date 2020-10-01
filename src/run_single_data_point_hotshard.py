@@ -50,11 +50,14 @@ def start_server(server_node):
 
 
 def run_client_workload(client_nodes, server_node, rpcs_per_conn, connections_per_node, warm_up_duration, duration,
-                        log_dir):
+                        req, resp, rpc_type, log_dir):
     args = ["-w {}".format(warm_up_duration),
             "-d {}".format(duration),
             "-r {}".format(rpcs_per_conn),
             "-c {}".format(connections_per_node),
+            "-req {}".format(req),
+            "-resp {}".format(resp),
+            "-rpc_type {}".format(rpc_type),
             "-addr {}".format(server_node["ip"]),
             ]
 
@@ -130,9 +133,12 @@ def run(config, log_dir):
     connections_per_node = config["concurrency"]
     warm_up_duration = config["warm_up_duration"]
     duration = config["duration"]
+    req = config["req"]
+    resp = config["resp"]
+    rpc_type = config["rpc_type"]
 
     bench_log_files = run_client_workload(client_nodes, server_node, rpcs_per_conn, connections_per_node,
-                                          warm_up_duration, duration, log_dir)
+                                          warm_up_duration, duration, req, resp, rpc_type, log_dir)
 
     # create csv file of gathered data
     data = {"concurrency": config["concurrency"]}
@@ -152,3 +158,16 @@ def run(config, log_dir):
         run_single_data_point.enable_cores([server_node], cores_to_enable)
 
     return results_fpath
+
+
+def main():
+    import config_object_grpc_benchmark
+    config_obj = config_object_grpc_benchmark.ConfigObject()
+    single_config = config_obj.generate_config_combinations()[0]
+
+    log_dir = "../test"
+    run(single_config, log_dir)
+
+
+if __name__ == "__main__":
+    main()
