@@ -23,7 +23,7 @@ CONFIG_OBJ_LIST = [
 
 # location of the entire database run
 unique_suffix = datetime.datetime.now().strftime("%Y%m%d_%H%M%S_%f")
-DB_DIR = os.path.join("/proj/cops-PG0/workspaces/jl87", "grpc_go_{0}".format(unique_suffix))
+DB_DIR = os.path.join(constants.ROOT, "thermopylae_tests/scratch", "grpc_go_{0}".format(unique_suffix))
 
 
 ######## end of configs #############

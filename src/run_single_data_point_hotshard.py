@@ -8,7 +8,7 @@ import csv_utils
 import gather
 import run_single_data_point
 
-SERVER_EXE = "/usr/local/grpc/examples/cpp/helloworld/cmake/build/greeter_async_server"
+SERVER_EXE = os.path.join(constants.ROOT, "grpc", "examples", "cpp", "helloworld", "cmake", "build", "greeter_async_server")
 CLIENT_DIR = os.path.join(constants.GRPC_GO_DIR, "benchmark")
 CLIENT_EXE = "./run_bench.sh"
 
