@@ -30,12 +30,12 @@ def set_cluster_settings_on_single_node(node):
 
 
 def build_cockroachdb_commit_on_single_node(node, commit_hash):
-  cmd = ("ssh {0} 'export GOPATH=/usr/local/temp/go "
+  cmd = ("ssh {0} 'export GOPATH={3}/go "
          "&& set -x && cd {1} && git fetch origin {2} && git checkout {2} && git pull origin {2} && git submodule "
          "update --init "
          "&& (export PATH=$PATH:/usr/local/go/bin && echo $PATH && make build ||"
          " (make clean && make build)) && set +x'") \
-    .format(node["ip"], constants.COCKROACHDB_DIR, commit_hash)
+    .format(node["ip"], constants.COCKROACHDB_DIR, commit_hash, constants.ROOT)
 
   return subprocess.Popen(shlex.split(cmd))
 
