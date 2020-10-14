@@ -5,7 +5,7 @@ import datetime
 import os
 
 import config_io
-import config_object_grpc_benchmark
+import trial_grpc_benchmark
 import constants
 import csv_utils
 import generate_configs
@@ -18,12 +18,13 @@ import system_utils
 
 # configuration object generators matched to the latency throughput files
 CONFIG_OBJ_LIST = [
-    (config_object_grpc_benchmark.ConfigObject(), os.path.join(constants.TEST_CONFIG_PATH, "lt_grpc_go.ini")),
+    (trial_grpc_benchmark.ConfigObject(), os.path.join(constants.TEST_CONFIG_PATH, "lt_grpc_go.ini")),
 ]
 
 # location of the entire database run
 unique_suffix = datetime.datetime.now().strftime("%Y%m%d_%H%M%S_%f")
-DB_DIR = os.path.join(constants.ROOT, "thermopylae_tests/scratch", "grpc_go_{0}".format(unique_suffix))
+DB_DIR = os.path.join(constants.ROOT, "/proj/cops-PG0/workspaces/jl87", "grpc_go_{0}".format(unique_suffix))
+# DB_DIR = os.path.join(constants.ROOT, "thermopylae_tests/scratch", "grpc_go_{0}".format(unique_suffix))
 
 
 ######## end of configs #############

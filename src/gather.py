@@ -88,6 +88,20 @@ def gather_data_from_raw_kv_logs(log_fpaths):
     return final_datum, True
 
 
+def helper(latency_with_unit):
+    try:
+        return float(latency_with_unit.strip("µs")) / 1000.0
+    except BaseException:
+        print("oops, not microseconds, let's try milliseconds")
+
+    try:
+        return float(latency_with_unit.strip("ms"))
+    except BaseException:
+        print("oops, not milliseconds, let's try seconds")
+
+    return float(latency_with_unit.strip("s")) * 1000.0
+
+
 def extract_data_grpc_benchmark(head):
     tp_line = head[-2].strip()
     latency_line = head[-1].strip()
@@ -99,40 +113,12 @@ def extract_data_grpc_benchmark(head):
     # parse latency
     _, _, latencies = [item.strip() for item in latency_line.split(":")]
     latencies_with_units = latencies.split("/")
-
-    try:
-        p50, p95, p99 = [float(item.strip("µs")) / 1000.0 for item in latencies_with_units]
-        data.update({
-            "p50(ms)": p50,
-            "p95(ms)": p95,
-            "p99(ms)": p99,
-        })
-
-        return data
-
-    except BaseException:
-        print("oops, not microseconds, let's try milliseconds")
-
-    try:
-        p50, p95, p99 = [float(item.strip("ms")) for item in latencies_with_units]
-        data.update({
-            "p50(ms)": p50,
-            "p95(ms)": p95,
-            "p99(ms)": p99,
-        })
-
-        return data
-
-    except BaseException:
-        print("oops, not milliseconds either, let's try seconds")
-
-    p50, p95, p99 = [float(item.strip("s")) * 1000.0 for item in latencies_with_units]
+    p50, p95, p99 = [helper(latency_with_unit) for latency_with_unit in latencies_with_units]
     data.update({
         "p50(ms)": p50,
         "p95(ms)": p95,
         "p99(ms)": p99,
     })
-
     return data
 
 
@@ -149,8 +135,8 @@ def gather_data_from_raw_grpc_benchmark_logs(log_fpaths):
             try:
                 datum = extract_data_grpc_benchmark(head)
                 acc.append(datum)
-            except BaseException:
-                print("failed to extract data: {0}".format(path))
+            except BaseException as e:
+                print("failed to extract data: {0}, err:{1}".format(path, e))
                 return None, False
 
     final_datum = aggregate(acc)

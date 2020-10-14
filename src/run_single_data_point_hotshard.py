@@ -8,7 +8,8 @@ import csv_utils
 import gather
 import run_single_data_point
 
-SERVER_EXE = os.path.join(constants.ROOT, "grpc", "examples", "cpp", "helloworld", "cmake", "build", "greeter_async_server")
+exe = "benchmark_async_server"
+SERVER_EXE = os.path.join(constants.ROOT, "grpc", "examples", "cpp", "benchmark", "cmake", "build", exe)
 CLIENT_DIR = os.path.join(constants.GRPC_GO_DIR, "benchmark")
 CLIENT_EXE = "./run_bench.sh"
 
@@ -24,10 +25,12 @@ import system_utils
 def kill_server_node(node):
     ip = node["ip"]
 
-    cmd = ("PID=$(! pgrep greeter_async_server) "
-           "|| (sudo pkill -9 greeter_async_server; while ps -p $PID;do sleep 1;done;)")
+    #cmd = ("PID=$(! pgrep -f {0}) "
+           #"|| (sudo pkill -f -9 {0}; while ps -p $PID;do sleep 1;done;)".format(exe))
+    cmd = ("PID=$(! pidof {0}); for pid in $PID; do set -x; kill -9 $pid; set +x; done".format(exe))
 
-    system_utils.call_remote(ip, cmd)
+    print(system_utils.call_remote(ip, cmd))
+    time.sleep(2)
 
 
 def cleanup_previous_experiments(server_node, client_nodes):
@@ -37,7 +40,7 @@ def cleanup_previous_experiments(server_node, client_nodes):
     #     cp.wait()
 
     # kill server node
-    kill_server_node(server_node)
+    # kill_server_node(server_node)
 
     run_single_data_point.enable_cores([server_node], 15)
 
@@ -116,7 +119,8 @@ def run(config, log_dir):
     server_node = config["addr"]
     client_nodes = config["client_nodes"]
 
-    cleanup_previous_experiments(server_node, client_nodes)
+    # cleanup_previous_experiments(server_node, client_nodes)
+    time.sleep(10)
 
     # disable cores, if need be
     cores_to_disable = config["disable_cores"]
@@ -124,7 +128,7 @@ def run(config, log_dir):
         run_single_data_point.disable_cores([server_node], cores_to_disable)
 
     # start server
-    start_server(server_node)
+    # start_server(server_node)
 
     # start clients
     commit_hash = config["grpc_go_commit"]
