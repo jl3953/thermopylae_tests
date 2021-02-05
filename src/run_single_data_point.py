@@ -30,11 +30,11 @@ def set_cluster_settings_on_single_node(node):
 
 
 def build_cockroachdb_commit_on_single_node(node, commit_hash):
-    cmd = ("ssh {0} 'export GOPATH=/usr/local/temp/go "
+    cmd = ("ssh {0} 'export GOPATH=/root/go "
            "&& set -x && cd {1} && git fetch origin {2} && git checkout {2} && git pull origin {2} && git submodule "
            "update --init "
            "&& (export PATH=$PATH:/usr/local/go/bin && echo $PATH && make build ||"
-           " (make clean && make build)) && set +x'") \
+           " (git clean -fdx && make clean && make build)) && set +x'") \
         .format(node["ip"], constants.COCKROACHDB_DIR, commit_hash)
 
     return subprocess.Popen(shlex.split(cmd))
@@ -168,19 +168,19 @@ def run_kv_workload(client_nodes, server_nodes, concurrency, keyspace, warm_up_d
             "--keyspace={}".format(keyspace)]
     cmd = "{0} workload run kv {1} {2} --useOriginal=False".format(EXE, " ".join(server_urls), " ".join(args))
 
+    # initialize the workload from driver node
+    init_cmd = "{0} workload init kv {1}".format(EXE, " ".join(server_urls))
+    driver_node = client_nodes[0]
+    system_utils.call_remote(driver_node["ip"], init_cmd)
+
+    # set database settings
+    a_server_node = server_nodes[0]
+    settings_cmd = 'echo "alter range default configure zone using num_replicas = 1;" | ' \
+                   '{0} sql --insecure --database=kv --url="postgresql://root@{1}?sslmode=disable"' \
+        .format(EXE, a_server_node["ip"])
+    system_utils.call_remote(driver_node["ip"], settings_cmd)
+
     if mode == RunMode.WARMUP_ONLY or mode == RunMode.WARMUP_AND_TRIAL_RUN:
-
-        # initialize the workload from driver node
-        init_cmd = "{0} workload init kv {1}".format(EXE, " ".join(server_urls))
-        driver_node = client_nodes[0]
-        system_utils.call_remote(driver_node["ip"], init_cmd)
-
-        # set database settings
-        a_server_node = server_nodes[0]
-        settings_cmd = 'echo "alter range default configure zone using num_replicas = 1;" | ' \
-                       '{0} sql --insecure --database=kv --url="postgresql://root@{1}?sslmode=disable"' \
-            .format(EXE, a_server_node["ip"])
-        system_utils.call_remote(driver_node["ip"], settings_cmd)
 
         # run warmup
         warmup_cmd = cmd + " --duration={}s".format(warm_up_duration)
@@ -221,7 +221,8 @@ def run_kv_workload(client_nodes, server_nodes, concurrency, keyspace, warm_up_d
         return bench_log_files
 
 
-def run(config, log_dir):
+def setup(config, log_dir):
+
     server_nodes = config["warm_nodes"]
     client_nodes = config["workload_nodes"]
     commit_hash = config["cockroach_commit"]
@@ -246,6 +247,11 @@ def run(config, log_dir):
     build_cockroachdb_commit(server_nodes + client_nodes, commit_hash)
     start_cluster(server_nodes)
     set_cluster_settings(server_nodes)
+
+
+def run(config, log_dir):
+
+    setup(config, log_dir)
 
     # build and start client nodes
     results_fpath = ""

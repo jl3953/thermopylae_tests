@@ -12,6 +12,7 @@ import generate_configs
 import parse_stable
 import plot_utils
 import run_single_data_point as rsdp
+import trial_stabilize
 
 ###### configuring the main file #########
 
@@ -19,7 +20,7 @@ import run_single_data_point as rsdp
 
 
 CONFIG_OBJ_LIST = [
-    (config_object.ConfigObject(), os.path.join(constants.TEST_CONFIG_PATH, "lt_grpc_go.ini"))
+    (trial_stabilize.ConfigObject(), os.path.join(constants.TEST_CONFIG_PATH, "lt_grpc_go.ini"))
 ]
 unique_suffix = datetime.datetime.now().strftime("%Y%m%d_%H%M%S_%f")
 DB_DIR = os.path.join(constants.ROOT, "thermopylae_tests/scratch",
@@ -43,6 +44,7 @@ def main():
     parser.add_argument("--graph_location", type=str,
                         default="scratch/stabilizer.png",
                         help="location of resulting graph")
+    args = parser.parse_args()
 
     args = parser.parse_args()
 
@@ -66,12 +68,14 @@ def main():
 
     #### I've started remembering what the code does starting here
 
+    rsdp.setup(config, log_dir)
+
     benchmark_logs = rsdp.run_kv_workload(client_nodes=config["workload_nodes"],
                          server_nodes=config["warm_nodes"],
                          concurrency=config["concurrency"],
                          keyspace=config["keyspace"],
                          warm_up_duration=config["warm_up_duration"],
-                         duration=config["duration"],
+                         duration=args.duration,
                          read_percent=config["read_percent"],
                          n_keys_per_statement=config["n_keys_per_statement"],
                          skew=config["skews"],
