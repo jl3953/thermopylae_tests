@@ -35,7 +35,7 @@ class ConfigObject:
         # benchmark
         self.name = ["kv"]
         self.keyspace = [1000000]
-        # self.concurrency = [] # to be populated
+        self.concurrency = [56] # to be populated
         self.warm_up_duration = [10]  # in seconds
         self.duration = [2]  # in seconds
         self.read_percent = [100]  # percentage

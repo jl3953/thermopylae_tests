@@ -1,6 +1,6 @@
 import os
 
-ROOT = "/root"
+ROOT = "/home/jennifer"
 COCKROACHDB_DIR = os.path.join(ROOT, "go", "src", "github.com", "cockroachdb", "cockroach")
 TEST_PATH = os.path.join(ROOT, "thermopylae_tests")
 TEST_CONFIG_PATH = os.path.join(TEST_PATH, "config")
