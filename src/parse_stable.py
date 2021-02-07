@@ -60,7 +60,7 @@ def parse_file(filename):
                     row_dicts.append(data_point)
                 except BaseException as e:
                     print("We're done parsing!", e)
-                    break
+                    # break
                     # We've finished parsing the file
 
     return row_dicts
