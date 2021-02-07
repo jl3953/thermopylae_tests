@@ -94,37 +94,37 @@ def main():
         # generate lt_config objects that match those config objects
         lt_cfg = config_io.read_config_from_file(lt_fpath)
 
-        try:
-            run_func = run_single_data_point.run
-            ############ GRPC-GO BENCHMARK ############
-            # run_func = run_single_data_point_hotshard.run
+        run_func = run_single_data_point.run
+        ############ GRPC-GO BENCHMARK ############
+        # run_func = run_single_data_point_hotshard.run
 
-            # make directory in which trial will be run
-            logs_dir = generate_dir_name(cfg[constants.CONFIG_FPATH_KEY], db_dir)
-            if not os.path.exists(logs_dir):
-                os.makedirs(logs_dir)
+        # make directory in which trial will be run
+        logs_dir = generate_dir_name(cfg[constants.CONFIG_FPATH_KEY], db_dir)
+        if not os.path.exists(logs_dir):
+            os.makedirs(logs_dir)
 
-            # copy over config into directory
-            system_utils.call("cp {0} {1}".format(cfg[constants.CONFIG_FPATH_KEY], logs_dir))
+        # copy over config into directory
+        system_utils.call("cp {0} {1}".format(cfg[constants.CONFIG_FPATH_KEY], logs_dir))
 
-            # generate latency throughput trials
-            lt_fpath_csv = latency_throughput.run(cfg, lt_cfg, logs_dir, run_func=run_func)
+        # generate latency throughput trials
+        lt_fpath_csv = latency_throughput.run(cfg, lt_cfg, logs_dir, run_func=run_func)
 
-            # run trial
-            cfg["concurrency"] = latency_throughput.find_optimal_concurrency(lt_fpath_csv)
-            results_fpath_csv = run_func(cfg, logs_dir)
+        # run trial
+        cfg["concurrency"] = latency_throughput.find_optimal_concurrency(lt_fpath_csv)
+        results_fpath_csv = run_func(cfg, logs_dir)
 
-            # insert into sqlite db
-            # TODO get the actual commit hash, not the branch
-            db.insert_csv_data_into_sqlite_table("trials_table", results_fpath_csv,
-                                                 {"logs_dir": logs_dir,
-                                                  "cockroach_commit": cfg["cockroach_commit"],
-                                                  "server_nodes": cfg["num_warm_nodes"],
-                                                  "disabled_cores": cfg["disable_cores"],
-                                                  "keyspace": cfg["keyspace"],
-                                                  "read_percent": cfg["read_percent"],
-                                                  "n_keys_per_statement": cfg["n_keys_per_statement"],
-                                                  "skews": cfg["skews"]})
+        # insert into sqlite db
+        # TODO get the actual commit hash, not the branch
+        db.insert_csv_data_into_sqlite_table("trials_table", results_fpath_csv, {
+            "logs_dir": logs_dir,
+            "cockroach_commit": cfg["cockroach_commit"],
+            "server_nodes": cfg["num_warm_nodes"],
+            "disabled_cores": cfg["disable_cores"],
+            "keyspace": cfg["keyspace"],
+            "read_percent": cfg["read_percent"],
+            "n_keys_per_statement": cfg["n_keys_per_statement"],
+            "skews": cfg["skews"]
+        })
     db.close()
     return 0
 
