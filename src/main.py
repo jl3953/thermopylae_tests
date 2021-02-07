@@ -5,12 +5,12 @@ import datetime
 import os
 
 import config_io
-import config_object_grpc_benchmark
+import trial_findM
 import constants
 import csv_utils
 import generate_configs
 import latency_throughput
-import run_single_data_point_hotshard
+import run_single_data_point
 import sqlite_helper_object
 import system_utils
 
@@ -18,12 +18,12 @@ import system_utils
 
 # configuration object generators matched to the latency throughput files
 CONFIG_OBJ_LIST = [
-    (config_object_grpc_benchmark.ConfigObject(), os.path.join(constants.TEST_CONFIG_PATH, "lt_grpc_go.ini")),
+    (trial_findM.ConfigObject(), os.path.join(constants.TEST_CONFIG_PATH, "lt.ini")),
 ]
 
 # location of the entire database run
 unique_suffix = datetime.datetime.now().strftime("%Y%m%d_%H%M%S_%f")
-DB_DIR = os.path.join(constants.ROOT, "thermopylae_tests/scratch", "grpc_go_{0}".format(unique_suffix))
+DB_DIR = os.path.join(constants.ROOT, "thermopylae_tests/scratch", "find_M".format(unique_suffix))
 
 
 ######## end of configs #############
@@ -95,9 +95,9 @@ def main():
         lt_cfg = config_io.read_config_from_file(lt_fpath)
 
         try:
-            # run_func = run_single_data_point.run
+            run_func = run_single_data_point.run
             ############ GRPC-GO BENCHMARK ############
-            run_func = run_single_data_point_hotshard.run
+            # run_func = run_single_data_point_hotshard.run
 
             # make directory in which trial will be run
             logs_dir = generate_dir_name(cfg[constants.CONFIG_FPATH_KEY], db_dir)
@@ -116,30 +116,17 @@ def main():
 
             # insert into sqlite db
             # TODO get the actual commit hash, not the branch
-            # db.insert_csv_data_into_sqlite_table("trials_table", results_fpath_csv,
-            #                                      {"logs_dir": logs_dir,
-            #                                       "cockroach_commit": cfg["cockroach_commit"],
-            #                                       "server_nodes": cfg["num_warm_nodes"],
-            #                                       "disabled_cores": cfg["disable_cores"],
-            #                                       "keyspace": cfg["keyspace"],
-            #                                       "read_percent": cfg["read_percent"],
-            #                                       "n_keys_per_statement": cfg["n_keys_per_statement"],
-            #                                       "skews": cfg["skews"]})
-
-            ######### GRPC-GO BENCHMARK ###########
             db.insert_csv_data_into_sqlite_table("trials_table", results_fpath_csv,
                                                  {"logs_dir": logs_dir,
-                                                  "grpc_go_commit": cfg["grpc_go_commit"],
-                                                  "disabled_cores": cfg["disable_cores"]})
-
-        except BaseException as e:
-            print("Config {0} failed to run, continue with other configs. e:[{1}]"
-                  .format(cfg[constants.CONFIG_FPATH_KEY], e))
-            csv_utils.append_data_to_file([{constants.CONFIG_FPATH_KEY: cfg[constants.CONFIG_FPATH_KEY],
-                                            "lt_fpath": lt_fpath}],
-                                          failed_configs_csv)
-
+                                                  "cockroach_commit": cfg["cockroach_commit"],
+                                                  "server_nodes": cfg["num_warm_nodes"],
+                                                  "disabled_cores": cfg["disable_cores"],
+                                                  "keyspace": cfg["keyspace"],
+                                                  "read_percent": cfg["read_percent"],
+                                                  "n_keys_per_statement": cfg["n_keys_per_statement"],
+                                                  "skews": cfg["skews"]})
     db.close()
+    return 0
 
 
 if __name__ == "__main__":
