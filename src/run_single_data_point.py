@@ -281,6 +281,8 @@ def run(config, log_dir):
         _ = csv_utils.write_out_data([data], results_fpath)
 
     # re-enable cores
+    hot_node = config["hot_node"] if "hot_node" in config else None
+    cores_to_disable = config["disable_cores"]
     cores_to_enable = cores_to_disable
     if cores_to_enable > 0:
         enable_cores(server_nodes, cores_to_enable)
