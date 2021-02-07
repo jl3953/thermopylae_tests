@@ -1,5 +1,7 @@
 import argparse
+import csv
 import datetime
+import functools
 import os
 import sys
 
@@ -7,6 +9,8 @@ import config_object
 import constants
 import csv_utils
 import generate_configs
+import parse_stable
+import plot_utils
 import run_single_data_point as rsdp
 
 ###### configuring the main file #########
@@ -33,9 +37,14 @@ def main():
     parser = argparse.ArgumentParser(description="Determine a stable interval")
     parser.add_argument("--duration", type=int, default=20 * 60,
                         help="Duration (s) that to run test for")
+    parser.add_argument("--csv_location", type=str,
+                        default="scratch/stabilizer.csv",
+                        help="location of resulting csv file")
     parser.add_argument("--graph_location", type=str,
                         default="scratch/stabilizer.png",
                         help="location of resulting graph")
+
+    args = parser.parse_args()
 
     ### I've forgotten what this code does, but if it works, it works
 
@@ -70,6 +79,24 @@ def main():
                          mode=rsdp.RunMode.TRIAL_RUN_ONLY)
 
     print(benchmark_logs)
+
+    # parse out benchmark log files and graph them
+    row_dicts = map(parse_stable.parse_file, benchmark_logs)
+    datasets = map(functools.partial(parse_stable.create_rowdicts_from_dataset,
+                                     x_axis="elapsed", y_axis="ops_cumul"),
+                   row_dicts)
+    final_dataset = functools.reduce(parse_stable.add_datasets, datasets)
+    final_rowdicts = parse_stable.create_rowdicts_from_dataset(final_dataset,
+                                                               x_axis="elapsed",
+                                                               y_axis="ops_cumul")
+    with open(args.csv_location, "w") as f:
+        writer = csv.DictWriter(f, fieldnames=final_rowdicts[0].keys())
+        writer.writeheader()
+        writer.writerows(rowdicts=final_rowdicts)
+
+    plot_utils.gnuplot("src/gnuplot/determine_stable_warmup.gp",
+                       args.csv_location, args.graph_location, "elapsed (s)",
+                       "throughput (tps)", "elapsed", "ops_cumul")
 
     return 0
 
