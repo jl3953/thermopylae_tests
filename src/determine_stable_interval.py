@@ -1,4 +1,5 @@
 import argparse
+import collections
 import csv
 import datetime
 import functools
@@ -85,22 +86,34 @@ def main():
     print(benchmark_logs)
 
     # parse out benchmark log files and graph them
-    row_dicts = map(parse_stable.parse_file, benchmark_logs)
-    datasets = map(functools.partial(parse_stable.create_rowdicts_from_dataset,
-                                     x_axis="elapsed", y_axis="ops_cumul"),
-                   row_dicts)
-    final_dataset = functools.reduce(parse_stable.add_datasets, datasets)
+    final_dict = collections.defaultdict(int)
+    for benchmark_log in benchmark_logs:
+        row_dicts = parse_stable.parse_file(benchmark_log)
+        print("jenndebug", row_dicts)
+        dataset = parse_stable.create_dataset_from_rowdicts(row_dicts,
+                                                            x_axis="elapsed",
+                                                            y_axis="ops_cumul")
+        print("jenndebug2", dataset)
+        final_dataset = parse_stable.add_dictionaries(final_dict, dataset)
+        print("jenndebug3", final_dataset)
+
+    # row_dicts = map(parse_stable.parse_file, benchmark_logs)
+    # datasets = map(functools.partial(parse_stable.create_rowdicts_from_dataset,
+    #                                  x_axis="elapsed", y_axis="ops_cumul"),
+    #                row_dicts)
+    # final_dataset = functools.reduce(parse_stable.add_dictionaries, datasets)
     final_rowdicts = parse_stable.create_rowdicts_from_dataset(final_dataset,
                                                                x_axis="elapsed",
                                                                y_axis="ops_cumul")
+    print("jenndebug4", final_rowdicts)
     with open(args.csv_location, "w") as f:
-        writer = csv.DictWriter(f, fieldnames=final_rowdicts[0].keys())
+        writer = csv.DictWriter(f, fieldnames=final_rowdicts[0].keys(), delimiter="\t")
         writer.writeheader()
         writer.writerows(rowdicts=final_rowdicts)
 
     plot_utils.gnuplot("src/gnuplot/determine_stable_warmup.gp",
-                       args.csv_location, args.graph_location, "elapsed (s)",
-                       "throughput (tps)", "elapsed", "ops_cumul")
+                       args.csv_location, args.graph_location, "elapsed_s",
+                       "throughput_tps", "elapsed", "ops_cumul")
 
     return 0
 
