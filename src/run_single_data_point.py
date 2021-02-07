@@ -263,6 +263,8 @@ def run(config, log_dir):
         n_keys_per_statement = config["n_keys_per_statement"]
         skew = config["skews"]
         concurrency = config["concurrency"]
+        server_nodes = config["warm_nodes"]
+        client_nodes = config["workload_nodes"]
         bench_log_files = run_kv_workload(client_nodes, server_nodes, concurrency, keyspace, warm_up_duration, duration,
                                           read_percent, n_keys_per_statement, skew, log_dir)
 
