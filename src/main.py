@@ -69,6 +69,8 @@ def main():
         if not os.path.exists(db_dir):
             os.makedirs(db_dir)
 
+        f = open(files_to_process, "w")
+        f.close()
         # populate configs to process
         for cfg_obj, lt_fpath in CONFIG_OBJ_LIST:
             cfg_fpath_list = cfg_obj.generate_all_config_files()
@@ -77,14 +79,15 @@ def main():
             csv_utils.append_data_to_file(data, files_to_process)
 
     # file of failed configs
-    failed_configs_csv = os.path.join(db_dir, "failed_configs.csv")
-    f = open(failed_configs_csv, "w")  # make sure it's only the failures from this round
-    f.close()
+    # failed_configs_csv = os.path.join(db_dir, "failed_configs.csv")
+    # f = open(failed_configs_csv, "w")  # make sure it's only the failures from this round
+    # f.close()
 
     # connect to db
     db = sqlite_helper_object.SQLiteHelperObject(os.path.join(db_dir, "trials.db"))
     db.connect()
     _, cfg_lt_tuples = csv_utils.read_in_data_as_tuples(files_to_process, has_header=False)
+    print("jenndebug", len(cfg_lt_tuples))
 
     for cfg_fpath, lt_fpath in cfg_lt_tuples:
 

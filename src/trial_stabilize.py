@@ -1,6 +1,7 @@
 import datetime
 import itertools
 import os
+import sys
 
 import config_io
 import constants
@@ -20,29 +21,29 @@ class ConfigObject:
         self.trials = [1]
 
         # cluster
-        self.cockroach_commit = ["sqlite"]
-        self.num_warm_nodes = [4]
+        self.cockroach_commit = ["filter_hotkeys_at_kv2"]
+        self.num_warm_nodes = [3]
         self.num_workload_nodes = [6]
         self.driver_node_ip_enum = [1]
 
         # self.workload_nodes = [] # to be populated
         # self.warm_nodes = [] # to be populated
         # self.hot_node = [] # TODO implement passing in of hotnode to config object
-        self.hotkey_threshold = [-1]
+        self.hotkey_threshold = [200000]
         self.should_create_partition = [False]
-        self.disable_cores = [2, 4, 6]
+        self.disable_cores = [0]
 
         # benchmark
         self.name = ["kv"]
         self.keyspace = [1000000]
-        self.concurrency = [56] # to be populated
-        self.warm_up_duration = [10]  # in seconds
-        self.duration = [2]  # in seconds
-        self.read_percent = [100]  # percentage
-        self.n_keys_per_statement = [6]
+        self.concurrency = [32] # to be populated
+        self.warm_up_duration = [50]  # in seconds
+        self.duration = [40]  # in seconds
+        self.read_percent = [95]  # percentage
+        self.n_keys_per_statement = [1]
         self.use_original_zipfian = [False]
         self.distribution_type = ["zipf"]
-        self.skews = [0, 0.9]
+        self.skews = [1.2]
 
     def generate_config_combinations(self):
         """Generates the trial configuration parameters for a single run, lists all in a list of dicts.

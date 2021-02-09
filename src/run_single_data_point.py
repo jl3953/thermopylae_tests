@@ -91,7 +91,7 @@ def set_cluster_settings(nodes):
 
 def setup_hotnode(node):
     # TODO implement setup_hotnode
-    print("JENN DID YOU SET UP THE HOT NODE ON {} YET???".format(node))
+    print("JENN DID YOU SET UP THE HOT NODE ON {} YET??? IF THIS IS PRINTING OUT, NO YOU DIDN'T".format(node))
 
 
 def kill_hotnode(node):
@@ -158,14 +158,15 @@ def cleanup_previous_experiments(server_nodes, client_nodes, hot_node):
 
 
 def run_kv_workload(client_nodes, server_nodes, concurrency, keyspace, warm_up_duration, duration, read_percent,
-                    n_keys_per_statement, skew, log_dir, mode=RunMode.WARMUP_AND_TRIAL_RUN):
+                    n_keys_per_statement, skew, log_dir, hotkey_threshold, mode=RunMode.WARMUP_AND_TRIAL_RUN):
     server_urls = ["postgresql://root@{0}:26257?sslmode=disable".format(n["ip"])
                    for n in server_nodes]
 
     # warmup and trial run commands are the same
     args = ["--concurrency {}".format(int(concurrency)), "--read-percent={}".format(read_percent),
             "--batch={}".format(n_keys_per_statement), "--zipfian --s={}".format(skew),
-            "--keyspace={}".format(keyspace)]
+            "--keyspace={}".format(keyspace),
+	    "--hotkey={}".format(hotkey_threshold)]
     cmd = "{0} workload run kv {1} {2} --useOriginal=False".format(EXE, " ".join(server_urls), " ".join(args))
 
     # initialize the workload from driver node
@@ -265,8 +266,9 @@ def run(config, log_dir):
         concurrency = config["concurrency"]
         server_nodes = config["warm_nodes"]
         client_nodes = config["workload_nodes"]
+        hotkey_threshold = config["hotkey_threshold"]
         bench_log_files = run_kv_workload(client_nodes, server_nodes, concurrency, keyspace, warm_up_duration, duration,
-                                          read_percent, n_keys_per_statement, skew, log_dir)
+                                          read_percent, n_keys_per_statement, skew, log_dir, hotkey_threshold)
 
         # create csv file of gathered data
         data = {"concurrency": config["concurrency"]}

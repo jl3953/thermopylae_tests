@@ -81,6 +81,7 @@ def main():
                              n_keys_per_statement=config["n_keys_per_statement"],
                              skew=config["skews"],
                              log_dir=log_dir,
+			     hotkey_threshold=config["hotkey_threshold"],
                              mode=rsdp.RunMode.TRIAL_RUN_ONLY)
 
         print(benchmark_logs)
