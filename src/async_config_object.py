@@ -8,21 +8,21 @@ class ConfigObject:
     def __init__(self):
 
         # server
-        self.server_concurrency = [1]
+        self.server_concurrency = [56]
         self.server_commit_branch = ["async"]
         self.server_node_ip_enum = [2]  # 196.168.1.???
         # self.server_node = [some Node object]
 
         # client
         self.client_commit_branch = ["async"]
-        self.num_workload_nodes = [2]
-        self.client_concurrency = [10]
+        self.num_workload_nodes = [3]
+        self.client_concurrency = [40]
         self.driver_node_ip_enum = [i+1 for i in self.server_node_ip_enum]  # 192.168.1.???
         # self.workload_nodes [some Node objects]
 
         # workload
         self.batch = [1]  # keys per rpc
-        self.read_percent = [95]
+        self.read_percent = [0]
 
     def generate_config_combinations(self):
         """Generates the trial configuration parameters for a single run,
