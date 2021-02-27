@@ -3,7 +3,6 @@ import sys
 
 import async_config_object
 import async_server
-import generate_configs
 
 CONFIG_OBJ_LIST = [
     async_config_object.ConfigObject(),

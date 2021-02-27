@@ -14,8 +14,8 @@ class ConfigObject:
         # self.server_node = [some Node object]
 
         # client
-        self.num_workload_nodes = [5]
-        self.client_concurrency = [1]
+        self.num_workload_nodes = [3]
+        self.client_concurrency = [10]
         self.driver_node_ip_enum = [i+1 for i in self.server_node_ip_enum]  # 192.168.1.???
         # self.workload_nodes [some Node objects]
 
