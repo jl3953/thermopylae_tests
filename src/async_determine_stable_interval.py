@@ -43,6 +43,8 @@ def main():
         # clients
         if not os.path.exists(args.csv_location):
             os.mkdir(args.csv_location)
+        for client in config["workload_nodes"]:
+            async_server.build_client(client)
         logfiles = async_server.run_clients(config["workload_nodes"],
                                             config["server_node"],
                                             args.duration,

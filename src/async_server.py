@@ -6,7 +6,6 @@ import subprocess
 
 
 def build_server(server_node, commit_branch):
-    print(type(server_node), server_node)
     server_url = server_node["ip"]
 
     cmd = "cd /root/smdbrpc; " \
@@ -19,10 +18,20 @@ def build_server(server_node, commit_branch):
           "rm -rf cmake/*; " \
           "mkdir -p cmake/build; " \
           "pushd cmake/build; " \
-          "export PATH=$PATH:/root/.local/bin; "\
+          "export PATH=$PATH:/root/.local/bin; " \
           "cmake -DCMAKE_INSTALL_PREFIX=/root/.local ../..; " \
           "make -j"
     print(system_utils.call_remote(server_url, cmd))
+
+
+def build_client(client_node, commit_branch):
+    client_url = client_node["ip"]
+
+    cmd = "cd /root/smdbrpc; " \
+          "git fetch origin {0}; " \
+          "git checkout origin {0}; " \
+          "git pull origin {0}; ".format(commit_branch)
+    print(system_utils.call_remote(client_url, cmd))
 
 
 def run_server(server_node, concurrency):
@@ -47,7 +56,7 @@ def run_clients(client_nodes, server_node, duration, concurrency, batch, read_pe
         log = os.path.join(location, "raw_data{0}.txt".format(i))
         client_url = client["ip"]
         cmd = "cd /root/smdbrpc/go; " \
-	      "/usr/local/go/bin/go run hotshard_gateway_client/generate_workload_client.go " \
+              "/usr/local/go/bin/go run hotshard_gateway_client/generate_workload_client.go " \
               "--concurrency {0} " \
               "--batch {1} " \
               "--read_percent {2} " \
@@ -79,7 +88,6 @@ def kill(node):
            "|| (sudo pkill -9 hotshard; while ps -p $PID;do sleep 1;done;)")
 
     system_utils.call_remote(ip, cmd)
-
 
 
 def parse_raw_logfiles(input_logfiles, output_csvfile):
