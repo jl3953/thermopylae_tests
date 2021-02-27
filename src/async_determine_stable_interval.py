@@ -3,7 +3,7 @@ import os
 import sys
 
 import async_config_object
-import async_server
+import cicada_server as async_server
 
 CONFIG_OBJ_LIST = [
     async_config_object.ConfigObject(),
