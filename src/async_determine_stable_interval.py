@@ -29,11 +29,16 @@ def main():
 
     # Run each configuration
     for config in configs:
+
+        # clean up all experiments first
+        for node in config["workload_nodes"].append(config["server_node"]):
+            async_server.kill(node)
+
         # server
         async_server.build_server(config["server_node"],
                                   config["server_commit_branch"])
-        server_process = async_server.run_server(config["server_node"],
-                                                 config["server_concurrency"])
+        _ = async_server.run_server(config["server_node"],
+                                    config["server_concurrency"])
 
         # clients
         if not os.path.exists(args.csv_location):

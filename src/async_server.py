@@ -72,6 +72,16 @@ def run_clients(client_nodes, server_node, duration, concurrency, batch, read_pe
     return logfiles
 
 
+def kill(node):
+    ip = node["ip"]
+
+    cmd = ("PID=$(! pgrep hotshard) "
+           "|| (sudo pkill -9 hotshard; while ps -p $PID;do sleep 1;done;)")
+
+    system_utils.call_remote(ip, cmd)
+
+
+
 def parse_raw_logfiles(input_logfiles, output_csvfile):
     return "tee hee"
 
