@@ -31,7 +31,7 @@ def main():
     for config in configs:
 
         # clean up all experiments first
-        for node in config["workload_nodes"].append(config["server_node"]):
+        for node in config["workload_nodes"] + [config["server_node"]]:
             async_server.kill(node)
 
         # server
@@ -56,6 +56,10 @@ def main():
         if not os.path.exists(args.graph_location):
             os.mkdir(args.graph_location)
         async_server.graph(dat_file, args.graph_location)
+
+        # clean up again
+        for node in config["workload_nodes"] + [config["server_node"]]:
+            async_server.kill(node)
 
     return 0
 
