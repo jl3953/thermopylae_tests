@@ -37,7 +37,7 @@ def run_server(server_node, concurrency):
     ssh_wrapped_cmd = "sudo ssh {0} '{1}'".format(server_url, cmd)
 
     process = subprocess.Popen(shlex.split(ssh_wrapped_cmd))
-    time.sleep(10)
+    time.sleep(30)
     return process
 
 
