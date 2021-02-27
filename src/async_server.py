@@ -1,7 +1,12 @@
 import system_utils
 
+import os
+import shlex
+import subprocess
+
 
 def build_server(server_node, commit_branch):
+    print(type(server_node), server_node)
     server_url = server_node["ip"]
 
     cmd = "cd /root/smdbrpc; " \
@@ -14,9 +19,10 @@ def build_server(server_node, commit_branch):
           "rm -rf cmake/*; " \
           "mkdir -p cmake/build; " \
           "pushd cmake/build; " \
-          "cmake -DCMAKE_PREFIX_PATH=/root/.local ../..; " \
+          "export PATH=$PATH:/root/.local/bin; "\
+          "cmake -DCMAKE_INSTALL_PREFIX=/root/.local ../..; " \
           "make -j"
-    print(system_utils.call(server_url, cmd))
+    print(system_utils.call_remote(server_url, cmd))
 
 
 def run_server(server_node, concurrency):
@@ -24,8 +30,10 @@ def run_server(server_node, concurrency):
 
     cmd = "/root/smdbrpc/cpp/cmake/build/hotshard_gateway_async_server {0}" \
         .format(concurrency)
+    ssh_wrapped_cmd = "sudo ssh {0} '{1}'".format(server_url, cmd)
 
-    print(system_utils.call_remote(server_url, cmd))
+    process = subprocess.Popen(shlex.split(ssh_wrapped_cmd))
+    return process
 
 
 def run_clients(client_nodes, server_node, duration, concurrency, batch, read_percent,

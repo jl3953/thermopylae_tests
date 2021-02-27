@@ -48,7 +48,7 @@ class ConfigObject:
 
             server_node_ip_enum = config_dict["server_node_ip_enum"]
             server_node = ConfigObject.create_server_node(server_node_ip_enum)
-            config_dict["server_node"] = [vars(server_node)]
+            config_dict["server_node"] = vars(server_node)
 
         return combinations
 
