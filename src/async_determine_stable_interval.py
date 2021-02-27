@@ -30,10 +30,10 @@ def main():
     # Run each configuration
     for config in configs:
         # server
-        #async_server.build_server(config["server_node"],
-        #                          config["server_commit_branch"])
-        #server_process = async_server.run_server(config["server_node"],
-        #                                         config["server_concurrency"])
+        async_server.build_server(config["server_node"],
+                                  config["server_commit_branch"])
+        server_process = async_server.run_server(config["server_node"],
+                                                 config["server_concurrency"])
 
         # clients
         if not os.path.exists(args.csv_location):

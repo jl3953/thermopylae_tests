@@ -46,10 +46,11 @@ def run_clients(client_nodes, server_node, duration, concurrency, batch, read_pe
     for client in client_nodes:
         log = os.path.join(location, "raw_data{0}.txt".format(i))
         client_url = client["ip"]
-        cmd = "/root/smdbrpc/go/hotshard_gateway_client/generate_workload_client " \
+        cmd = "cd /root/smdbrpc/go; " \
+	      "/usr/local/go/bin/go run hotshard_gateway_client/generate_workload_client.go " \
               "--concurrency {0} " \
               "--batch {1} " \
-              "--read_percent {2}" \
+              "--read_percent {2} " \
               "--host {3} " \
               "--instantaneousStats " \
               "--duration {4}s".format(concurrency,
@@ -60,7 +61,7 @@ def run_clients(client_nodes, server_node, duration, concurrency, batch, read_pe
         ssh_wrapped_cmd = "sudo ssh {0} '{1}'".format(client_url, cmd)
         with open(log, "w") as f:
             client_processes.append(subprocess.Popen(
-                shlex.split(ssh_wrapped_cmd), stdout=f))
+                shlex.split(ssh_wrapped_cmd), stdout=f, stderr=f))
 
         i = i + 1
         logfiles.append(log)

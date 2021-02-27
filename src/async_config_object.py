@@ -10,11 +10,11 @@ class ConfigObject:
         # server
         self.server_concurrency = [1]
         self.server_commit_branch = ["async"]
-        self.server_node_ip_enum = [1]  # 196.168.1.???
+        self.server_node_ip_enum = [2]  # 196.168.1.???
         # self.server_node = [some Node object]
 
         # client
-        self.num_workload_nodes = [3]
+        self.num_workload_nodes = [2]
         self.client_concurrency = [10]
         self.driver_node_ip_enum = [i+1 for i in self.server_node_ip_enum]  # 192.168.1.???
         # self.workload_nodes [some Node objects]
