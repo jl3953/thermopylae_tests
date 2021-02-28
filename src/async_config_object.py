@@ -11,21 +11,21 @@ class ConfigObject:
 
         # default
         self.trials = [i for i in range(1)]
-        self.logs_dir = ["test"]
+        self.logs_dir = ["async_server"]
         self.store_dir = ["async_server"]
 
         # server
-        self.server_concurrency = [1]
+        self.server_concurrency = [28, 56]
         self.server_commit_branch = ["async"]
-        self.server_node_ip_enum = [2]  # 196.168.1.???
+        self.server_node_ip_enum = [3]  # 196.168.1.???
         # self.server_node = [some Node object]
 
         # client
         self.client_commit_branch = ["async"]
-        self.num_workload_nodes = [2]
+        self.num_workload_nodes = [3]
         self.concurrency = [10]
         self.driver_node_ip_enum = [i + 1 for i in self.server_node_ip_enum]  # 192.168.1.???
-        self.duration = [3]  # duration of trial in seconds
+        self.duration = [60]  # duration of trial in seconds
         # self.workload_nodes [some Node objects]
 
         # workload
