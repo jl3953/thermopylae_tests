@@ -213,9 +213,9 @@ def aggregate_raw_logs(logfiles):
     p99 = statistics.mean(all_read_p99 + all_read_p99)
 
     result = {
-        "tp": total_tp,
-        "p50": p50,
-        "p99": p99,
+        "ops/sec(cum)": total_tp, # DON'T CHANGE THIS KEY
+        "p50(ms)": p50, # OR THIS ONE
+        "p99(ms)": p99, # OR THIS ONE
         "read_tp": total_read_tp,
         "read_p50": read_p50,
         "read_p99": read_p99,
