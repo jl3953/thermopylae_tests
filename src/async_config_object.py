@@ -21,6 +21,7 @@ class ConfigObject:
         # self.server_node = [some Node object]
 
         # client
+        self.client_commit_branch = ["async"]
         self.num_workload_nodes = [2]
         self.client_concurrency = [10]
         self.driver_node_ip_enum = [i + 1 for i in self.server_node_ip_enum]  # 192.168.1.???
