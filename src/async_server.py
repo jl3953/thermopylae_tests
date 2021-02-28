@@ -221,7 +221,7 @@ def aggregate_raw_logs(logfiles):
         "write_tp": total_write_tp,
         "write_p50": write_p50,
         "write_p99": write_p99,
-    }
+    }, True
 
 
 def parse_raw_logfiles(input_logfiles, output_csvfile):
