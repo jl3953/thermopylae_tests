@@ -193,14 +193,10 @@ def main():
         lt_fpath_csv = latency_throughput.run(cfg,
                                               lt_cfg,
                                               logs_dir,
-                                              run_func=run_single_trial_wrapper,
-                                              throughput_key="tp",
-                                              concurrency_key="concurrency")
+                                              run_func=run_single_trial_wrapper)
 
         # run trial
-        cfg["concurrency"] = latency_throughput.find_optimal_concurrency(lt_fpath_csv,
-                                                                         throughput_key="tp",
-                                                                         concurrency_key="concurrency")
+        cfg["concurrency"] = latency_throughput.find_optimal_concurrency(lt_fpath_csv)
         cfg = adjust_cfg(cfg)
         results_fpath_csv = run_single_trial_wrapper(cfg, logs_dir)
 
