@@ -1,4 +1,6 @@
 import itertools
+
+import config_io
 import config_object as co
 import node
 
@@ -59,6 +61,18 @@ class ConfigObject:
     @staticmethod
     def create_server_node(server_node_ip_enum):
         return node.Node(server_node_ip_enum)
+
+    def generate_all_config_files(self):
+        """Generates all configuration files with different combinations of parameters.
+        :return:
+        """
+        ini_fpaths = []
+        config_combos = self.generate_config_combinations()
+        for config_dict in config_combos:
+            ini_fpath = co.ConfigObject.generate_ini_filename(suffix=config_dict["logs_dir"])
+            ini_fpaths.append(config_io.write_config_to_file(config_dict, ini_fpath))
+
+        return ini_fpaths
 
 
 def main():
