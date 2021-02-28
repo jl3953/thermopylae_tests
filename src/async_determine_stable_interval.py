@@ -48,7 +48,7 @@ def main():
         logfiles = async_server.run_clients(config["workload_nodes"],
                                             config["server_node"],
                                             args.duration,
-                                            config["client_concurrency"],
+                                            config["concurrency"],
                                             config["batch"],
                                             config["read_percent"],
                                             args.csv_location)

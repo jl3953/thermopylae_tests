@@ -68,7 +68,6 @@ def run_single_trial(server_node, server_commit_branch, server_concurrency,
     aggregate_data, has_data = async_server.aggregate_raw_logs(logfiles)
     if not has_data:
         raise RuntimeError("Failed to produce results")
-    aggregate_data.update({"concurrency": client_concurrency})
 
     return aggregate_data
 
@@ -89,7 +88,7 @@ def run_single_trial_wrapper(config, trial_logs_location):
                                   config["server_concurrency"],
                                   config["workload_nodes"],
                                   config["client_commit_branch"],
-                                  config["client_concurrency"],
+                                  config["concurrency"],
                                   trial_logs_location,
                                   config["duration"],
                                   config["batch"],
@@ -112,8 +111,6 @@ def adjust_cfg(config, **kwargs):
     Returns:
         Adjusted config.
         """
-    if "concurrency" in config:
-        config["client_concurrency"] = config["concurrency"]
 
     return config
 
