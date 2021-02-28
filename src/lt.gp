@@ -13,12 +13,12 @@ set offset 1, 1, 1, 1
 plot ARG1 using "ops/sec(cum)":"p50(ms)" with linespoint,\
 		 "" using "ops/sec(cum)":"p50(ms)":"concurrency" with labels point pt 7 offset char 1, 1 notitle
 
-set ylabel "p95 (ms)"
-set title "latency throughput (p95)"
-set output ARG3
-set offset 1, 1, 1, 1
-plot ARG1 using "ops/sec(cum)":"p95(ms)" with linespoint,\
-		 "" using "ops/sec(cum)":"p95(ms)":"concurrency" with labels point pt 7 offset char 1, 1 notitle
+#set ylabel "p95 (ms)"
+#set title "latency throughput (p95)"
+#set output ARG3
+#set offset 1, 1, 1, 1
+#plot ARG1 using "ops/sec(cum)":"p95(ms)" with linespoint,\
+#		 "" using "ops/sec(cum)":"p95(ms)":"concurrency" with labels point pt 7 offset char 1, 1 notitle
 
 set ylabel "p99 (ms)"
 set title "latency throughput (p99)"
