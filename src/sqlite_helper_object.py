@@ -33,6 +33,7 @@ class SQLiteHelperObject:
     # insert the rows
     insert_cmd = "INSERT INTO {0} VALUES ({1})".format(table_name, question_marks)
     self.c.executemany(insert_cmd, data_rows)
+    self.conn.commit()
 
   def close(self):
     self.conn.close()
