@@ -11,6 +11,8 @@ class ConfigObject:
 
         # default
         self.trials = [i for i in range(1)]
+        self.logs_dir = ["test"]
+        self.store_dir = ["async_server"]
 
         # server
         self.server_concurrency = [1]
