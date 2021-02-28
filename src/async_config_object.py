@@ -25,7 +25,7 @@ class ConfigObject:
         self.num_workload_nodes = [2]
         self.client_concurrency = [10]
         self.driver_node_ip_enum = [i + 1 for i in self.server_node_ip_enum]  # 192.168.1.???
-        self.duration = [30]  # duration of trial in seconds
+        self.duration = [3]  # duration of trial in seconds
         # self.workload_nodes [some Node objects]
 
         # workload

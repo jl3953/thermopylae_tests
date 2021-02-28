@@ -104,6 +104,7 @@ def run_clients(client_nodes, server_node, duration, concurrency, batch,
               "--read_percent {2} " \
               "--host {3} " \
               "--instantaneousStats " \
+              "--warmup 1s " \
               "--duration {4}s".format(concurrency,
                                        batch,
                                        read_percent,
@@ -211,7 +212,7 @@ def aggregate_raw_logs(logfiles):
     p50 = statistics.mean(all_read_p50 + all_write_p50)
     p99 = statistics.mean(all_read_p99 + all_read_p99)
 
-    return {
+    result = {
         "tp": total_tp,
         "p50": p50,
         "p99": p99,
@@ -221,7 +222,8 @@ def aggregate_raw_logs(logfiles):
         "write_tp": total_write_tp,
         "write_p50": write_p50,
         "write_p99": write_p99,
-    }, True
+    }
+    return result, True
 
 
 def parse_raw_logfiles(input_logfiles, output_csvfile):
