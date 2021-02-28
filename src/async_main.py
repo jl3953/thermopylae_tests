@@ -112,7 +112,7 @@ def adjust_cfg(config, **kwargs):
     Returns:
         Adjusted config.
         """
-    if config["concurrency"]:
+    if "concurrency" in config:
         config["client_concurrency"] = config["concurrency"]
 
     return config
