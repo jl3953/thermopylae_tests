@@ -1,3 +1,47 @@
+# How to implement a new server-client test script on branch async_redo
+
+1) Copy `src/async_config_object` and name it 
+   `trial_<whatever_you_want>.py`. The `.gitignore` will
+   ignore it. 
+   - Make sure you populate the fields under the `#default`
+    comment.
+   - Make sure all methods are correctly written,
+    especially the part on populating server and client nodes.
+     For example, are the nodes regioned? Does it matter?
+   - Make sure `generate_all_config_files()` method is implemented.
+   - Make sure the concurrency of the clients is always called 
+     "concurrency" (`self.concurrency` in `ConfigObject`)
+
+2) Change the fields you need to.
+
+3) Change `config/async_lt.ini` for latency-throughput.
+
+4) Implement to the interface of `src/async_server.py`.
+    - When implementing `aggregate_raw_logs()` function,
+    make sure to use the keys
+      - throughput: `"ops/sec(cum)"`
+      - p50: `"p50(ms)"`
+      - p99: `"p99(ms)"`
+    or the latency throughput graphs won't gnuplot at all
+   - Make sure gnuplot is installed (`apt install gnuplot-x11`)
+
+5) Whatever you name your implementation from the previous
+step, change the line `import async_server` in `src/async_main.py`
+   to `import <whatever_you_implemented> as async_server`
+    
+6) Configure/implement the swath of functions at the
+head of `src/async_main.py` to match your needs.
+   - Make sure the directory is correct. It's set to 
+    `thermopylae_tests/scratch/db_{datetime}` right now.
+     
+7) From `~/thermopylae_tests` directory, run `python3 src/async_main.py`
+   
+# How to implement new `async_determine_stable_interval.py` on branch async_redo
+1) Code to the interface of `src/async_server.py`
+2) Replace `import async_server` with `import <whatever_you_coded> as async_server`
+3) From `~/thermopylae_tests` dir, run `python3 src/async_determine_stable_interval.py
+   --duration 30s --csv_location scratch/stabilizer --graph_location scratch/stabilizer`
+   
 # How to add your config
 1) Make a copy of `src/config_object.py` and name it `trial_<whatever_you_want>.py`.
 The `.gitignore` will ignore it in the directory. 

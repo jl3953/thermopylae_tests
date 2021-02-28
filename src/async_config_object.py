@@ -9,7 +9,7 @@ class ConfigObject:
 
     def __init__(self):
 
-        # default
+        # default YOU MUST POPULATE THESE FIELDS
         self.trials = [i for i in range(1)]
         self.logs_dir = ["async_server"]
         self.store_dir = ["async_server"]
@@ -23,7 +23,7 @@ class ConfigObject:
         # client
         self.client_commit_branch = ["async"]
         self.num_workload_nodes = [3]
-        self.concurrency = [10]
+        self.concurrency = [10] # YOU MUST CALL CLIENT CONCURRENCY "CONCURRENCY"
         self.driver_node_ip_enum = [i + 1 for i in self.server_node_ip_enum]  # 192.168.1.???
         self.duration = [60]  # duration of trial in seconds
         # self.workload_nodes [some Node objects]
@@ -48,6 +48,7 @@ class ConfigObject:
             config_dict = dict(zip(temp_dict.keys(), combo))
             combinations.append(config_dict)
 
+        # populating node information. MAKE SURE THIS PART IS CORRECTLY WRITTEN
         for config_dict in combinations:
             driver_node_ip_enum = config_dict["driver_node_ip_enum"]
             num_workload_nodes = config_dict["num_workload_nodes"]
