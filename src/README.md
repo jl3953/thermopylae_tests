@@ -1,3 +1,34 @@
+# How to implement a new server-client test script on branch async_redo
+
+1) Copy `src/async_config_object` and name it 
+   `trial_<whatever_you_want>.py`. The `.gitignore` will
+   ignore it. 
+   - Make sure you populate the fields under the `#default`
+    comment.
+   - Make sure all methods are correctly written,
+    especially the part on populating server and client nodes.
+     For example, are the nodes regioned? Does it matter?
+   - Make sure `generate_all_config_files()` method is implemented.
+
+2) Change the fields you need to.
+
+3) Change `config/async_lt.ini` for latency-throughput.
+
+4) Implement to the interface of `src/async_server.py`.
+    - When implementing `aggregate_raw_logs()` function,
+    make sure to use the keys
+      - throughput: `"ops/sec(cum)"`
+      - p50: `"p50(ms)"`
+      - p99: `"p99(ms)"`
+    or the latency throughput graphs won't graph
+
+5) Whatever you name your implementation from the previous
+step, change the line `import async_server` in `src/async_main.py`
+   to `import <whatever_you_implemented> as async_server`
+    
+6) Configure/implement the swath of functions at the
+head of `src/async_main.py` to match your needs.
+   
 # How to add your config
 1) Make a copy of `src/config_object.py` and name it `trial_<whatever_you_want>.py`.
 The `.gitignore` will ignore it in the directory. 

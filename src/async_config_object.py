@@ -9,7 +9,7 @@ class ConfigObject:
 
     def __init__(self):
 
-        # default
+        # default YOU MUST POPULATE THESE FIELDS
         self.trials = [i for i in range(1)]
         self.logs_dir = ["test"]
         self.store_dir = ["async_server"]
@@ -48,6 +48,7 @@ class ConfigObject:
             config_dict = dict(zip(temp_dict.keys(), combo))
             combinations.append(config_dict)
 
+        # populating node information. MAKE SURE THIS PART IS CORRECTLY WRITTEN
         for config_dict in combinations:
             driver_node_ip_enum = config_dict["driver_node_ip_enum"]
             num_workload_nodes = config_dict["num_workload_nodes"]

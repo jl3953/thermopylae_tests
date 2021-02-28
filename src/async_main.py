@@ -18,6 +18,7 @@ CONFIG_OBJ_LIST = [
 ]
 
 # location of the entire database run
+# this defaults to thermopylae_tests/scratch/db_{whatever} directory
 DB_DIR = os.path.join(os.getcwd(), "scratch", "db_{0}".format(
     datetime.datetime.now().strftime("%Y%m%d_%H%M%S_%f")))
 
