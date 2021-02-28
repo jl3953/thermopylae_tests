@@ -29,7 +29,8 @@ def insert_csv_data(data, csv_fpath):
     return csv_fpath
 
 
-def run(config, lt_config, log_dir, run_func=run_single_data_point.run):
+def run(config, lt_config, log_dir, run_func=run_single_data_point.run,
+        throughput_key = "ops/sec(cum)", concurrency_key="concurrency"):
 
     # create latency throughput dir, if not running recovery
     lt_dir = os.path.join(log_dir, "latency_throughput")
@@ -66,7 +67,7 @@ def run(config, lt_config, log_dir, run_func=run_single_data_point.run):
             data.append(datum)
 
         # find max throughput and hone in on it
-        max_throughput_concurrency = max(data, key=operator.itemgetter("ops/sec(cum)"))["concurrency"]
+        max_throughput_concurrency = max(data, key=operator.itemgetter(throughput_key))[concurrency_key]
         concurrency = last_adjustments(max_throughput_concurrency)
         start = int(concurrency - step_size)
         end = int(concurrency + step_size)
@@ -84,9 +85,11 @@ def run(config, lt_config, log_dir, run_func=run_single_data_point.run):
     return checkpoint_csv_fpath
 
 
-def find_optimal_concurrency(lt_fpath_csv):
+def find_optimal_concurrency(lt_fpath_csv,
+                             throughput_key="ops/sec(cum)",
+                             concurrency_key="concurrency"):
     data = csv_utils.read_in_data(lt_fpath_csv)
-    max_throughput_concurrency = max(data, key=operator.itemgetter("ops/sec(cum)"))["concurrency"]
+    max_throughput_concurrency = max(data, key=operator.itemgetter(throughput_key))[concurrency_key]
     return int(last_adjustments(max_throughput_concurrency))
 
 
