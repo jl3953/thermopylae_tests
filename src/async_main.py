@@ -8,7 +8,7 @@ import config_io
 import constants
 import csv_utils
 import generate_configs
-import latency_throughput
+import async_latency_throughput as latency_throughput
 import sqlite_helper_object
 import system_utils
 
