@@ -117,15 +117,15 @@ def main():
 
             # insert into sqlite db
             # TODO get the actual commit hash, not the branch
-            db.insert_csv_data_into_sqlite_table("trials_table", results_fpath_csv,
-                                                 {"logs_dir": logs_dir,
-                                                  "cockroach_commit": cfg["cockroach_commit"],
-                                                  "server_nodes": cfg["num_warm_nodes"],
-                                                  "disabled_cores": cfg["disable_cores"],
-                                                  "keyspace": cfg["keyspace"],
-                                                  "read_percent": cfg["read_percent"],
-                                                  "n_keys_per_statement": cfg["n_keys_per_statement"],
-                                                  "skews": cfg["skews"]})
+            db.insert_csv_data_into_sqlite_table("trials_table", results_fpath_csv, None,
+                                                 logs_dir=logs_dir,
+                                                 cockroach_commit=cfg["cockroach_commit"],
+                                                 server_nodes=cfg["num_warm_nodes"],
+                                                 disabled_cores=cfg["disable_cores"],
+                                                 keyspace=cfg["keyspace"],
+                                                 read_percent=cfg["read_percent"],
+                                                 n_keys_per_statement=cfg["n_keys_per_statement"],
+                                                 skews=cfg["skews"])
 
         except BaseException as e:
             print("Config {0} failed to run, continue with other configs. e:[{1}]"
