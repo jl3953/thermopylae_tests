@@ -201,7 +201,7 @@ def main():
         cfg = adjust_cfg(cfg)
         results_fpath_csv = run_single_trial_wrapper(cfg, logs_dir)
 
-        # insert results in sqlite db
+        # insert results in sqlite db # THIS INSERTION METHOD ISN'T CORRECT
         # insert_into_sqlite_db(db_connector,
         #                       results_fpath_csv,
         #                       logs_dir,
