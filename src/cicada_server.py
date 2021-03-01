@@ -21,7 +21,7 @@ def build_server(server_node, commit_branch):
           "cmake -DLTO=ON ..; " \
           "make -j; " \
           "../script/setup.sh 16384 16384; " \
-          "ln -s src/mica/test/*.json ."
+          "cp ../src/mica/test/*.json ."
     print(system_utils.call_remote(server_url, cmd))
 
 
