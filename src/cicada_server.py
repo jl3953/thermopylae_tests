@@ -56,6 +56,10 @@ def kill(node):
     async_server.kill(node)
 
 
+def aggregate_raw_logs(logfiles):
+    return async_server.aggregate_raw_logs(logfiles)
+
+
 def parse_raw_logfiles(input_logfiles, output_csvfile):
     return async_server.parse_raw_logfiles(input_logfiles, output_csvfile)
 
