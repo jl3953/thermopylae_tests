@@ -43,13 +43,13 @@ def run_server(server_node, concurrency):
 
 def run_clients(client_nodes, server_node, duration, concurrency, batch, read_percent,
                 location):
-    async_server.run_clients(client_nodes,
-                             server_node,
-                             duration,
-                             concurrency,
-                             batch,
-                             read_percent,
-                             location)
+    return async_server.run_clients(client_nodes,
+                                    server_node,
+                                    duration,
+                                    concurrency,
+                                    batch,
+                                    read_percent,
+                                    location)
 
 
 def kill(node):
