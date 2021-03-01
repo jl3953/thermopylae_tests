@@ -19,7 +19,7 @@ def main():
     db.connect()
     data = []
     c = db.c
-    for row in c.execute("SELECT ops/sec(cum), p50(ms), p99(ms), skews "
+    for row in c.execute("SELECT ops_per_sec_cum, p50_ms, p99_ms, skews "
                          "FROM trials_table "
                          "WHERE server_nodes=3"):
         data.append({
@@ -31,7 +31,7 @@ def main():
     db.close()
 
     # sort and write out data
-    sorted(data, key=lambda point: point["skews"])
+    data = sorted(data, key=lambda point: point["skews"])
     csv_file = csv_utils.write_out_data(data,
                                         os.path.join(args.csv_dir, "dat.csv"))
 
