@@ -24,8 +24,9 @@ CONFIG_OBJ_LIST = [
     (trial_stabilize.ConfigObject(), os.path.join(constants.TEST_CONFIG_PATH, "lt_grpc_go.ini"))
 ]
 unique_suffix = datetime.datetime.now().strftime("%Y%m%d_%H%M%S_%f")
-DB_DIR = os.path.join(constants.ROOT, "thermopylae_tests/scratch",
-                      "stabilizer_{0}".format(unique_suffix))
+#DB_DIR = os.path.join(constants.ROOT, "thermopylae_tests/scratch",
+#                      "stabilizer_{0}".format(unique_suffix))
+DB_DIR = os.path.join(os.getcwd(), "scratch/stabilizer_{0}".format(unique_suffix))
 
 def generate_dir_name(config_fpath, db_dir):
     config_file = os.path.basename(config_fpath)
