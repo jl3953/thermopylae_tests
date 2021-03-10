@@ -99,12 +99,14 @@ def start_cluster(nodes):
   for process in processes:
     process.wait()
 
+  if len(nodes) > 1:
+    for node in nodes:
+      system_utils.call_remote(node["ip"], "/root/go/src/github.com/cockroachdb/cockroach/cockroach init --insecure")
+
 
 def set_cluster_settings(nodes):
   for node in nodes:
     set_cluster_settings_on_single_node(node)
-    if len(nodes) > 1:
-      system_utils.call_remote(node["ip"], "/root/go/src/github.com/cockroachdb/cockroach/cockroach init --insecure")
 
 
 def setup_hotnode(node):
