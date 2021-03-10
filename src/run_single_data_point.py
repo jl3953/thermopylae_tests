@@ -19,6 +19,7 @@ class RunMode(enum.Enum):
 
 
 def set_cluster_settings_on_single_node(node):
+
   cmd = ('echo "'
          # 'set cluster setting kv.range_merge.queue_enabled = false;'
          # 'set cluster setting kv.range_split.by_load_enabled = false;'
@@ -46,23 +47,33 @@ def build_cockroachdb_commit(nodes, commit_hash):
     process.wait()
 
 
-def start_cockroach_node(node, join=None):
+def start_cockroach_node(node, other_urls=[]):
   ip = node["ip"]
   store = node["store"]
   region = node["region"]
 
-  cmd = ("{0} start --insecure "
-         "--advertise-addr={1} "
-         "--store={2} "
-         "--locality=region={3} "
-         "--cache=.25 "
-         "--max-sql-memory=.25 "
-         "--log-file-verbosity=2 "
-         "--background"
-         ).format(EXE, ip, store, region)
-
-  if join:
-    cmd = "{0} --join={1}:26257".format(cmd, join)
+  if len(other_urls) > 0:
+    cmd = ("{0} start --insecure "
+           "--advertise-addr={1} "
+           "--store={2} "
+           "--locality=region={3} "
+           "--cache=.5 "
+           "--max-sql-memory=.25 "
+           "--log-file-verbosity=2 "
+           "--join={4} "
+           "--background"
+           ).format(EXE, ip, store, region, ",".join(["{}:25267".format(n["ip"]) for n in other_urls]))
+  else:
+    cmd = ("{0} start-single-node --insecure "
+           "--advertise-addr={1} "
+           "--store={2} "
+           "--locality=region={3} "
+           "--cache=.25 "
+           "--max-sql-memory=.25 "
+           "--log-file-verbosity=2 "
+           "--http-addr=localhost:8080 "
+           "--background"
+           ).format(EXE, ip, store, region)
 
   cmd = "ssh -tt {0} '{1}' && stty sane".format(ip, cmd)
   print(cmd)
@@ -70,15 +81,20 @@ def start_cockroach_node(node, join=None):
 
 
 def start_cluster(nodes):
-  first = nodes[0]
-  start_cockroach_node(first).wait()
+  #first = nodes[0]
+  #start_cockroach_node(first).wait()
 
   processes = []
-  for node in nodes[1:]:
+  for i in range(len(nodes)):
+  #for node in nodes:
     # start_cockroach_node(node, join=first["ip"]).wait()
     # set_cluster_settings_on_single_node(first)
+    node = nodes[i]
+    other_nodes = nodes[:i]
+    if i + 1 < len(nodes):
+      other_nodes += nodes[i+1:]
 
-    processes.append(start_cockroach_node(node, join=first["ip"]))
+    processes.append(start_cockroach_node(node, other_urls=other_nodes))
 
   for process in processes:
     process.wait()
@@ -87,6 +103,8 @@ def start_cluster(nodes):
 def set_cluster_settings(nodes):
   for node in nodes:
     set_cluster_settings_on_single_node(node)
+    if len(nodes) > 1:
+      system_utils.call_remote(node["ip"], "/root/go/src/github.com/cockroachdb/cockroach/cockroach init --insecure")
 
 
 def setup_hotnode(node):
@@ -171,9 +189,11 @@ def run_kv_workload(client_nodes, server_nodes, concurrency, keyspace, warm_up_d
   if mode == RunMode.WARMUP_ONLY or mode == RunMode.WARMUP_AND_TRIAL_RUN:
 
     # initialize the workload from driver node
-    init_cmd = "{0} workload init kv {1}".format(EXE, " ".join(server_urls))
-    driver_node = client_nodes[0]
-    system_utils.call_remote(driver_node["ip"], init_cmd)
+    for url in server_urls:
+        #init_cmd = "{0} workload init kv {1}".format(EXE, " ".join(server_urls))
+        init_cmd = "{0} workload init kv {1}".format(EXE, url)
+        driver_node = client_nodes[0]
+        system_utils.call_remote(driver_node["ip"], init_cmd)
 
     # set database settings
     a_server_node = server_nodes[0]

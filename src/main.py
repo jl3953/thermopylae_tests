@@ -4,9 +4,7 @@ import argparse
 import datetime
 import os
 
-import trial_config_object_1
-import trial_config_object_2
-import trial_config_object_3
+import trial_plain2 as trial_config_object_1
 
 import config_io
 import constants
@@ -22,13 +20,11 @@ import system_utils
 # configuration object generators matched to the latency throughput files
 CONFIG_OBJ_LIST = [
     (trial_config_object_1.ConfigObject(), os.path.join(constants.TEST_CONFIG_PATH, "lt.ini")),
-    (trial_config_object_2.ConfigObject(), os.path.join(constants.TEST_CONFIG_PATH, "lt.ini")),
-    (trial_config_object_3.ConfigObject(), os.path.join(constants.TEST_CONFIG_PATH, "lt.ini")),
 ]
 
 # location of the entire database run
 unique_suffix = datetime.datetime.now().strftime("%Y%m%d_%H%M%S_%f")
-DB_DIR = os.path.join("/proj/cops-PG0/workspaces/jl87", "db_{0}".format(unique_suffix))
+DB_DIR = os.path.join(os.getcwd(), "scratch/CRDB_stable_{0}".format(unique_suffix))
 
 
 ######## end of configs #############
@@ -99,40 +95,40 @@ def main():
         # generate lt_config objects that match those config objects
         lt_cfg = config_io.read_config_from_file(lt_fpath)
 
-        try:
-            # make directory in which trial will be run
-            logs_dir = generate_dir_name(cfg[constants.CONFIG_FPATH_KEY], db_dir)
-            if not os.path.exists(logs_dir):
-                os.makedirs(logs_dir)
+        #try:
+        # make directory in which trial will be run
+        logs_dir = generate_dir_name(cfg[constants.CONFIG_FPATH_KEY], db_dir)
+        if not os.path.exists(logs_dir):
+            os.makedirs(logs_dir)
 
-            # copy over config into directory
-            system_utils.call("cp {0} {1}".format(cfg[constants.CONFIG_FPATH_KEY], logs_dir))
+        # copy over config into directory
+        system_utils.call("cp {0} {1}".format(cfg[constants.CONFIG_FPATH_KEY], logs_dir))
 
-            # generate latency throughput trials
-            lt_fpath_csv = latency_throughput.run(cfg, lt_cfg, logs_dir)
+        # generate latency throughput trials
+        lt_fpath_csv = latency_throughput.run(cfg, lt_cfg, logs_dir)
 
-            # run trial
-            cfg["concurrency"] = latency_throughput.find_optimal_concurrency(lt_fpath_csv)
-            results_fpath_csv = run_single_data_point.run(cfg, logs_dir)
+        # run trial
+        cfg["concurrency"] = latency_throughput.find_optimal_concurrency(lt_fpath_csv)
+        results_fpath_csv = run_single_data_point.run(cfg, logs_dir)
 
-            # insert into sqlite db
-            # TODO get the actual commit hash, not the branch
-            db.insert_csv_data_into_sqlite_table("trials_table", results_fpath_csv, None,
-                                                 logs_dir=logs_dir,
-                                                 cockroach_commit=cfg["cockroach_commit"],
-                                                 server_nodes=cfg["num_warm_nodes"],
-                                                 disabled_cores=cfg["disable_cores"],
-                                                 keyspace=cfg["keyspace"],
-                                                 read_percent=cfg["read_percent"],
-                                                 n_keys_per_statement=cfg["n_keys_per_statement"],
-                                                 skews=cfg["skews"])
+        # insert into sqlite db
+        # TODO get the actual commit hash, not the branch
+        db.insert_csv_data_into_sqlite_table("trials_table", results_fpath_csv, None,
+                                             logs_dir=logs_dir,
+                                             cockroach_commit=cfg["cockroach_commit"],
+                                             server_nodes=cfg["num_warm_nodes"],
+                                             disabled_cores=cfg["disable_cores"],
+                                             keyspace=cfg["keyspace"],
+                                             read_percent=cfg["read_percent"],
+                                             n_keys_per_statement=cfg["n_keys_per_statement"],
+                                             skews=cfg["skews"])
 
-        except BaseException as e:
-            print("Config {0} failed to run, continue with other configs. e:[{1}]"
-                  .format(cfg[constants.CONFIG_FPATH_KEY], e))
-            csv_utils.append_data_to_file([{constants.CONFIG_FPATH_KEY: cfg[constants.CONFIG_FPATH_KEY],
-                                            "lt_fpath": lt_fpath}],
-                                          failed_configs_csv)
+        #except BaseException as e:
+        #    print("Config {0} failed to run, continue with other configs. e:[{1}]"
+        #          .format(cfg[constants.CONFIG_FPATH_KEY], e))
+        #    csv_utils.append_data_to_file([{constants.CONFIG_FPATH_KEY: cfg[constants.CONFIG_FPATH_KEY],
+        #                                    "lt_fpath": lt_fpath}],
+        #                                  failed_configs_csv)
 
     db.close()
 
