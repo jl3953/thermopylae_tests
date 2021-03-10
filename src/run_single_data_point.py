@@ -166,7 +166,7 @@ def run_kv_workload(client_nodes, server_nodes, concurrency, keyspace, warm_up_d
   args = ["--concurrency {}".format(int(concurrency)), "--read-percent={}".format(read_percent),
           "--batch={}".format(n_keys_per_statement), "--zipfian --s={}".format(skew),
           "--keyspace={}".format(keyspace)]
-  cmd = "{0} workload run kv {1} {2} --useOriginal=False".format(EXE, " ".join(server_urls), " ".join(args))
+  #cmd = "{0} workload run kv {1} {2} --useOriginal=False".format(EXE, " ".join(server_urls), " ".join(args))
 
   if mode == RunMode.WARMUP_ONLY or mode == RunMode.WARMUP_AND_TRIAL_RUN:
 
@@ -183,9 +183,13 @@ def run_kv_workload(client_nodes, server_nodes, concurrency, keyspace, warm_up_d
     system_utils.call_remote(driver_node["ip"], settings_cmd)
 
     # run warmup
-    warmup_cmd = cmd + " --duration={}s".format(warm_up_duration)
+    # warmup_cmd = cmd + " --duration={}s".format(warm_up_duration)
     warmup_processes = []
-    for node in client_nodes:
+    for i in range(len(client_nodes)):
+      node = client_nodes[i]
+      cmd =  "{0} workload run kv {1} {2} --useOriginal=False".format(EXE, server_urls[i % len(server_nodes)], " ".join(args))
+      warmup_cmd = cmd + " --duration={}s".format(warm_up_duration)
+      #for node in client_nodes:
       individual_node_cmd = "sudo ssh {0} '{1}'".format(node["ip"], warmup_cmd)
       print(individual_node_cmd)
       warmup_processes.append(subprocess.Popen(shlex.split(individual_node_cmd)))
@@ -201,10 +205,14 @@ def run_kv_workload(client_nodes, server_nodes, concurrency, keyspace, warm_up_d
       os.makedirs(log_fpath)
 
     # run trial
-    trial_cmd = cmd + " --duration={}s".format(duration)
+    # trial_cmd = cmd + " --duration={}s".format(duration)
     trial_processes = []
     bench_log_files = []
-    for node in client_nodes:
+    for i in range(len(client_nodes)):
+      node = client_nodes[i]
+      cmd =  "{0} workload run kv {1} {2} --useOriginal=False".format(EXE, server_urls[i % len(server_nodes)], " ".join(args))
+      trial_cmd = cmd + " --duration={}s".format(duration)
+      #for node in client_nodes:
       # logging output for each node
       individual_log_fpath = os.path.join(log_fpath, "bench_{}.txt".format(node["ip"]))
       bench_log_files.append(individual_log_fpath)
