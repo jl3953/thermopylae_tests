@@ -4,8 +4,8 @@ import argparse
 import datetime
 import os
 
-import trial_CRDB_lt_graphs as trial_config_object_1
-import trial_CRDB_lt_graphs_2 as trial_config_object_2
+import trial_plain2 as trial_config_object_1
+import trial_plain3 as trial_config_object_2
 
 import config_io
 import constants
@@ -20,8 +20,8 @@ import system_utils
 
 # configuration object generators matched to the latency throughput files
 CONFIG_OBJ_LIST = [
-    (trial_config_object_1.ConfigObject(), os.path.join(constants.TEST_CONFIG_PATH, "lt.ini")),
-    (trial_config_object_2.ConfigObject(), os.path.join(constants.TEST_CONFIG_PATH, "lt2.ini")),
+    (trial_config_object_1.ConfigObject(), os.path.join(constants.TEST_CONFIG_PATH, "lt2.ini")),
+    (trial_config_object_2.ConfigObject(), os.path.join(constants.TEST_CONFIG_PATH, "lt3.ini")),
 ]
 
 # location of the entire database run
