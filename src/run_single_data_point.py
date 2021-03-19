@@ -101,8 +101,8 @@ def start_cluster(nodes):
 
 
 def set_cluster_settings(nodes):
-    # for node in nodes:
-    set_cluster_settings_on_single_node(nodes[0])
+    for node in nodes:
+        set_cluster_settings_on_single_node(node)
 
 
 def setup_hotnode(node):
