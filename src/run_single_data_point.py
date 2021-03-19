@@ -89,11 +89,8 @@ def start_cluster(nodes):
         # start_cockroach_node(node, join=first["ip"]).wait()
         # set_cluster_settings_on_single_node(first)
         node = nodes[i]
-        other_nodes = nodes[:i]
-        if i + 1 < len(nodes):
-            other_nodes += nodes[i + 1:]
 
-        processes.append(start_cockroach_node(node, other_urls=other_nodes))
+        processes.append(start_cockroach_node(node, other_urls=nodes))
 
     for process in processes:
         process.wait()
@@ -190,8 +187,8 @@ def run_kv_workload(client_nodes, server_nodes, concurrency, keyspace, warm_up_d
     if mode == RunMode.WARMUP_ONLY or mode == RunMode.WARMUP_AND_TRIAL_RUN:
 
         # initialize the workload from driver node
-        #for url in server_urls:
-            # init_cmd = "{0} workload init kv {1}".format(EXE, " ".join(server_urls))
+        # for url in server_urls:
+        # init_cmd = "{0} workload init kv {1}".format(EXE, " ".join(server_urls))
         init_cmd = "{0} workload init kv {1}".format(EXE, server_urls[0])
         driver_node = client_nodes[0]
         system_utils.call_remote(driver_node["ip"], init_cmd)
