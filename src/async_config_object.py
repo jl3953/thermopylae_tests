@@ -52,7 +52,7 @@ class ConfigObject:
         for config_dict in combinations:
             driver_node_ip_enum = config_dict["driver_node_ip_enum"]
             num_workload_nodes = config_dict["num_workload_nodes"]
-            workload_nodes = co.ConfigObject.enumerate_workload_nodes(
+            workload_nodes, _ = co.ConfigObject.enumerate_workload_nodes(
                 driver_node_ip_enum, num_workload_nodes)
             config_dict["workload_nodes"] = [vars(n) for n in workload_nodes]
 
