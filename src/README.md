@@ -55,7 +55,12 @@ filepath of the latency throughput file to the configuration section. Remember t
 import the config object files in `src/main.py`.
 5) Make sure the sqlite database directory is what you want it to be (by default, 
 it is set to to `/proj/cops-PG0/workspaces/jl87`)
-6) From the git root, run: `./src/main.py`
+6) IMPORTANT: if any nodes have crashed, make sure to add their ip_enums as *args
+   in `enumerate_workload_nodes(...)` and `enumerate_warm_nodes(...)`. For example:
+   `enumerate_workload_nodes(driver_node_ip_enum, num_workload_nodes, 2, 5, 6)`
+   for node-1, node-4, and node-5.
+   Don't forget to repeat for `enumerate_warm_nodes(...)`.
+7) From the git root, run: `./src/main.py`
 
 ### Need to Implement
 - Automatic start-up of chosen hotshard node.
