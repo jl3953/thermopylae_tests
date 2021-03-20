@@ -98,8 +98,9 @@ def start_cluster(nodes):
         process.wait()
 
     if len(nodes) > 1:
-        system_utils.call_remote(nodes[0]["ip"],
-                                 "/root/go/src/github.com/cockroachdb/cockroach/cockroach init --insecure")
+        system_utils.call("/root/go/src/github.com/cockroachdb/cockroach/cockroach init "
+                          "--insecure "
+                          "--host={0}".format(nodes[0]["ip"]))
 
 
 def set_cluster_settings(nodes):
