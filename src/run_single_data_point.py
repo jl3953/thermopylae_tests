@@ -53,7 +53,7 @@ def start_cockroach_node(node, other_urls=[]):
     store = node["store"]
     region = node["region"]
 
-    if len(other_urls) > 0:
+    if len(other_urls) > 1:
         cmd = ("{0} start --insecure "
                "--advertise-addr={1} "
                "--store={2} "
