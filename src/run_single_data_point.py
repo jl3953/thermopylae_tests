@@ -31,7 +31,8 @@ def set_cluster_settings_on_single_node(node):
 
 def build_cockroachdb_commit_on_single_node(node, commit_hash):
     cmd = ("ssh {0} 'export GOPATH={3}/go "
-           "&& set -x && cd {1} && git fetch origin {2} && git stash && git checkout {2} && git pull origin {2} && git submodule "
+           "&& set -x && cd {1} && git fetch origin {2} && git stash && git checkout {2} && git pull origin {2} && "
+           "git submodule "
            "update --init "
            "&& (export PATH=$PATH:/usr/local/go/bin && echo $PATH && make build ||"
            " (make clean && make build)) && set +x'") \
@@ -61,7 +62,7 @@ def start_cockroach_node(node, other_urls=[]):
                "--log-file-verbosity=2 "
                "--join={4} "
                "--background"
-               ).format(EXE, ip, store, region, ",".join(["{}:25267".format(n["ip"]) for n in other_urls]))
+               ).format(EXE, ip, store, region, ",".join(n["ip"] for n in other_urls))
     else:
         cmd = ("{0} start-single-node --insecure "
                "--advertise-addr={1} "
@@ -274,7 +275,7 @@ def run(config, log_dir):
     # build and start crdb cluster
     build_cockroachdb_commit(server_nodes + client_nodes, commit_hash)
     start_cluster(server_nodes)
-    set_cluster_settings(server_nodes)
+    set_cluster_settings_on_single_node(server_nodes[0])
 
     # build and start client nodes
     results_fpath = ""
