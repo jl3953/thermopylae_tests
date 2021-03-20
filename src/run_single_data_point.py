@@ -26,7 +26,7 @@ def set_cluster_settings_on_single_node(node):
            'set cluster setting kv.range_split.load_qps_threshold = 800;'
            'alter range default configure zone using num_replicas = 1;'
            '" | {0} sql --insecure '
-           '--url="postgresql://root@{0}?sslmode=disable"').format(EXE, node["ip"])
+           '--url="postgresql://root@{1}?sslmode=disable"').format(EXE, node["ip"])
     system_utils.call_remote(node["ip"], cmd)
 
 
