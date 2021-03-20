@@ -189,11 +189,11 @@ def run_kv_workload(client_nodes, server_nodes, concurrency, keyspace, warm_up_d
     if mode == RunMode.WARMUP_ONLY or mode == RunMode.WARMUP_AND_TRIAL_RUN:
 
         # initialize the workload from driver node
-        for url in server_urls:
-            # init_cmd = "{0} workload init kv {1}".format(EXE, " ".join(server_urls))
-            init_cmd = "{0} workload init kv {1}".format(EXE, url)
-            driver_node = client_nodes[0]
-            system_utils.call_remote(driver_node["ip"], init_cmd)
+        # for url in server_urls:
+        init_cmd = "{0} workload init kv {1}".format(EXE, server_urls[0])
+        # init_cmd = "{0} workload init kv {1}".format(EXE, url)
+        driver_node = client_nodes[0]
+        system_utils.call_remote(driver_node["ip"], init_cmd)
 
         # set database settings
         a_server_node = server_nodes[0]
