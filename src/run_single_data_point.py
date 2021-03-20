@@ -63,7 +63,7 @@ def start_cockroach_node(node, other_urls=[]):
                "--log-file-verbosity=2 "
                "--join={4} "
                "--background"
-               ).format(EXE, ip, store, region, ",".join(["{}:25267".format(n["ip"]) for n in other_urls]))
+               ).format(EXE, ip, store, region, ",".join(n["ip"] for n in other_urls))
     else:
         cmd = ("{0} start-single-node --insecure "
                "--advertise-addr={1} "
