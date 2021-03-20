@@ -23,7 +23,7 @@ def set_cluster_settings_on_single_node(node):
            # 'set cluster setting kv.range_merge.queue_enabled = false;'
            # 'set cluster setting kv.range_split.by_load_enabled = false;'
            'set cluster setting kv.raft_log.disable_synchronization_unsafe = true;'
-           'kv.range_split.load_qps_threshold = 800;'
+           'set cluster setting kv.range_split.load_qps_threshold = 800;'
            'alter range default configure zone using num_replicas = 1;'
            '" | {0} sql --insecure '
            '--url="postgresql://root@{0}?sslmode=disable"').format(EXE, node["ip"])
