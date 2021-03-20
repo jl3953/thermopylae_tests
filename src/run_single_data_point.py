@@ -275,7 +275,7 @@ def run(config, log_dir):
     # build and start crdb cluster
     build_cockroachdb_commit(server_nodes + client_nodes, commit_hash)
     start_cluster(server_nodes)
-    set_cluster_settings(server_nodes)
+    set_cluster_settings_on_single_node(server_nodes[0])
 
     # build and start client nodes
     results_fpath = ""
