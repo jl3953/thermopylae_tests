@@ -206,10 +206,9 @@ def run_kv_workload(client_nodes, server_nodes, concurrency, keyspace, warm_up_d
     data_csv = os.path.join(constants.SCRATCH_DIR, data_csv_leaf)
     populate_crdb_data.populate(data_csv, keyspace)
     nfs_location = "data/{0}".format(data_csv_leaf)
-    upload_cmd = "{0} nodelocal upload {1} {2}".format(
-        EXE, data_csv, nfs_location
-    )
-    system_utils.call_remote(a_server_node["ip"], upload_cmd)
+    upload_cmd = "{0} nodelocal upload {1} {2} --host={3}".format(
+        EXE, data_csv, nfs_location, a_server_node["ip"])
+    system_utils.call(upload_cmd)
     import_cmd = "echo \"IMPORT INTO kv (k, v) CSV DATA('nodelocal://1/{1}');\" | " \
                  "{0} sql --insecure --database=kv".format(EXE, nfs_location)
     system_utils.call_remote(a_server_node["ip"], import_cmd)
