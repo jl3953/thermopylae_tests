@@ -188,7 +188,7 @@ def cleanup_previous_experiments(server_nodes, client_nodes, hot_node):
 
 
 def run_kv_workload(client_nodes, server_nodes, concurrency, keyspace, warm_up_duration, duration, read_percent,
-                    n_keys_per_statement, skew, log_dir, mode=RunMode.WARMUP_AND_TRIAL_RUN):
+                    n_keys_per_statement, skew, log_dir, keyspace_min=0, mode=RunMode.WARMUP_AND_TRIAL_RUN):
     server_urls = ["postgresql://root@{0}:26257?sslmode=disable".format(n["ip"])
                    for n in server_nodes]
 
@@ -215,7 +215,7 @@ def run_kv_workload(client_nodes, server_nodes, concurrency, keyspace, warm_up_d
     # prepopulate data
     data_csv_leaf = "init_data.csv"
     data_csv = os.path.join(constants.SCRATCH_DIR, data_csv_leaf)
-    populate_crdb_data.populate(data_csv, keyspace)
+    populate_crdb_data.populate(data_csv, keyspace, range_min=keyspace_min)
     nfs_location = "data/{0}".format(data_csv_leaf)
     upload_cmd = "{0} nodelocal upload {1} {2} --host={3} --insecure".format(
         EXE, data_csv, nfs_location, a_server_node["ip"])
@@ -293,9 +293,11 @@ def run(config, log_dir):
             disable_cores([hot_node], cores_to_disable)
 
     # start hot node
+    min_key = 0
     if hot_node:
         setup_hotnode(hot_node, config["hot_node_commit_branch"],
                       config["hot_node_concurrency"])
+        min_key = config["hot_node_threshold"]
 
     # build and start crdb cluster
     build_cockroachdb_commit(server_nodes + client_nodes, commit_hash)
@@ -313,7 +315,7 @@ def run(config, log_dir):
         skew = config["skews"]
         concurrency = config["concurrency"]
         bench_log_files = run_kv_workload(client_nodes, server_nodes, concurrency, keyspace, warm_up_duration, duration,
-                                          read_percent, n_keys_per_statement, skew, log_dir)
+                                          read_percent, n_keys_per_statement, skew, log_dir, keyspace_min=min_key)
 
         # create csv file of gathered data
         data = {"concurrency": config["concurrency"]}

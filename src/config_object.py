@@ -30,6 +30,7 @@ class ConfigObject:
         self.hot_node = [vars(node.Node(1))]  # 192.168.1.?? of hotnode
         self.hot_node_commit_branch = ["async"]
         self.hot_node_concurrency = ["56"]
+        self.hot_node_threshold = [250000]
         self.hot_key_threshold = [-1]
         self.should_create_partition = [False]
         self.disable_cores = [0]
