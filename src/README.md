@@ -1,3 +1,16 @@
+# Hotnode incorporation checklist
+1) Did you change the hotnode address (`node-X:50051`) in cockroachdb 
+   `pkg/server/server.go`?
+   
+2) Does that address match the one in your `trial_<config_object_name>.py`
+in `self.hot_node`?
+    
+3) Did you change the hotkey threshold to be what you want in CRDB
+`pkg/sql/conn_executor_prepare.go` in `isHotkey(key byte[])`?
+   
+4) Does that threshold match the one in `trial_<config_object_name>.py`
+in `self.hot_node_threshold`?
+
 # How to implement a new server-client test script on branch async_redo
 
 1) Copy `src/async_config_object` and name it 
