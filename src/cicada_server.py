@@ -19,7 +19,7 @@ def build_server(server_node, commit_branch):
     cmd = "cd /root/cicada-engine/build; " \
           "rm -rf *; " \
           "export PATH=$PATH:/root/.local/bin; " \
-          "cmake -DLTO=ON ..; " \
+          "cmake -DLTO=ON -DDEBUG=OFF ..; " \
           "make -j; " \
           "../script/setup.sh 16384 16384; " \
           "cp ../src/mica/test/*.json ."
