@@ -4,6 +4,7 @@ import subprocess
 
 import enum
 
+import async_server
 import constants
 import csv_utils
 import gather
@@ -108,14 +109,24 @@ def set_cluster_settings(nodes):
         set_cluster_settings_on_single_node(node)
 
 
-def setup_hotnode(node):
-    # TODO implement setup_hotnode
-    print("JENN DID YOU SET UP THE HOT NODE ON {} YET???".format(node))
+def setup_hotnode(node, commit_branch, concurrency):
+    """ Kills node (if running) and (re-)starts it.
+
+    Args:
+        node (dict of Node object)
+        commit_branch (str): commit of hotnode
+        concurrency (int): concurrency with which to start the hotnode
+
+    Returns:
+        None.
+    """
+    async_server.kill(node)
+    async_server.build_server(node, commit_branch)
+    async_server.run_server(node, concurrency)
 
 
 def kill_hotnode(node):
-    # TODO implement kill_hotnode
-    print("JENN GO KILL THE HOT NODE ON {}!!!".format(node))
+    async_server.kill(node)
 
 
 def disable_cores(nodes, cores):
@@ -283,7 +294,8 @@ def run(config, log_dir):
 
     # start hot node
     if hot_node:
-        setup_hotnode(hot_node)
+        setup_hotnode(hot_node, config["hotnode_commit_branch"],
+                      config["hotnode_concurrency"])
 
     # build and start crdb cluster
     build_cockroachdb_commit(server_nodes + client_nodes, commit_hash)
