@@ -4,7 +4,7 @@ import subprocess
 
 import enum
 
-import async_server
+import cicada_server
 import constants
 import csv_utils
 import gather
@@ -120,13 +120,13 @@ def setup_hotnode(node, commit_branch, concurrency):
     Returns:
         None.
     """
-    async_server.kill(node)
-    async_server.build_server(node, commit_branch)
-    async_server.run_server(node, concurrency)
+    cicada_server.kill(node)
+    cicada_server.build_server(node, commit_branch)
+    cicada_server.run_server(node, concurrency)
 
 
 def kill_hotnode(node):
-    async_server.kill(node)
+    cicada_server.kill(node)
 
 
 def disable_cores(nodes, cores):
