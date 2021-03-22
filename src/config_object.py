@@ -27,7 +27,9 @@ class ConfigObject:
 
         # self.workload_nodes = [] # to be populated
         # self.warm_nodes = [] # to be populated
-        # self.hot_node = [] # TODO implement passing in of hotnode to config object
+        self.hot_node = [vars(node.Node(1))]  # 192.168.1.?? of hotnode
+        self.hot_node_commit_branch = ["async"]
+        self.hot_node_concurrency = ["56"]
         self.hot_key_threshold = [-1]
         self.should_create_partition = [False]
         self.disable_cores = [0]

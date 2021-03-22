@@ -294,8 +294,8 @@ def run(config, log_dir):
 
     # start hot node
     if hot_node:
-        setup_hotnode(hot_node, config["hotnode_commit_branch"],
-                      config["hotnode_concurrency"])
+        setup_hotnode(hot_node, config["hot_node_commit_branch"],
+                      config["hot_node_concurrency"])
 
     # build and start crdb cluster
     build_cockroachdb_commit(server_nodes + client_nodes, commit_hash)
