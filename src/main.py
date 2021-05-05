@@ -97,7 +97,7 @@ def main():
         # generate lt_config objects that match those config objects
         lt_cfg = config_io.read_config_from_file(lt_fpath)
 
-        # try:
+        #try:
         # make directory in which trial will be run
         logs_dir = generate_dir_name(cfg[constants.CONFIG_FPATH_KEY], db_dir)
         if not os.path.exists(logs_dir):
@@ -125,7 +125,7 @@ def main():
                                              n_keys_per_statement=cfg["n_keys_per_statement"],
                                              skews=cfg["skews"])
 
-        # except BaseException as e:
+        #except BaseException as e:
         #    print("Config {0} failed to run, continue with other configs. e:[{1}]"
         #          .format(cfg[constants.CONFIG_FPATH_KEY], e))
         #    csv_utils.append_data_to_file([{constants.CONFIG_FPATH_KEY: cfg[constants.CONFIG_FPATH_KEY],
