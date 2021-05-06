@@ -26,8 +26,8 @@ def build_cockroachdb_workload_commit_on_single_node(node, commit_hash):
            "&& git checkout {2} && git pull origin {2} "
            "&& git submodule update --init "
            "&& export PATH=$PATH:/usr/local/go/bin "
-           "&& echo $PATH && make bin/workload && set +x")\
-    .format(node["ip"], constants.COCKROACHDB_DIR, commit_hash, constants.ROOT)
+           "&& echo $PATH && make bin/workload && set +x'")\
+        .format(node["ip"], constants.COCKROACHDB_DIR, commit_hash, constants.ROOT)
 
     return subprocess.Popen(shlex.split(cmd))
 
