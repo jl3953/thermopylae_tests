@@ -46,7 +46,7 @@ class ConfigObject:
         # self.use_original_zipfian = [False]
         # self.distribution_type = ["zipf"]
         # self.skews = [0]
-        self.warehouses = [10000] # for 3 nodes
+        self.warehouses = [1000] # for 3 nodes
 
     def generate_config_combinations(self):
         """Generates the trial configuration parameters for a single run, lists all in a list of dicts.
