@@ -4,15 +4,16 @@ import argparse
 import datetime
 import os
 
-import trial_CRDB_lt_graphs as trial_config_object_1
-import trial_CRDB_lt_graphs_2 as trial_config_object_2
+import tpcc_config_object as trial_config_object_1
+#import trial_CRDB_lt_graphs_2 as trial_config_object_2
 
 import config_io
 import constants
 import csv_utils
 import generate_configs
 import latency_throughput
-import run_single_data_point
+#import run_single_data_point as rsdp
+import run_single_tppc_point as rsdp
 import sqlite_helper_object
 import system_utils
 
@@ -21,7 +22,7 @@ import system_utils
 # configuration object generators matched to the latency throughput files
 CONFIG_OBJ_LIST = [
     (trial_config_object_1.ConfigObject(), os.path.join(constants.TEST_CONFIG_PATH, "lt.ini")),
-    (trial_config_object_2.ConfigObject(), os.path.join(constants.TEST_CONFIG_PATH, "lt2.ini")),
+    #(trial_config_object_2.ConfigObject(), os.path.join(constants.TEST_CONFIG_PATH, "lt2.ini")),
 ]
 
 # location of the entire database run
@@ -107,23 +108,23 @@ def main():
         system_utils.call("cp {0} {1}".format(cfg[constants.CONFIG_FPATH_KEY], logs_dir))
 
         # generate latency throughput trials
-        lt_fpath_csv = latency_throughput.run(cfg, lt_cfg, logs_dir)
+        lt_fpath_csv = latency_throughput.run(cfg, lt_cfg, logs_dir, rsdp.run)
 
         # run trial
         cfg["concurrency"] = latency_throughput.find_optimal_concurrency(lt_fpath_csv)
-        results_fpath_csv = run_single_data_point.run(cfg, logs_dir)
+        results_fpath_csv = rsdp.run(cfg, logs_dir)
 
         # insert into sqlite db
         # TODO get the actual commit hash, not the branch
-        db.insert_csv_data_into_sqlite_table("trials_table", results_fpath_csv, None,
-                                             logs_dir=logs_dir,
-                                             cockroach_commit=cfg["cockroach_commit"],
-                                             server_nodes=cfg["num_warm_nodes"],
-                                             disabled_cores=cfg["disable_cores"],
-                                             keyspace=cfg["keyspace"],
-                                             read_percent=cfg["read_percent"],
-                                             n_keys_per_statement=cfg["n_keys_per_statement"],
-                                             skews=cfg["skews"])
+        # db.insert_csv_data_into_sqlite_table("trials_table", results_fpath_csv, None,
+        #                                      logs_dir=logs_dir,
+        #                                      cockroach_commit=cfg["cockroach_commit"],
+        #                                      server_nodes=cfg["num_warm_nodes"],
+        #                                      disabled_cores=cfg["disable_cores"],
+        #                                      keyspace=cfg["keyspace"],
+        #                                      read_percent=cfg["read_percent"],
+        #                                      n_keys_per_statement=cfg["n_keys_per_statement"],
+        #                                      skews=cfg["skews"])
 
         #except BaseException as e:
         #    print("Config {0} failed to run, continue with other configs. e:[{1}]"

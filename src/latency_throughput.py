@@ -29,7 +29,7 @@ def insert_csv_data(data, csv_fpath):
     return csv_fpath
 
 
-def run(config, lt_config, log_dir):
+def run(config, lt_config, log_dir, run_func=run_single_data_point.run):
     # create latency throughput dir, if not running recovery
     lt_dir = os.path.join(log_dir, "latency_throughput")
     lt_logs_dir = os.path.join(lt_dir, "logs")
@@ -56,7 +56,7 @@ def run(config, lt_config, log_dir):
 
             # run trial
             os.makedirs(specific_logs_dir)
-            results_fpath_csv = run_single_data_point.run(config, specific_logs_dir)
+            results_fpath_csv = run_func(config, specific_logs_dir)
 
             # gather data from this run
             datum = {"concurrency": concurrency}
