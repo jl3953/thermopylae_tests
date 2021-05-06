@@ -121,7 +121,7 @@ def run(config, log_dir):
     set_cluster_settings_on_single_node(server_nodes[0])
 
     # build and start client nodes
-    build_cockroachdb_workload_commit(server_nodes + client_nodes, commit_hash)
+    build_cockroachdb_workload_commit(client_nodes, commit_hash)
     warehouses = config["warehouses"]
     warm_up_duration = config["warm_up_duration"]
     duration = config["duration"]
