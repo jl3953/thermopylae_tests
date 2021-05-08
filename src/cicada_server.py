@@ -1,3 +1,4 @@
+import os
 import shlex
 import subprocess
 import time
@@ -30,14 +31,20 @@ def build_client(client_node, commit_branch):
     async_server.build_client(client_node, commit_branch)
 
 
-def run_server(server_node, concurrency):
+def run_server(server_node, concurrency, log_dir):
     server_url = server_node["ip"]
 
     cmd = "/root/cicada-engine/build/hotshard_gateway_server {0}" \
         .format(concurrency)
     ssh_wrapped_cmd = "sudo ssh {0} '{1}'".format(server_url, cmd)
 
-    process = subprocess.Popen(shlex.split(ssh_wrapped_cmd))
+    log_fpath = os.path.join(log_dir, "logs")
+    if not os.path.exists(log_fpath):
+        os.makedirs(log_fpath)
+
+    cicada_log = os.path.join(log_fpath, "cicada_log.txt")
+    with open(cicada_log, "w") as f:
+        process = subprocess.Popen(shlex.split(ssh_wrapped_cmd), stdout=f)
     time.sleep(30)
     return process
 

@@ -109,7 +109,7 @@ def set_cluster_settings(nodes):
         set_cluster_settings_on_single_node(node)
 
 
-def setup_hotnode(node, commit_branch, concurrency):
+def setup_hotnode(node, commit_branch, concurrency, log_dir):
     """ Kills node (if running) and (re-)starts it.
 
     Args:
@@ -122,7 +122,7 @@ def setup_hotnode(node, commit_branch, concurrency):
     """
     cicada_server.kill(node)
     cicada_server.build_server(node, commit_branch)
-    cicada_server.run_server(node, concurrency)
+    cicada_server.run_server(node, concurrency, log_dir)
 
 
 def kill_hotnode(node):
@@ -296,7 +296,7 @@ def run(config, log_dir):
     min_key = 0
     if hot_node:
         setup_hotnode(hot_node, config["hot_node_commit_branch"],
-                      config["hot_node_concurrency"])
+                      config["hot_node_concurrency"], log_dir)
         min_key = config["hot_node_threshold"]
 
     # build and start crdb cluster
