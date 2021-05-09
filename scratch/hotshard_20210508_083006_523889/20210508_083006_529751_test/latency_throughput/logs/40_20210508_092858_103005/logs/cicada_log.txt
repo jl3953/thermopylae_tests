@@ -1,0 +1,330 @@
+HugeTLBFS_SHM: syncing and sleeping for 1 second
+initialized PagePool on numa node 0 with 12.885 GB
+initialized PagePool on numa node 1 with 12.885 GB
+num_rows = 100
+reqs_per_tx = 16
+read_ratio = 0.950000
+zipf_theta = 0.990000
+tx_count = 20000
+num_threads = 16
+
+thread count = 16
+NUMA count = 1
+
+RowHead size: 8 bytes
+RowVersion size: 64 bytes
+column family 0
+  data size hint: 100 bytes
+  rh size: 192 bytes (inlining=yes)
+maximum table size: 1073741824 rows (131072 * 8192)
+
+RowHead size: 8 bytes
+RowVersion size: 64 bytes
+column family 0
+  data size hint: 24 bytes
+  rh size: 128 bytes (inlining=yes)
+maximum table size: 1073741824 rows (131072 * 8192)
+
+initializing table
+failed to update index row = 0
+jenndebug inserted (99, 0)
+jenndebug inserted (54, 8192)
+jenndebug inserted (41, 1)
+jenndebug inserted (47, 2)
+jenndebug inserted (67, 3)
+jenndebug inserted (49, 4)
+jenndebug inserted (60, 8193)
+jenndebug inserted (9, 5)
+jenndebug inserted (2, 8194)
+jenndebug inserted (13, 6)
+jenndebug inserted (34, 8195)
+jenndebug inserted (83, 7)
+jenndebug inserted (18, 8196)
+jenndebug inserted (22, 8197)
+jenndebug inserted (8, 8198)
+jenndebug inserted (35, 8)
+jenndebug inserted (74, 8199)
+jenndebug inserted (52, 8200)
+jenndebug inserted (45, 9)
+jenndebug inserted (68, 8201)
+jenndebug inserted (97, 10)
+jenndebug inserted (15, 11)
+jenndebug inserted (48, 8202)
+jenndebug inserted (11, 12)
+jenndebug inserted (36, 8203)
+jenndebug inserted (85, 13)
+jenndebug inserted (29, 14)
+jenndebug inserted (42, 8204)
+jenndebug inserted (40, 8205)
+jenndebug inserted (31, 15)
+jenndebug inserted (72, 8206)
+jenndebug inserted (16, 8207)
+jenndebug allright
+jenndebug inserted (38, 8208)
+jenndebug inserted (10, 8209)
+jenndebug inserted (76, 8210)
+jenndebug inserted (82, 8211)
+jenndebug inserted (46, 8212)
+jenndebug inserted (28, 8213)
+jenndebug inserted (92, 8214)
+jenndebug inserted (88, 8215)
+jenndebug inserted (62, 8216)
+jenndebug inserted (78, 8217)
+jenndebug allright
+jenndebug inserted (94, 8218)
+jenndebug inserted (96, 8219)
+jenndebug inserted (6, 8220)
+jenndebug inserted (56, 8221)
+jenndebug inserted (5, 16)
+jenndebug inserted (26, 8222)
+jenndebug inserted (81, 17)
+jenndebug inserted (23, 18)
+jenndebug inserted (64, 8223)
+jenndebug inserted (73, 19)
+jenndebug inserted (87, 20)
+jenndebug inserted (21, 21)
+jenndebug inserted (39, 22)
+jenndebug inserted (33, 23)
+jenndebug allright
+jenndebug inserted (93, 24)
+jenndebug inserted (80, 8224)
+jenndebug inserted (3, 25)
+jenndebug inserted (0, 8225)
+jenndebug inserted (84, 8226)
+jenndebug inserted (24, 8227)
+jenndebug inserted (71, 26)
+jenndebug inserted (90, 8228)
+jenndebug inserted (27, 27)
+jenndebug inserted (53, 28)
+jenndebug inserted (32, 8229)
+jenndebug inserted (19, 29)
+jenndebug inserted (30, 8230)
+jenndebug inserted (58, 8231)
+jenndebug inserted (86, 8232)
+jenndebug inserted (98, 8233)
+jenndebug inserted (89, 30)
+jenndebug inserted (20, 8234)
+jenndebug inserted (50, 8235)
+jenndebug inserted (4, 8236)
+jenndebug inserted (14, 8237)
+jenndebug inserted (95, 31)
+jenndebug inserted (12, 8238)
+jenndebug inserted (44, 8239)
+jenndebug allright
+jenndebug allright
+jenndebug inserted (69, 32)
+jenndebug inserted (66, 8240)
+jenndebug inserted (70, 8241)
+jenndebug inserted (77, 33)
+jenndebug allright
+jenndebug inserted (55, 34)
+jenndebug inserted (75, 35)
+jenndebug inserted (17, 36)
+jenndebug inserted (1, 37)
+jenndebug inserted (91, 38)
+jenndebug inserted (59, 39)
+jenndebug inserted (51, 40)
+jenndebug inserted (7, 41)
+jenndebug inserted (65, 42)
+jenndebug inserted (61, 43)
+jenndebug inserted (43, 44)
+jenndebug inserted (25, 45)
+jenndebug inserted (63, 46)
+jenndebug inserted (37, 47)
+jenndebug allright
+jenndebug inserted (57, 48)
+jenndebug inserted (79, 49)
+jenndebug allright
+ts=0 min_rts 18446744073709551615
+rv=0x7ef477a10f00 wts=1 status=3
+concurrency 16
+Server listening on 0.0.0.0:50051
+backoff=0.000000 us
+ts=15 min_rts 14
+rv=0x7ef477f93d00 wts=4 status=3
+backoff=0.000000 us
+backoff=0.000000 us
+backoff=0.000000 us
+backoff=0.000000 us
+ts=12 min_rts 14
+rv=0x7ef4799a2e00 wts=3 status=1
+backoff=0.000000 us
+backoff=0.000000 us
+backoff=0.000000 us
+backoff=0.000000 us
+backoff=0.000000 us
+backoff=0.000000 us
+backoff=0.000000 us
+backoff=0.000000 us
+backoff=0.000000 us
+backoff=0.000000 us
+backoff=0.000000 us
+backoff=0.000000 us
+backoff=0.000000 us
+ts=5 min_rts 14
+rv=0x7ef4798d2700 wts=15 status=1
+backoff=0.000000 us
+backoff=0.000000 us
+backoff=0.000000 us
+backoff=0.000000 us
+backoff=0.000000 us
+backoff=0.000000 us
+backoff=0.000000 us
+backoff=0.000000 us
+backoff=0.000000 us
+backoff=0.000000 us
+ts=8 min_rts 14
+rv=0x7ef4798efc80 wts=15 status=1
+backoff=0.000000 us
+backoff=0.000000 us
+backoff=0.000000 us
+backoff=0.000000 us
+backoff=0.000000 us
+backoff=0.000000 us
+backoff=0.000000 us
+backoff=0.000000 us
+backoff=0.000000 us
+backoff=0.000000 us
+backoff=0.000000 us
+ts=13 min_rts 14
+rv=0x7ef479910100 wts=15 status=1
+ts=7 min_rts 14
+rv=0x7ef47b012d80 wts=9 status=1
+backoff=0.000000 us
+backoff=0.000000 us
+backoff=0.000000 us
+backoff=0.000000 us
+ts=11 min_rts 14
+rv=0x7ef47911d280 wts=2 status=1
+backoff=0.000000 us
+backoff=0.000000 us
+backoff=0.000000 us
+backoff=0.000000 us
+backoff=0.000000 us
+backoff=0.000000 us
+backoff=0.000000 us
+ts=3 min_rts 14
+rv=0x7ef477ab3500 wts=1 status=1
+backoff=0.000000 us
+backoff=0.000000 us
+backoff=0.000000 us
+ts=3 min_rts 14
+rv=0x7ef479037800 wts=6 status=1
+backoff=0.000000 us
+backoff=0.000000 us
+backoff=0.000000 us
+backoff=0.000000 us
+backoff=0.000000 us
+ts=10 min_rts 14
+rv=0x7ef47a342e80 wts=13 status=1
+ts=4294967310 min_rts 14
+rv=0x7ef477e47080 wts=4 status=1
+backoff=0.000000 us
+backoff=0.000000 us
+backoff=0.000000 us
+ts=6 min_rts 14
+rv=0x7ef477bc5e00 wts=0 status=1
+backoff=0.000000 us
+backoff=0.000000 us
+backoff=0.000000 us
+backoff=0.000000 us
+backoff=0.000000 us
+backoff=0.000000 us
+backoff=0.000000 us
+backoff=0.000000 us
+backoff=0.000000 us
+backoff=0.000000 us
+backoff=0.000000 us
+backoff=0.000000 us
+ts=2 min_rts 14
+rv=0x7ef479965780 wts=15 status=1
+ts=12 min_rts 14
+rv=0x7ef479966000 wts=15 status=1
+ts=1 min_rts 14
+rv=0x7ef47a367780 wts=13 status=1
+backoff=0.000000 us
+backoff=0.000000 us
+backoff=0.000000 us
+backoff=0.000000 us
+ts=2 min_rts 14
+rv=0x7ef478b69000 wts=14 status=1
+backoff=0.000000 us
+ts=14 min_rts 14
+rv=0x7ef477e72380 wts=4 status=1
+ts=12 min_rts 14
+rv=0x7ef479174080 wts=2 status=1
+backoff=0.000000 us
+backoff=0.000000 us
+ts=6 min_rts 14
+rv=0x7ef479974e80 wts=15 status=1
+backoff=0.000000 us
+backoff=0.000000 us
+backoff=0.000000 us
+ts=4 min_rts 14
+rv=0x7ef477f76a00 wts=5 status=1
+backoff=0.000000 us
+backoff=0.000000 us
+ts=1 min_rts 14
+rv=0x7ef47ba85a80 wts=8 status=1
+backoff=0.000000 us
+ts=4 min_rts 14
+rv=0x7ef479080f00 wts=6 status=1
+backoff=0.000000 us
+backoff=0.000000 us
+ts=8 min_rts 14
+rv=0x7ef47a385200 wts=13 status=1
+backoff=0.000000 us
+backoff=0.000000 us
+backoff=0.000000 us
+ts=14 min_rts 14
+rv=0x7ef47908bc80 wts=6 status=1
+backoff=0.000000 us
+backoff=0.000000 us
+ts=13 min_rts 14
+rv=0x7ef47e603680 wts=2 status=3
+backoff=0.000000 us
+backoff=0.000000 us
+ts=13 min_rts 14
+rv=0x7ef477f8e300 wts=5 status=1
+backoff=0.000000 us
+backoff=0.000000 us
+ts=13 min_rts 14
+rv=0x7ef47dfbce80 wts=8 status=1
+backoff=0.000000 us
+ts=3 min_rts 14
+rv=0x7ef47debd380 wts=10 status=1
+ts=4 min_rts 14
+rv=0x7ef4804f8a80 wts=1 status=1
+backoff=0.000000 us
+backoff=0.000000 us
+ts=10 min_rts 14
+rv=0x7ef482694e80 wts=0 status=1
+backoff=0.000000 us
+backoff=0.000000 us
+ts=6 min_rts 14
+rv=0x7ef48279a580 wts=5 status=1
+backoff=0.000000 us
+backoff=0.000000 us
+backoff=0.000000 us
+backoff=0.000000 us
+backoff=0.000000 us
+backoff=0.000000 us
+backoff=0.000000 us
+ts=10 min_rts 14
+rv=0x7ef480409300 wts=6 status=1
+backoff=0.000000 us
+backoff=0.000000 us
+backoff=0.000000 us
+backoff=0.000000 us
+backoff=0.000000 us
+backoff=0.000000 us
+backoff=0.000000 us
+ts=1 min_rts 14
+rv=0x7ef47e628b80 wts=2 status=1
+backoff=0.000000 us
+backoff=0.000000 us
+backoff=0.000000 us
+backoff=0.000000 us
+backoff=0.000000 us
+backoff=0.000000 us
+backo
