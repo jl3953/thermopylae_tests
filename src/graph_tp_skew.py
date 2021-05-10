@@ -23,7 +23,7 @@ def main():
     for row in c.execute("SELECT ops_per_sec_cum, p50_ms, p99_ms, skews "
                          "FROM trials_table "
                          "WHERE server_nodes=4 "
-                         "AND n_keys_per_statement=1 "):
+                         "AND n_keys_per_statement=5 "):
         data.append({
             "ops/sec(cum)": row[0],
             "p50(ms)": row[1],
@@ -35,13 +35,13 @@ def main():
     # sort and write out data
     data = sorted(data, key=lambda point: point["skews"])
     csv_file = csv_utils.write_out_data(data,
-                                        os.path.join(args.csv_dir, "dat_{}.csv".format(args.suffix))
+                                        os.path.join(args.csv_dir, "dat_{}.csv".format(args.suffix)))
 
     # graph data
     plot_utils.gnuplot("src/plot.gp", csv_file,
                        os.path.join(args.graph_dir, "p50_v_skew_{}.png".format(args.suffix)),
                        os.path.join(args.graph_dir, "tp_v_skew_{}.png".format(args.suffix)),
-                       os.path.join(args.graph_dir, "p99_v_skew_{}.png".format(args.suffix))
+                       os.path.join(args.graph_dir, "p99_v_skew_{}.png".format(args.suffix)))
 
     return 0
 
