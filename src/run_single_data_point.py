@@ -205,8 +205,9 @@ def fake_hotnode_partition_affinity(a_server_node, driver_node, threshold):
         .format(EXE, a_server_node["ip"])
     system_utils.call_remote_double_quote(driver_node["ip"], settings_cmd)
 
-    settings_cmd = "echo \"ALTER PARTITION not OF TABLE kv" \
-                   "    CONFIGURE ZONE USING constraints='[-region=singapore]';\"" \
+    settings_cmd = 'echo \\"ALTER PARTITION not OF TABLE kv' \
+                   "    CONFIGURE ZONE USING constraints='[-region=singapore]';" \
+                   '\\"' \
                    " | "\
                    "{0} sql --insecure --database=kv --url=\"postgresql://root@{1}?sslmode=disable\""\
         .format(EXE, a_server_node["ip"])
