@@ -188,17 +188,27 @@ def cleanup_previous_experiments(server_nodes, client_nodes, hot_node):
 
 
 def fake_hotnode_partition_affinity(a_server_node, driver_node, threshold):
-
-    settings_cmd = 'echo "ALTER TABLE kv PARTITION BY RANGE (k) (' \
-                   '    PARTITION hot VALUES FROM (MINVALUE) TO ({2}),' \
-                   '    PARTITION not VALUES FROM ({2}) TO (MAXVALUE));' \
-                   'ALTER PARTITION hot OF TABLE kv' \
-                   '    CONFIGURE ZONE USING constraints=\'[+region=singapore,-region=newyork,-region=london,-region=tokyo]\';' \
-                   'ALTER PARTITION not OF TABLE kv' \
-                   '    CONFIGURE ZONE USING constraints=\'[-region=singapore]\';' \
-                   '" | ' \
-                   '{0} sql --insecure --database=kv --url="postgresql://root@{1}?sslmode=disable"' \
+    settings_cmd = "echo \"ALTER TABLE kv PARTITION BY RANGE (k) (" \
+                   "    PARTITION hot VALUES FROM (MINVALUE) TO ({2})," \
+                   "    PARTITION not VALUES FROM ({2}) TO (MAXVALUE));\"" \
+                   " | " \
+                   "{0} sql --insecure --database=kv --url=\"postgresql://root@{1}?sslmode=disable\""\
         .format(EXE, a_server_node["ip"], threshold)
+    system_utils.call_remote(driver_node["ip"], settings_cmd)
+
+    settings_cmd = "echo \"ALTER PARTITION hot OF TABLE kv" \
+                   "    CONFIGURE ZONE USING constraints='[+region=singapore," \
+                   "    -region=newyork,-region=london,-region=tokyo]';\"" \
+                   " | " \
+                   "{0} sql --insecure --database=kv --url=\"postgresql://root@{1}?sslmode=disable\""\
+        .format(EXE, a_server_node["ip"])
+    system_utils.call_remote(driver_node["ip"], settings_cmd)
+
+    settings_cmd = "echo \"ALTER PARTITION not OF TABLE kv" \
+                   "    CONFIGURE ZONE USING constraints='[-region=singapore]';\"" \
+                   " | "\
+                   "{0} sql --insecure --database=kv --url=\"postgresql://root@{1}?sslmode=disable\""\
+        .format(EXE, a_server_node["ip"])
     system_utils.call_remote(driver_node["ip"], settings_cmd)
 
 
