@@ -239,9 +239,6 @@ def run_kv_workload(client_nodes, server_nodes, concurrency, keyspace, warm_up_d
         .format(EXE, a_server_node["ip"])
     system_utils.call_remote(driver_node["ip"], settings_cmd)
 
-    # configure fake hotnode using partition affinity
-    fake_hotnode_partition_affinity(a_server_node, driver_node, 250000)
-
     # prepopulate data
     data_csv_leaf = "init_data.csv"
     data_csv = os.path.join(constants.SCRATCH_DIR, data_csv_leaf)
@@ -253,6 +250,9 @@ def run_kv_workload(client_nodes, server_nodes, concurrency, keyspace, warm_up_d
     import_cmd = 'echo "IMPORT INTO kv (k, v) CSV DATA(\\\"nodelocal://1/{1}\\\");" | ' \
                  "{0} sql --insecure --database=kv".format(EXE, nfs_location)
     system_utils.call_remote(a_server_node["ip"], import_cmd)
+
+    # configure fake hotnode using partition affinity
+    fake_hotnode_partition_affinity(a_server_node, driver_node, 250000)
 
     if mode == RunMode.WARMUP_ONLY or mode == RunMode.WARMUP_AND_TRIAL_RUN:
 
