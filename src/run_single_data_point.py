@@ -261,7 +261,7 @@ def run_kv_workload(client_nodes, server_nodes, concurrency, keyspace, warm_up_d
         warmup_processes = []
         for i in range(len(client_nodes)):
             node = client_nodes[i]
-            cmd = "{0} workload run kv {1} {2} --useOriginal=False".format(EXE, server_urls[i % len(server_nodes - 1)],
+            cmd = "{0} workload run kv {1} {2} --useOriginal=False".format(EXE, server_urls[i % (len(server_nodes)-1)],
                                                                            " ".join(args))
             warmup_cmd = cmd + " --duration={}s".format(warm_up_duration)
             # for node in client_nodes:
