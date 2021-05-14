@@ -197,19 +197,19 @@ def fake_hotnode_partition_affinity(a_server_node, driver_node, threshold):
     system_utils.call_remote(driver_node["ip"], settings_cmd)
 
     settings_cmd = "echo \"ALTER PARTITION hot OF TABLE kv" \
-                   "    CONFIGURE ZONE USING constraints=\\'[+region=singapore," \
-                   "    -region=newyork,-region=london,-region=tokyo]\\';\"" \
+                   "    CONFIGURE ZONE USING constraints='[+region=singapore," \
+                   "    -region=newyork,-region=london,-region=tokyo]';\"" \
                    " | " \
                    "{0} sql --insecure --database=kv --url=\"postgresql://root@{1}?sslmode=disable\""\
         .format(EXE, a_server_node["ip"])
-    system_utils.call_remote(driver_node["ip"], settings_cmd)
+    system_utils.call_remote_double_quote(driver_node["ip"], settings_cmd)
 
     settings_cmd = "echo \"ALTER PARTITION not OF TABLE kv" \
                    "    CONFIGURE ZONE USING constraints='[-region=singapore]';\"" \
                    " | "\
                    "{0} sql --insecure --database=kv --url=\"postgresql://root@{1}?sslmode=disable\""\
         .format(EXE, a_server_node["ip"])
-    system_utils.call_remote(driver_node["ip"], settings_cmd)
+    system_utils.call_remote_double_quote(driver_node["ip"], settings_cmd)
 
 
 def run_kv_workload(client_nodes, server_nodes, concurrency, keyspace, warm_up_duration, duration, read_percent,
