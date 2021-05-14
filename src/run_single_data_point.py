@@ -101,7 +101,7 @@ def start_cluster(nodes):
     if len(nodes) > 1:
         system_utils.call("/root/go/src/github.com/cockroachdb/cockroach/cockroach init "
                           "--insecure "
-                          "--host={0}".format(nodes[0]["ip"]))
+                          "--host={0}".format(nodes[-1]["ip"]))
 
 
 def set_cluster_settings(nodes):
@@ -187,6 +187,21 @@ def cleanup_previous_experiments(server_nodes, client_nodes, hot_node):
     enable_cores(server_nodes, 15)
 
 
+def fake_hotnode_partition_affinity(a_server_node, driver_node, threshold):
+
+    settings_cmd = 'echo "ALTER TABLE kv PARTITION BY RANGE (k) (' \
+                   '    PARTITION hot VALUES FROM (MINVALUE) TO ({2}),' \
+                   '    PARTITION not VALUES FROM ({2}) TO (MAXVALUE));' \
+                   'ALTER PARTITION hot OF TABLE kv' \
+                   '    CONFIGURE ZONE USING constraints=\'[+region=singapore,-region=newyork,-region=london,-region=tokyo]\';' \
+                   'ALTER PARTITION not OF TABLE kv' \
+                   '    CONFIGURE ZONE USING constraints=\'[-region=singapore]\';' \
+                   '" | ' \
+                   '{0} sql --insecure --database=kv --url="postgresql://root@{1}?sslmode=disable"' \
+        .format(EXE, a_server_node["ip"], threshold)
+    system_utils.call_remote(driver_node["ip"], settings_cmd)
+
+
 def run_kv_workload(client_nodes, server_nodes, concurrency, keyspace, warm_up_duration, duration, read_percent,
                     n_keys_per_statement, skew, log_dir, keyspace_min=0, mode=RunMode.WARMUP_AND_TRIAL_RUN):
     server_urls = ["postgresql://root@{0}:26257?sslmode=disable".format(n["ip"])
@@ -212,6 +227,9 @@ def run_kv_workload(client_nodes, server_nodes, concurrency, keyspace, warm_up_d
         .format(EXE, a_server_node["ip"])
     system_utils.call_remote(driver_node["ip"], settings_cmd)
 
+    # configure fake hotnode using partition affinity
+    fake_hotnode_partition_affinity(a_server_node, driver_node, 250000)
+
     # prepopulate data
     data_csv_leaf = "init_data.csv"
     data_csv = os.path.join(constants.SCRATCH_DIR, data_csv_leaf)
@@ -231,7 +249,7 @@ def run_kv_workload(client_nodes, server_nodes, concurrency, keyspace, warm_up_d
         warmup_processes = []
         for i in range(len(client_nodes)):
             node = client_nodes[i]
-            cmd = "{0} workload run kv {1} {2} --useOriginal=False".format(EXE, server_urls[i % len(server_nodes)],
+            cmd = "{0} workload run kv {1} {2} --useOriginal=False".format(EXE, server_urls[i % len(server_nodes - 1)],
                                                                            " ".join(args))
             warmup_cmd = cmd + " --duration={}s".format(warm_up_duration)
             # for node in client_nodes:
