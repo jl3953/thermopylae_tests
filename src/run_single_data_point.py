@@ -197,8 +197,8 @@ def fake_hotnode_partition_affinity(a_server_node, driver_node, threshold):
     system_utils.call_remote(driver_node["ip"], settings_cmd)
 
     settings_cmd = "echo \"ALTER PARTITION hot OF TABLE kv" \
-                   "    CONFIGURE ZONE USING constraints=\'[+region=singapore," \
-                   "    -region=newyork,-region=london,-region=tokyo]\';\"" \
+                   "    CONFIGURE ZONE USING constraints=\\'[+region=singapore," \
+                   "    -region=newyork,-region=london,-region=tokyo]\\';\"" \
                    " | " \
                    "{0} sql --insecure --database=kv --url=\"postgresql://root@{1}?sslmode=disable\""\
         .format(EXE, a_server_node["ip"])
