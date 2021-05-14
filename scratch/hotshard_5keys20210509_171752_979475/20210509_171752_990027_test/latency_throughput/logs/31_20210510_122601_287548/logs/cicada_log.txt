@@ -1,0 +1,2470 @@
+HugeTLBFS_SHM: syncing and sleeping for 1 second
+initialized PagePool on numa node 0 with 12.885 GB
+initialized PagePool on numa node 1 with 12.885 GB
+num_rows = 100
+reqs_per_tx = 16
+read_ratio = 0.950000
+zipf_theta = 0.990000
+tx_count = 20000
+num_threads = 16
+
+thread count = 16
+NUMA count = 1
+
+RowHead size: 8 bytes
+RowVersion size: 64 bytes
+column family 0
+  data size hint: 100 bytes
+  rh size: 192 bytes (inlining=yes)
+maximum table size: 1073741824 rows (131072 * 8192)
+
+RowHead size: 8 bytes
+RowVersion size: 64 bytes
+column family 0
+  data size hint: 24 bytes
+  rh size: 128 bytes (inlining=yes)
+maximum table size: 1073741824 rows (131072 * 8192)
+
+initializing table
+failed to update index row = 0
+jenndebug inserted (99, 0)
+jenndebug inserted (54, 8192)
+jenndebug inserted (41, 1)
+jenndebug inserted (47, 2)
+jenndebug inserted (60, 8193)
+jenndebug inserted (67, 3)
+jenndebug inserted (2, 8194)
+jenndebug inserted (34, 8195)
+jenndebug inserted (49, 4)
+jenndebug inserted (18, 8196)
+jenndebug inserted (9, 5)
+jenndebug inserted (22, 8197)
+jenndebug inserted (13, 6)
+jenndebug inserted (8, 8198)
+jenndebug inserted (83, 7)
+jenndebug inserted (74, 8199)
+jenndebug inserted (52, 8200)
+jenndebug inserted (68, 8201)
+jenndebug inserted (35, 8)
+jenndebug inserted (48, 8202)
+jenndebug inserted (45, 9)
+jenndebug inserted (36, 8203)
+jenndebug inserted (97, 10)
+jenndebug inserted (42, 8204)
+jenndebug inserted (15, 11)
+jenndebug inserted (40, 8205)
+jenndebug inserted (11, 12)
+jenndebug inserted (72, 8206)
+jenndebug inserted (85, 13)
+jenndebug inserted (16, 8207)
+jenndebug inserted (29, 14)
+jenndebug inserted (31, 15)
+jenndebug allright
+jenndebug inserted (38, 8208)
+jenndebug inserted (10, 8209)
+jenndebug inserted (76, 8210)
+jenndebug inserted (82, 8211)
+jenndebug inserted (46, 8212)
+jenndebug inserted (28, 8213)
+jenndebug inserted (92, 8214)
+jenndebug inserted (88, 8215)
+jenndebug inserted (62, 8216)
+jenndebug inserted (78, 8217)
+jenndebug inserted (94, 8218)
+jenndebug inserted (96, 8219)
+jenndebug inserted (6, 8220)
+jenndebug inserted (56, 8221)
+jenndebug inserted (26, 8222)
+jenndebug inserted (64, 8223)
+jenndebug allright
+jenndebug inserted (80, 8224)
+jenndebug inserted (0, 8225)
+jenndebug inserted (84, 8226)
+jenndebug inserted (24, 8227)
+jenndebug inserted (90, 8228)
+jenndebug inserted (32, 8229)
+jenndebug inserted (30, 8230)
+jenndebug inserted (58, 8231)
+jenndebug inserted (86, 8232)
+jenndebug inserted (98, 8233)
+jenndebug inserted (20, 8234)
+jenndebug inserted (50, 8235)
+jenndebug inserted (4, 8236)
+jenndebug inserted (14, 8237)
+jenndebug inserted (12, 8238)
+jenndebug inserted (44, 8239)
+jenndebug allright
+jenndebug inserted (66, 8240)
+jenndebug inserted (70, 8241)
+jenndebug allright
+jenndebug allright
+jenndebug inserted (5, 16)
+jenndebug inserted (81, 17)
+jenndebug inserted (23, 18)
+jenndebug inserted (73, 19)
+jenndebug inserted (87, 20)
+jenndebug inserted (21, 21)
+jenndebug inserted (39, 22)
+jenndebug inserted (33, 23)
+jenndebug inserted (93, 24)
+jenndebug inserted (3, 25)
+jenndebug inserted (71, 26)
+jenndebug inserted (27, 27)
+jenndebug inserted (53, 28)
+jenndebug inserted (19, 29)
+jenndebug inserted (89, 30)
+jenndebug inserted (95, 31)
+jenndebug allright
+jenndebug inserted (69, 32)
+jenndebug inserted (77, 33)
+jenndebug inserted (55, 34)
+jenndebug inserted (75, 35)
+jenndebug inserted (17, 36)
+jenndebug inserted (1, 37)
+jenndebug inserted (91, 38)
+jenndebug inserted (59, 39)
+jenndebug inserted (51, 40)
+jenndebug inserted (7, 41)
+jenndebug inserted (65, 42)
+jenndebug inserted (61, 43)
+jenndebug inserted (43, 44)
+jenndebug inserted (25, 45)
+jenndebug inserted (63, 46)
+jenndebug inserted (37, 47)
+jenndebug allright
+jenndebug inserted (57, 48)
+jenndebug inserted (79, 49)
+jenndebug allright
+ts=0 min_rts 18446744073709551615
+rv=0x7f1efa7c0f00 wts=1 status=3
+concurrency 16
+Server listening on 0.0.0.0:50051
+ts=14 min_rts 12
+rv=0x7f1efd93c2c0 wts=15 status=3
+ts=1 min_rts 12
+rv=0x7f1efd62f700 wts=12 status=3
+ts=10 min_rts 12
+rv=0x7f1efafe4880 wts=8 status=1
+ts=8 min_rts 12
+rv=0x7f1efece4480 wts=4294967300 status=1
+backoff=0.000000 us
+ts=8 min_rts 12
+rv=0x7f1efb7e9980 wts=12 status=1
+ts=0 min_rts 12
+rv=0x7f1efd637500 wts=12 status=3
+ts=1 min_rts 12
+rv=0x7f1efe0e7e80 wts=11 status=3
+backoff=0.000000 us
+ts=3 min_rts 12
+rv=0x7f1eff181b00 wts=8 status=3
+ts=12 min_rts 12
+rv=0x7f1efa6d1980 wts=0 status=3
+ts=5 min_rts 12
+rv=0x7f1efa6d2200 wts=0 status=1
+ts=7 min_rts 12
+rv=0x7f1efd8c8c40 wts=11 status=3
+ts=5 min_rts 12
+rv=0x7f1efd8c9300 wts=11 status=3
+backoff=0.000000 us
+ts=0 min_rts 12
+rv=0x7f1efbca4640 wts=5 status=3
+ts=0 min_rts 12
+rv=0x7f1efbca47c0 wts=5 status=3
+ts=8 min_rts 12
+rv=0x7f1efbd3cd40 wts=3 status=3
+ts=6 min_rts 12
+rv=0x7f1f003cc980 wts=9 status=3
+backoff=0.000000 us
+ts=11 min_rts 12
+rv=0x7f1efff01900 wts=9 status=1
+backoff=0.000000 us
+ts=12 min_rts 12
+rv=0x7f1efabb8100 wts=7 status=3
+ts=4 min_rts 12
+rv=0x7f1efd6753c0 wts=12 status=3
+ts=11 min_rts 12
+rv=0x7f1efba5b500 wts=2 status=3
+ts=13 min_rts 12
+rv=0x7f1f003ebd00 wts=9 status=3
+ts=0 min_rts 12
+rv=0x7f1efd67a880 wts=12 status=1
+backoff=0.000000 us
+ts=11 min_rts 12
+rv=0x7f1eff769980 wts=1 status=1
+ts=12 min_rts 12
+rv=0x7f1eff6cc600 wts=4 status=3
+ts=10 min_rts 12
+rv=0x7f1efe93c440 wts=6 status=3
+ts=1 min_rts 12
+rv=0x7f1eff1cecc0 wts=8 status=3
+ts=8 min_rts 12
+rv=0x7f1efbcd6f80 wts=5 status=3
+ts=13 min_rts 12
+rv=0x7f1efce12000 wts=10 status=1
+ts=8 min_rts 12
+rv=0x7f1efed06f00 wts=4 status=3
+backoff=0.000000 us
+ts=5 min_rts 12
+rv=0x7f1efce13b00 wts=10 status=3
+ts=0 min_rts 12
+rv=0x7f1efe00c700 wts=15 status=3
+ts=12 min_rts 12
+rv=0x7f1f00208e80 wts=9 status=1
+ts=8 min_rts 12
+rv=0x7f1efbae3880 wts=5 status=3
+ts=5 min_rts 12
+rv=0x7f1efba7fec0 wts=2 status=3
+ts=11 min_rts 12
+rv=0x7f1efba81d80 wts=2 status=3
+ts=8 min_rts 12
+rv=0x7f1efe8ce280 wts=10 status=3
+backoff=0.000000 us
+ts=7 min_rts 12
+rv=0x7f1efe649bc0 wts=0 status=3
+ts=1 min_rts 12
+rv=0x7f1efbd8e400 wts=3 status=3
+ts=10 min_rts 12
+rv=0x7f1eff1f0200 wts=8 status=3
+ts=9 min_rts 12
+rv=0x7f1efaf1bf80 wts=7 status=3
+ts=0 min_rts 12
+rv=0x7f1efcf1d380 wts=13 status=1
+backoff=0.000000 us
+ts=10 min_rts 12
+rv=0x7f1eff7a0640 wts=1 status=3
+ts=13 min_rts 12
+rv=0x7f1efae1a500 wts=8 status=3
+ts=15 min_rts 12
+rv=0x7f1efd236000 wts=13 status=3
+ts=7 min_rts 12
+rv=0x7f1efba9eac0 wts=2 status=3
+ts=2 min_rts 12
+rv=0x7f1efb619800 wts=12 status=3
+ts=3 min_rts 12
+rv=0x7f1efc721b00 wts=2 status=3
+ts=8 min_rts 12
+rv=0x7f1efaa03b40 wts=7 status=3
+ts=9 min_rts 12
+rv=0x7f1efd6bafc0 wts=12 status=3
+ts=12 min_rts 12
+rv=0x7f1efaf1fc00 wts=7 status=1
+ts=3 min_rts 12
+rv=0x7f1efaa08100 wts=7 status=1
+ts=4 min_rts 12
+rv=0x7f1efd23a200 wts=13 status=1
+ts=0 min_rts 12
+rv=0x7f1efd23c000 wts=13 status=3
+ts=4 min_rts 12
+rv=0x7f1efd23da40 wts=13 status=3
+ts=4 min_rts 12
+rv=0x7f1efbb0a940 wts=5 status=1
+backoff=0.000000 us
+ts=7 min_rts 12
+rv=0x7f1efec1f280 wts=6 status=1
+ts=4294967306 min_rts 12
+rv=0x7f1efe984680 wts=6 status=3
+ts=2 min_rts 12
+rv=0x7f1efe988040 wts=6 status=3
+ts=4294967309 min_rts 12
+rv=0x7f1eff7bb7c0 wts=1 status=3
+ts=10 min_rts 12
+rv=0x7f1eff018180 wts=8 status=3
+ts=9 min_rts 12
+rv=0x7f1eff31d0c0 wts=4 status=3
+ts=12 min_rts 12
+rv=0x7f1efe01cd80 wts=15 status=1
+backoff=0.000000 us
+ts=13 min_rts 12
+rv=0x7f1efbac5880 wts=2 status=3
+ts=6 min_rts 12
+rv=0x7f1efd9efb40 wts=15 status=3
+ts=14 min_rts 12
+rv=0x7f1efd267ec0 wts=13 status=3
+backoff=0.000000 us
+ts=10 min_rts 12
+rv=0x7f1efb625100 wts=12 status=1
+ts=6 min_rts 12
+rv=0x7f1eff331d00 wts=4 status=1
+ts=2 min_rts 12
+rv=0x7f1eff331d00 wts=4 status=3
+ts=10 min_rts 12
+rv=0x7f1efbb32780 wts=5 status=3
+ts=6 min_rts 12
+rv=0x7f1efd9f6680 wts=15 status=3
+ts=14 min_rts 12
+rv=0x7f1efe693f00 wts=0 status=3
+ts=1 min_rts 12
+rv=0x7f1eff3404c0 wts=4 status=3
+backoff=0.000000 us
+ts=2 min_rts 12
+rv=0x7f1efaf2ea80 wts=7 status=1
+ts=14 min_rts 12
+rv=0x7f1efe72c6c0 wts=10 status=1
+ts=1 min_rts 12
+rv=0x7f1efe9b5040 wts=6 status=3
+ts=1 min_rts 12
+rv=0x7f1efb629e80 wts=12 status=3
+ts=8 min_rts 12
+rv=0x7f1efce30b80 wts=10 status=1
+ts=7 min_rts 12
+rv=0x7f1eff7f50c0 wts=1 status=3
+ts=8 min_rts 12
+rv=0x7f1eff0ea900 wts=14 status=3
+ts=2 min_rts 12
+rv=0x7f1efd305780 wts=12 status=3
+backoff=0.000000 us
+ts=2 min_rts 12
+rv=0x7f1efd30c5c0 wts=12 status=3
+ts=3 min_rts 12
+rv=0x7f1efd8201c0 wts=15 status=3
+backoff=0.000000 us
+ts=8 min_rts 12
+rv=0x7f1efbc08e80 wts=3 status=3
+ts=4 min_rts 12
+rv=0x7f1efe74ef80 wts=10 status=3
+ts=13 min_rts 12
+rv=0x7f1efe74ef80 wts=10 status=3
+ts=1 min_rts 12
+rv=0x7f1efbc10d40 wts=3 status=3
+ts=0 min_rts 12
+rv=0x7f1efbb5dc80 wts=5 status=3
+ts=5 min_rts 12
+rv=0x7f1efab1e380 wts=2 status=3
+backoff=0.000000 us
+ts=7 min_rts 12
+rv=0x7f1efd79ef00 wts=11 status=3
+ts=10 min_rts 12
+rv=0x7f1efd79f080 wts=11 status=3
+ts=10 min_rts 12
+rv=0x7f1efbb6adc0 wts=5 status=3
+ts=3 min_rts 12
+rv=0x7f1efbb6cd40 wts=5 status=3
+ts=7 min_rts 12
+rv=0x7f1eff623340 wts=1 status=3
+ts=5 min_rts 12
+rv=0x7f1efab2f540 wts=2 status=3
+ts=13 min_rts 12
+rv=0x7f1eff07fd40 wts=8 status=3
+ts=3 min_rts 12
+rv=0x7f1f002ada00 wts=9 status=3
+ts=3 min_rts 12
+rv=0x7f1efd7aa240 wts=11 status=3
+ts=5 min_rts 12
+rv=0x7f1efce3b600 wts=10 status=1
+backoff=0.000000 us
+ts=6 min_rts 12
+rv=0x7f1efaa990c0 wts=7 status=3
+ts=0 min_rts 12
+rv=0x7f1efd2cf000 wts=13 status=3
+ts=15 min_rts 12
+rv=0x7f1eff633300 wts=1 status=3
+ts=12 min_rts 12
+rv=0x7f1efd84c440 wts=15 status=3
+ts=0 min_rts 12
+rv=0x7f1f002be200 wts=9 status=3
+ts=7 min_rts 12
+rv=0x7f1efab45800 wts=2 status=3
+ts=12 min_rts 12
+rv=0x7f1efd2d56c0 wts=13 status=1
+backoff=0.000000 us
+ts=3 min_rts 12
+rv=0x7f1efff37800 wts=9 status=1
+ts=11 min_rts 12
+rv=0x7f1efbc3f780 wts=3 status=3
+ts=10 min_rts 12
+rv=0x7f1eff39f080 wts=4 status=3
+ts=1 min_rts 12
+rv=0x7f1efbb8dec0 wts=5 status=3
+ts=4 min_rts 12
+rv=0x7f1efe813200 wts=6 status=3
+ts=5 min_rts 12
+rv=0x7f1efd351d40 wts=12 status=3
+ts=4 min_rts 12
+rv=0x7f1efaab2ec0 wts=7 status=3
+ts=9 min_rts 12
+rv=0x7f1efd85e440 wts=15 status=3
+backoff=0.000000 us
+ts=9 min_rts 12
+rv=0x7f1efab5e580 wts=2 status=3
+ts=1 min_rts 12
+rv=0x7f1eff3b21c0 wts=4 status=3
+ts=12 min_rts 12
+rv=0x7f1eff3b2100 wts=4 status=3
+ts=9 min_rts 12
+rv=0x7f1efe825c80 wts=6 status=3
+ts=9 min_rts 12
+rv=0x7f1eff0b1540 wts=8 status=3
+ts=9 min_rts 12
+rv=0x7f1efe828ec0 wts=6 status=3
+ts=6 min_rts 12
+rv=0x7f1efc642080 wts=3 status=3
+ts=3 min_rts 12
+rv=0x7f1efe799d40 wts=10 status=3
+backoff=0.000000 us
+ts=13 min_rts 12
+rv=0x7f1efbc5fe80 wts=3 status=3
+ts=5 min_rts 12
+rv=0x7f1efe79f440 wts=10 status=3
+ts=9 min_rts 12
+rv=0x7f1efec41a80 wts=6 status=1
+ts=11 min_rts 12
+rv=0x7f1f008b7240 wts=2 status=3
+ts=0 min_rts 12
+rv=0x7f1f008b7300 wts=2 status=3
+ts=1 min_rts 12
+rv=0x7f1efe8345c0 wts=6 status=3
+ts=2 min_rts 12
+rv=0x7f1efaacffc0 wts=7 status=3
+ts=6 min_rts 12
+rv=0x7f1eff6ebec0 wts=9 status=3
+ts=8 min_rts 12
+rv=0x7f1efe139e00 wts=11 status=1
+ts=4 min_rts 12
+rv=0x7f1efbc6e7c0 wts=3 status=1
+backoff=0.000000 us
+ts=7 min_rts 12
+rv=0x7f1efe7af100 wts=10 status=3
+ts=14 min_rts 12
+rv=0x7f1efe83f780 wts=6 status=3
+ts=15 min_rts 12
+rv=0x7f1eff3d1780 wts=4 status=3
+ts=10 min_rts 12
+rv=0x7f1efff41480 wts=9 status=1
+ts=7 min_rts 12
+rv=0x7f1efd886a00 wts=15 status=1
+ts=10 min_rts 12
+rv=0x7f1eff0d0740 wts=8 status=3
+ts=8 min_rts 12
+rv=0x7f1f00b3ae80 wts=13 status=3
+ts=3 min_rts 12
+rv=0x7f1eff6738c0 wts=1 status=3
+ts=9 min_rts 12
+rv=0x7f1efa721e80 wts=0 status=3
+ts=7 min_rts 12
+rv=0x7f1efb644580 wts=12 status=3
+backoff=0.000000 us
+ts=10 min_rts 12
+rv=0x7f1eff0dac40 wts=8 status=3
+ts=3 min_rts 12
+rv=0x7f1efd892280 wts=15 status=3
+ts=15 min_rts 12
+rv=0x7f1f00dc4ac0 wts=14 status=3
+ts=0 min_rts 12
+rv=0x7f1efbbc5180 wts=5 status=1
+ts=5 min_rts 12
+rv=0x7f1eff708a80 wts=9 status=3
+ts=6 min_rts 12
+rv=0x7f1efd605280 wts=11 status=3
+ts=6 min_rts 12
+rv=0x7f1efae48000 wts=8 status=3
+ts=9 min_rts 12
+rv=0x7f1efe7c7400 wts=10 status=3
+ts=0 min_rts 12
+rv=0x7f1efbbcd7c0 wts=5 status=3
+ts=6 min_rts 12
+rv=0x7f1f01379280 wts=1 status=3
+backoff=0.000000 us
+ts=5 min_rts 12
+rv=0x7f1f0140f3c0 wts=8 status=3
+ts=6 min_rts 12
+rv=0x7f1f008e7000 wts=2 status=3
+ts=6 min_rts 12
+rv=0x7f1eff3ed980 wts=4 status=3
+ts=7 min_rts 12
+rv=0x7f1efd8aa640 wts=15 status=3
+ts=15 min_rts 12
+rv=0x7f1f01494d40 wts=9 status=3
+ts=11 min_rts 12
+rv=0x7f1efbbe3d80 wts=5 status=1
+ts=1 min_rts 12
+rv=0x7f1f01177f00 wts=0 status=3
+backoff=0.000000 us
+ts=14 min_rts 12
+rv=0x7f1f01910340 wts=12 status=3
+backoff=0.000000 us
+ts=8 min_rts 12
+rv=0x7f1f00f03080 wts=6 status=3
+ts=6 min_rts 12
+rv=0x7f1f00e744c0 wts=3 status=3
+ts=12 min_rts 12
+rv=0x7f1f0173b900 wts=10 status=3
+ts=15 min_rts 12
+rv=0x7f1f013aef80 wts=1 status=3
+ts=10 min_rts 12
+rv=0x7f1f014b2080 wts=9 status=3
+backoff=0.000000 us
+ts=14 min_rts 12
+rv=0x7f1f0119d580 wts=0 status=3
+ts=0 min_rts 12
+rv=0x7f1f013bb100 wts=1 status=3
+ts=4294967307 min_rts 12
+rv=0x7f1f013bdd40 wts=1 status=3
+ts=1 min_rts 12
+rv=0x7f1f00e8c580 wts=3 status=3
+ts=9 min_rts 12
+rv=0x7f1f01935f00 wts=12 status=3
+ts=15 min_rts 12
+rv=0x7f1efc75df00 wts=2 status=1
+backoff=0.000000 us
+ts=6 min_rts 12
+rv=0x7f1f00c1d100 wts=14 status=3
+ts=13 min_rts 12
+rv=0x7f1f014525c0 wts=8 status=3
+ts=13 min_rts 12
+rv=0x7f1f00a24b40 wts=7 status=3
+ts=7 min_rts 12
+rv=0x7f1f019b7800 wts=15 status=3
+ts=12 min_rts 12
+rv=0x7f1f01e3eb80 wts=5 status=3
+ts=4 min_rts 12
+rv=0x7f1f0125f7c0 wts=4294967304 status=3
+ts=13 min_rts 12
+rv=0x7f1f014d14c0 wts=9 status=3
+ts=0 min_rts 12
+rv=0x7f1f014d2240 wts=9 status=3
+backoff=0.000000 us
+ts=6 min_rts 12
+rv=0x7f1f011b8c40 wts=0 status=3
+ts=10 min_rts 12
+rv=0x7f1f01266480 wts=8 status=3
+ts=3 min_rts 12
+rv=0x7f1f01268700 wts=8 status=3
+ts=5 min_rts 12
+rv=0x7f1f01c36240 wts=11 status=1
+ts=10 min_rts 12
+rv=0x7f1f019cf5c0 wts=15 status=3
+ts=8 min_rts 12
+rv=0x7f1f00a41dc0 wts=7 status=3
+backoff=0.000000 us
+ts=1 min_rts 12
+rv=0x7f1f014e37c0 wts=9 status=3
+ts=11 min_rts 12
+rv=0x7f1f00a4cd40 wts=7 status=3
+ts=6 min_rts 12
+rv=0x7f1f009bd500 wts=13 status=3
+ts=11 min_rts 12
+rv=0x7f1f00ec09c0 wts=3 status=3
+ts=0 min_rts 12
+rv=0x7f1f01774a80 wts=10 status=3
+ts=1 min_rts 12
+rv=0x7f1f01774a80 wts=10 status=3
+ts=14 min_rts 12
+rv=0x7f1f00956a80 wts=2 status=3
+backoff=0.000000 us
+ts=6 min_rts 12
+rv=0x7f1f0196f8c0 wts=12 status=3
+ts=10 min_rts 12
+rv=0x7f1f011d9ac0 wts=0 status=3
+ts=12 min_rts 12
+rv=0x7f1f01e6bb80 wts=5 status=3
+ts=0 min_rts 12
+rv=0x7f1f01a78780 wts=4 status=3
+ts=11 min_rts 12
+rv=0x7f1f019e8400 wts=15 status=3
+ts=4 min_rts 12
+rv=0x7f1f014f78c0 wts=9 status=3
+ts=4 min_rts 12
+rv=0x7f1efff58600 wts=9 status=3
+ts=4 min_rts 12
+rv=0x7f1f00a62b80 wts=7 status=3
+ts=12 min_rts 12
+rv=0x7f1f01c5a480 wts=11 status=3
+backoff=0.000000 us
+ts=6 min_rts 12
+rv=0x7f1f00c5d600 wts=14 status=3
+ts=7 min_rts 12
+rv=0x7f1f01e79380 wts=5 status=3
+ts=8 min_rts 12
+rv=0x7f1f01504940 wts=9 status=3
+ts=4294967297 min_rts 12
+rv=0x7f1f00cdbfc0 wts=3 status=3
+ts=6 min_rts 12
+rv=0x7f1f01508fc0 wts=9 status=3
+ts=10 min_rts 12
+rv=0x7f1f01c6a740 wts=11 status=3
+backoff=0.000000 us
+ts=1 min_rts 12
+rv=0x7f1f01c6f840 wts=11 status=3
+ts=11 min_rts 12
+rv=0x7f1efff5c400 wts=9 status=1
+ts=7 min_rts 12
+rv=0x7f1f015143c0 wts=9 status=3
+ts=14 min_rts 12
+rv=0x7f1f017a16c0 wts=10 status=3
+ts=14 min_rts 12
+rv=0x7f1f01c76800 wts=11 status=3
+ts=14 min_rts 12
+rv=0x7f1f010033c0 wts=0 status=3
+ts=11 min_rts 12
+rv=0x7f1f00c75f00 wts=14 status=3
+ts=2 min_rts 12
+rv=0x7f1f017a6940 wts=10 status=3
+ts=0 min_rts 12
+rv=0x7f1f009eea00 wts=13 status=3
+ts=11 min_rts 12
+rv=0x7f1f00c7ae80 wts=14 status=3
+backoff=0.000000 us
+ts=11 min_rts 12
+rv=0x7f1f009f5000 wts=13 status=3
+ts=9 min_rts 12
+rv=0x7f1f01224480 wts=1 status=3
+ts=11 min_rts 12
+rv=0x7f1f00cffd80 wts=3 status=3
+ts=0 min_rts 12
+rv=0x7f1f00a86e80 wts=7 status=3
+ts=0 min_rts 12
+rv=0x7f1f01ab28c0 wts=4 status=3
+backoff=0.000000 us
+ts=10 min_rts 12
+rv=0x7f1f00a8ef80 wts=7 status=3
+ts=12 min_rts 12
+rv=0x7f1f00c90000 wts=14 status=3
+ts=0 min_rts 12
+rv=0x7f1f0031c280 wts=2 status=3
+ts=14 min_rts 12
+rv=0x7f1f01c930c0 wts=11 status=3
+ts=12 min_rts 12
+rv=0x7f1f018282c0 wts=15 status=3
+ts=2 min_rts 12
+rv=0x7f1f0102a0c0 wts=0 status=3
+backoff=0.000000 us
+ts=6 min_rts 12
+rv=0x7f1f00326a80 wts=2 status=3
+ts=8 min_rts 12
+rv=0x7f1f01ac6300 wts=4 status=3
+ts=15 min_rts 12
+rv=0x7f1f01ac6b40 wts=4 status=3
+ts=13 min_rts 12
+rv=0x7f1f016675c0 wts=8589934604 status=1
+ts=15 min_rts 12
+rv=0x7f1f00329c00 wts=2 status=1
+ts=1 min_rts 12
+rv=0x7f1f01543a00 wts=9 status=3
+ts=8 min_rts 12
+rv=0x7f1efe15d380 wts=11 status=1
+ts=5 min_rts 12
+rv=0x7f1f00d27f80 wts=3 status=3
+ts=1 min_rts 12
+rv=0x7f1efec67200 wts=6 status=1
+ts=8 min_rts 12
+rv=0x7f1f01673680 wts=12 status=3
+backoff=0.000000 us
+ts=9 min_rts 12
+rv=0x7f1f00fb5580 wts=6 status=3
+ts=3 min_rts 12
+rv=0x7f1f012e0100 wts=8 status=3
+ts=13 min_rts 12
+rv=0x7f1f012e1b40 wts=8 status=3
+ts=0 min_rts 12
+rv=0x7f1f012e1b40 wts=8 status=3
+ts=0 min_rts 12
+rv=0x7f1f01847f40 wts=15 status=3
+ts=8 min_rts 12
+rv=0x7f1f01d49280 wts=5 status=3
+ts=7 min_rts 12
+rv=0x7f1f00d3aa00 wts=3 status=3
+backoff=0.000000 us
+ts=13 min_rts 12
+rv=0x7f1f012ee140 wts=8 status=3
+ts=15 min_rts 12
+rv=0x7f1f012ee140 wts=8 status=3
+ts=12 min_rts 12
+rv=0x7f1f0104f800 wts=0 status=1
+ts=10 min_rts 12
+rv=0x7f1f0168a900 wts=12 status=1
+ts=8 min_rts 12
+rv=0x7f1f01af4b00 wts=4 status=3
+ts=12 min_rts 12
+rv=0x7f1efb761980 wts=5 status=1
+ts=1 min_rts 12
+rv=0x7f1f017ec180 wts=10 status=3
+backoff=0.000000 us
+ts=15 min_rts 12
+rv=0x7f1f01cc6900 wts=11 status=3
+ts=13 min_rts 12
+rv=0x7f1efb762980 wts=5 status=3
+ts=7 min_rts 12
+rv=0x7f1f01ccb580 wts=11 status=3
+ts=12 min_rts 12
+rv=0x7f1f013089c0 wts=8 status=3
+backoff=0.000000 us
+ts=15 min_rts 12
+rv=0x7f1f00853a00 wts=13 status=3
+ts=15 min_rts 12
+rv=0x7f1f016012c0 wts=10 status=3
+ts=13 min_rts 12
+rv=0x7f1f0106ffc0 wts=0 status=3
+ts=9 min_rts 12
+rv=0x7f1f010702c0 wts=0 status=3
+ts=13 min_rts 12
+rv=0x7f1f00b76400 wts=14 status=3
+ts=13 min_rts 12
+rv=0x7f1efaf76500 wts=7 status=1
+ts=2 min_rts 12
+rv=0x7f1f016a6ec0 wts=12 status=3
+ts=9 min_rts 12
+rv=0x7f1f00b78e00 wts=14 status=3
+ts=0 min_rts 12
+rv=0x7f1f01609900 wts=10 status=3
+ts=4 min_rts 12
+rv=0x7f1f0187fec0 wts=15 status=3
+backoff=0.000000 us
+ts=6 min_rts 12
+rv=0x7f1f01ce67c0 wts=11 status=3
+ts=4 min_rts 12
+rv=0x7f1f0188c280 wts=15 status=3
+ts=5 min_rts 12
+rv=0x7f1f016b9100 wts=12 status=3
+backoff=0.000000 us
+ts=9 min_rts 12
+rv=0x7f1f00874c40 wts=13 status=3
+ts=6 min_rts 12
+rv=0x7f1f016bf400 wts=12 status=3
+ts=5 min_rts 12
+rv=0x7f1f00e03180 wts=6 status=3
+ts=8 min_rts 12
+rv=0x7f1f00385d00 wts=2 status=3
+ts=10 min_rts 12
+rv=0x7f1f01cf8b80 wts=11 status=3
+ts=14 min_rts 12
+rv=0x7f1f015aca00 wts=9 status=3
+ts=5 min_rts 12
+rv=0x7f1f01cf9fc0 wts=11 status=3
+ts=11 min_rts 12
+rv=0x7f1f01b32240 wts=4 status=3
+ts=14 min_rts 12
+rv=0x7f1f01628800 wts=10 status=3
+ts=14 min_rts 12
+rv=0x7f1efff6f600 wts=9 status=3
+ts=6 min_rts 12
+rv=0x7f1f016ca680 wts=4294967308 status=3
+backoff=0.000000 us
+ts=15 min_rts 12
+rv=0x7f1f01342ec0 wts=8 status=3
+ts=6 min_rts 12
+rv=0x7f1f015b5e80 wts=9 status=3
+ts=3 min_rts 12
+rv=0x7f1f01b3c380 wts=4 status=3
+ts=3 min_rts 12
+rv=0x7f1efed6e900 wts=4 status=1
+backoff=0.000000 us
+ts=2 min_rts 12
+rv=0x7f1f0088ebc0 wts=13 status=3
+ts=11 min_rts 12
+rv=0x7f1f0163c540 wts=10 status=1
+ts=12 min_rts 12
+rv=0x7f1f01ea3980 wts=2 status=3
+ts=11 min_rts 12
+rv=0x7f1f018b6f40 wts=15 status=3
+ts=15 min_rts 12
+rv=0x7f1f01dac940 wts=5 status=3
+ts=7 min_rts 12
+rv=0x7f1f00e291c0 wts=6 status=3
+ts=8 min_rts 12
+rv=0x7f1f00dacc40 wts=3 status=3
+backoff=0.000000 us
+ts=11 min_rts 12
+rv=0x7f1f01b52100 wts=4 status=3
+ts=1 min_rts 12
+rv=0x7f1f01bbc6c0 wts=11 status=3
+ts=0 min_rts 12
+rv=0x7f1f015d10c0 wts=9 status=3
+ts=8 min_rts 12
+rv=0x7f1f018c4140 wts=15 status=3
+ts=7 min_rts 12
+rv=0x7f1f00e30fc0 wts=6 status=3
+ts=12 min_rts 12
+rv=0x7f1f00db3840 wts=3 status=3
+ts=10 min_rts 12
+rv=0x7f1f01b57800 wts=4 status=3
+backoff=0.000000 us
+ts=0 min_rts 12
+rv=0x7f1f01b5f840 wts=4 status=3
+ts=4 min_rts 12
+rv=0x7f1f01dc9740 wts=5 status=3
+ts=6 min_rts 12
+rv=0x7f1f01b61a00 wts=4 status=3
+ts=8 min_rts 12
+rv=0x7f1efed73f00 wts=4 status=1
+ts=1 min_rts 12
+rv=0x7f1f0240f0c0 wts=7 status=3
+ts=8 min_rts 12
+rv=0x7f1f018db000 wts=15 status=3
+backoff=0.000000 us
+ts=5 min_rts 12
+rv=0x7f1f027ef600 wts=8 status=3
+ts=4294967306 min_rts 12
+rv=0x7f1efec7b700 wts=6 status=3
+ts=2 min_rts 12
+rv=0x7f1f022fb640 wts=3 status=3
+ts=11 min_rts 12
+rv=0x7f1f02d7bbc0 wts=1 status=3
+ts=0 min_rts 12
+rv=0x7f1f02d7dc00 wts=1 status=3
+ts=1 min_rts 12
+rv=0x7f1f02420940 wts=7 status=3
+ts=0 min_rts 12
+rv=0x7f1f022fe1c0 wts=3 status=3
+ts=10 min_rts 12
+rv=0x7f1f022fe1c0 wts=3 status=3
+backoff=0.000000 us
+ts=10 min_rts 12
+rv=0x7f1f02ffd7c0 wts=9 status=1
+ts=3 min_rts 12
+rv=0x7f1f01de8d00 wts=5 status=3
+ts=7 min_rts 12
+rv=0x7f1f01debe80 wts=5 status=3
+ts=15 min_rts 12
+rv=0x7f1f01bedc80 wts=11 status=1
+ts=6 min_rts 12
+rv=0x7f1f02898880 wts=0 status=3
+ts=5 min_rts 12
+rv=0x7f1f02e92280 wts=4 status=3
+backoff=0.000000 us
+ts=13 min_rts 12
+rv=0x7f1efb774f00 wts=5 status=3
+ts=6 min_rts 12
+rv=0x7f1f028a0800 wts=0 status=3
+ts=0 min_rts 12
+rv=0x7f1efa65a500 wts=4294967297 status=3
+ts=7 min_rts 12
+rv=0x7f1f02317900 wts=3 status=3
+ts=3 min_rts 12
+rv=0x7f1f01a00a80 wts=11 status=3
+ts=14 min_rts 12
+rv=0x7f1f02618d80 wts=8 status=3
+backoff=0.000000 us
+ts=4 min_rts 12
+rv=0x7f1f0243fc00 wts=7 status=3
+ts=8 min_rts 12
+rv=0x7f1f025b24c0 wts=6 status=1
+ts=9 min_rts 12
+rv=0x7f1f01f02840 wts=2 status=3
+ts=12 min_rts 12
+rv=0x7f1f02330980 wts=3 status=3
+ts=7 min_rts 12
+rv=0x7f1f02628bc0 wts=8 status=3
+backoff=0.000000 us
+ts=7 min_rts 12
+rv=0x7f1f028c0cc0 wts=0 status=3
+ts=0 min_rts 12
+rv=0x7f1f02dbbb80 wts=1 status=3
+ts=14 min_rts 12
+rv=0x7f1f02458440 wts=7 status=3
+backoff=0.000000 us
+ts=2 min_rts 12
+rv=0x7f1f030d7040 wts=10 status=3
+ts=14 min_rts 12
+rv=0x7f1f02642840 wts=8 status=3
+backoff=0.000000 us
+ts=14 min_rts 12
+rv=0x7f1f02350f00 wts=3 status=3
+ts=13 min_rts 12
+rv=0x7f1f028d6b00 wts=0 status=3
+ts=2 min_rts 12
+rv=0x7f1f0246e4c0 wts=7 status=3
+ts=2 min_rts 12
+rv=0x7f1f023db2c0 wts=6 status=3
+ts=13 min_rts 12
+rv=0x7f1f023dea40 wts=6 status=3
+ts=11 min_rts 12
+rv=0x7f1efff83680 wts=9 status=3
+ts=8 min_rts 12
+rv=0x7f1f02dd79c0 wts=1 status=3
+backoff=0.000000 us
+ts=8 min_rts 12
+rv=0x7f1f028e7300 wts=0 status=3
+ts=15 min_rts 12
+rv=0x7f1f02363d40 wts=3 status=3
+ts=2 min_rts 12
+rv=0x7f1f0297a780 wts=13 status=3
+ts=9 min_rts 12
+rv=0x7f1f02ee4d80 wts=4 status=3
+ts=1 min_rts 12
+rv=0x7f1f02660c00 wts=8 status=3
+ts=2 min_rts 12
+rv=0x7f1f030f7f80 wts=10 status=3
+backoff=0.000000 us
+ts=8 min_rts 12
+rv=0x7f1f02eec280 wts=4 status=1
+ts=4294967310 min_rts 12
+rv=0x7f1efce88a00 wts=10 status=1
+ts=5 min_rts 12
+rv=0x7f1f0337cac0 wts=15 status=3
+ts=3 min_rts 12
+rv=0x7f1f0266b880 wts=8 status=3
+ts=13 min_rts 12
+rv=0x7f1f0266bd00 wts=8 status=3
+ts=4 min_rts 12
+rv=0x7f1efae8af00 wts=8 status=3
+ts=15 min_rts 12
+rv=0x7f1efaf91480 wts=7 status=1
+ts=14 min_rts 12
+rv=0x7f1f028fdec0 wts=0 status=3
+ts=6 min_rts 12
+rv=0x7f1f0298be80 wts=13 status=3
+ts=10 min_rts 12
+rv=0x7f1f01f4e2c0 wts=2 status=3
+ts=15 min_rts 12
+rv=0x7f1f02efa200 wts=4 status=3
+ts=13 min_rts 12
+rv=0x7f1f02efa200 wts=4 status=3
+backoff=0.000000 us
+ts=10 min_rts 12
+rv=0x7f1f02a06300 wts=12 status=3
+ts=3 min_rts 12
+rv=0x7f1f02df71c0 wts=1 status=3
+ts=9 min_rts 12
+rv=0x7f1f02f01580 wts=4 status=3
+ts=8 min_rts 12
+rv=0x7f1f02a09fc0 wts=12 status=3
+ts=3 min_rts 12
+rv=0x7f1f02f07700 wts=4 status=3
+ts=10 min_rts 12
+rv=0x7f1f02f07700 wts=4 status=3
+ts=10 min_rts 12
+rv=0x7f1f02dfd400 wts=1 status=3
+ts=13 min_rts 12
+rv=0x7f1f0238c0c0 wts=3 status=3
+backoff=0.000000 us
+ts=4 min_rts 12
+rv=0x7f1f0339cd40 wts=15 status=3
+ts=10 min_rts 12
+rv=0x7f1f02e8afc0 wts=9 status=3
+ts=6 min_rts 12
+rv=0x7f1f02c07800 wts=1 status=3
+ts=14 min_rts 12
+rv=0x7f1f02217b80 wts=6 status=1
+backoff=0.000000 us
+ts=3 min_rts 12
+rv=0x7f1f033a9040 wts=15 status=3
+ts=14 min_rts 12
+rv=0x7f1f02924980 wts=0 status=3
+ts=14 min_rts 12
+rv=0x7f1f02a2ac00 wts=4294967308 status=3
+ts=15 min_rts 12
+rv=0x7f1f0312bd00 wts=10 status=3
+ts=8 min_rts 12
+rv=0x7f1f01f77d80 wts=2 status=3
+ts=8 min_rts 12
+rv=0x7f1f033b1ec0 wts=15 status=3
+ts=9 min_rts 12
+rv=0x7f1f01f79880 wts=2 status=3
+ts=5 min_rts 12
+rv=0x7f1f02224300 wts=6 status=3
+ts=3 min_rts 12
+rv=0x7f1f02a2f700 wts=12 status=3
+ts=9 min_rts 12
+rv=0x7f1f0312fc00 wts=10 status=3
+ts=8 min_rts 12
+rv=0x7f1f029b7a40 wts=13 status=3
+ts=11 min_rts 12
+rv=0x7f1f02c20a00 wts=1 status=3
+backoff=0.000000 us
+ts=8 min_rts 12
+rv=0x7f1f02930080 wts=0 status=3
+ts=7 min_rts 12
+rv=0x7f1f0341e0c0 wts=11 status=3
+ts=0 min_rts 12
+rv=0x7f1f0332f9c0 wts=5 status=3
+ts=8 min_rts 12
+rv=0x7f1f02c2d480 wts=1 status=3
+ts=11 min_rts 12
+rv=0x7f1f02234d40 wts=6 status=3
+ts=8 min_rts 12
+rv=0x7f1f02234d40 wts=6 status=3
+backoff=0.000000 us
+ts=10 min_rts 12
+rv=0x7f1f033d0ac0 wts=15 status=3
+ts=4 min_rts 12
+rv=0x7f1f024ddd00 wts=7 status=3
+ts=9 min_rts 12
+rv=0x7f1f02a4ea80 wts=12 status=3
+ts=7 min_rts 12
+rv=0x7f1f026be140 wts=8 status=3
+ts=0 min_rts 12
+rv=0x7f1f026be080 wts=8 status=3
+ts=12 min_rts 12
+rv=0x7f1f033d8ec0 wts=15 status=3
+backoff=0.000000 us
+ts=3 min_rts 12
+rv=0x7f1f033dd9c0 wts=15 status=3
+ts=15 min_rts 12
+rv=0x7f1f02248300 wts=6 status=3
+ts=7 min_rts 12
+rv=0x7f1f03152a00 wts=10 status=1
+ts=0 min_rts 12
+rv=0x7f1f029e0240 wts=13 status=3
+ts=0 min_rts 12
+rv=0x7f1f02cc5dc0 wts=9 status=3
+ts=6 min_rts 12
+rv=0x7f1f02c423c0 wts=1 status=3
+ts=3 min_rts 12
+rv=0x7f1f02f593c0 wts=4 status=3
+backoff=0.000000 us
+ts=12 min_rts 12
+rv=0x7f1f026cf180 wts=8 status=3
+ts=10 min_rts 12
+rv=0x7f1f029e8dc0 wts=13 status=3
+ts=6 min_rts 12
+rv=0x7f1f0343f540 wts=11 status=3
+ts=7 min_rts 12
+rv=0x7f1f02a64080 wts=12 status=3
+ts=2 min_rts 12
+rv=0x7f1f029f1340 wts=13 status=1
+ts=7 min_rts 12
+rv=0x7f1f03165fc0 wts=10 status=3
+ts=4 min_rts 12
+rv=0x7f1f0335b1c0 wts=5 status=3
+ts=2 min_rts 12
+rv=0x7f1f033f6b00 wts=15 status=3
+backoff=0.000000 us
+ts=0 min_rts 12
+rv=0x7f1f033faac0 wts=15 status=3
+ts=15 min_rts 12
+rv=0x7f1f03360500 wts=5 status=3
+ts=14 min_rts 12
+rv=0x7f1f02773700 wts=0 status=3
+ts=9 min_rts 12
+rv=0x7f1f021f3e00 wts=3 status=3
+ts=7 min_rts 12
+rv=0x7f1f02801980 wts=13 status=1
+backoff=0.000000 us
+ts=8 min_rts 12
+rv=0x7f1f02808940 wts=13 status=3
+ts=4 min_rts 12
+rv=0x7f1f026f06c0 wts=8 status=3
+ts=5 min_rts 12
+rv=0x7f1f02a84a80 wts=12 status=3
+ts=4 min_rts 12
+rv=0x7f1f02186540 wts=14 status=3
+ts=10 min_rts 12
+rv=0x7f1f021869c0 wts=14 status=3
+backoff=0.000000 us
+ts=15 min_rts 12
+rv=0x7f1f02a8a600 wts=12 status=3
+ts=7 min_rts 12
+rv=0x7f1f01fd3d00 wts=2 status=3
+ts=13 min_rts 12
+rv=0x7f1f02282f80 wts=6 status=3
+ts=7 min_rts 12
+rv=0x7f1f0281f740 wts=13 status=3
+backoff=0.000000 us
+ts=8 min_rts 12
+rv=0x7f1f032231c0 wts=15 status=3
+ts=5 min_rts 12
+rv=0x7f1f021a3ac0 wts=14 status=3
+ts=5 min_rts 12
+rv=0x7f1f021a52c0 wts=14 status=1
+backoff=0.000000 us
+ts=4 min_rts 12
+rv=0x7f1f02830840 wts=13 status=3
+ts=11 min_rts 12
+rv=0x7f1f03043140 wts=5 status=3
+ts=4 min_rts 12
+rv=0x7f1f02031f80 wts=3 status=3
+ts=13 min_rts 12
+rv=0x7f1f02d13040 wts=9 status=3
+ts=4 min_rts 12
+rv=0x7f1f02b46340 wts=1 status=3
+ts=4 min_rts 12
+rv=0x7f1f02838880 wts=13 status=3
+ts=8 min_rts 12
+rv=0x7f1f0348c580 wts=11 status=3
+ts=13 min_rts 12
+rv=0x7f1f021b7740 wts=14 status=3
+backoff=0.000000 us
+ts=9 min_rts 12
+rv=0x7f1f03495d00 wts=11 status=3
+ts=8 min_rts 12
+rv=0x7f1f0254a780 wts=7 status=3
+ts=3 min_rts 12
+rv=0x7f1f02848c00 wts=13 status=3
+ts=8 min_rts 12
+rv=0x7f1f022b01c0 wts=6 status=3
+ts=13 min_rts 12
+rv=0x7f1f0349e880 wts=11 status=3
+ts=5 min_rts 12
+rv=0x7f1f031c0380 wts=10 status=3
+ts=14 min_rts 12
+rv=0x7f1f01e04f80 wts=2 status=3
+backoff=0.000000 us
+ts=4 min_rts 12
+rv=0x7f1f027cb000 wts=0 status=3
+ts=8 min_rts 12
+rv=0x7f1f02acb700 wts=12 status=3
+ts=8 min_rts 12
+rv=0x7f1f02d326c0 wts=9 status=3
+ts=8 min_rts 12
+rv=0x7f1f02accfc0 wts=12 status=3
+ts=13 min_rts 12
+rv=0x7f1f02b65cc0 wts=1 status=3
+ts=11 min_rts 12
+rv=0x7f1efff9ab00 wts=9 status=3
+backoff=0.000000 us
+ts=12 min_rts 12
+rv=0x7f1f02057a80 wts=3 status=3
+ts=15 min_rts 12
+rv=0x7f1f02ad1700 wts=12 status=3
+ts=4 min_rts 12
+rv=0x7f1f025db980 wts=8 status=3
+ts=13 min_rts 12
+rv=0x7f1f022cc780 wts=6 status=3
+ts=12 min_rts 12
+rv=0x7f1f02fcdf40 wts=4 status=3
+ts=0 min_rts 12
+rv=0x7f1f022cf540 wts=6 status=3
+ts=10 min_rts 12
+rv=0x7f1f0256d1c0 wts=7 status=3
+ts=11 min_rts 12
+rv=0x7f1f022d11c0 wts=6 status=3
+ts=6 min_rts 12
+rv=0x7f1f038d8600 wts=2 status=3
+backoff=0.000000 us
+ts=15 min_rts 12
+rv=0x7f1f02d46b80 wts=9 status=3
+ts=14 min_rts 12
+rv=0x7f1f03e68340 wts=0 status=3
+ts=14 min_rts 12
+rv=0x7f1f03bfd700 wts=7 status=3
+ts=12 min_rts 12
+rv=0x7f1f03084e40 wts=5 status=3
+backoff=0.000000 us
+ts=12 min_rts 12
+rv=0x7f1f03efc900 wts=1 status=3
+ts=0 min_rts 12
+rv=0x7f1f03711c00 wts=14 status=3
+ts=14 min_rts 12
+rv=0x7f1f02aefb80 wts=12 status=3
+ts=4 min_rts 12
+rv=0x7f1efc6a8800 wts=3 status=1
+ts=9 min_rts 12
+rv=0x7f1f02afb940 wts=12 status=3
+ts=0 min_rts 12
+rv=0x7f1f03ded5c0 wts=13 status=3
+backoff=0.000000 us
+ts=5 min_rts 12
+rv=0x7f1f03a11880 wts=7 status=3
+ts=7 min_rts 12
+rv=0x7f1f0418ca80 wts=6 status=3
+ts=8 min_rts 12
+rv=0x7f1f038f7f80 wts=2 status=3
+ts=15 min_rts 12
+rv=0x7f1f02d65780 wts=9 status=3
+ts=6 min_rts 12
+rv=0x7f1f030078c0 wts=10 status=1
+ts=5 min_rts 12
+rv=0x7f1f03df8e40 wts=13 status=3
+backoff=0.000000 us
+ts=9 min_rts 12
+rv=0x7f1f03a21300 wts=7 status=3
+ts=10 min_rts 12
+rv=0x7f1f03dfb9c0 wts=13 status=3
+ts=6 min_rts 12
+rv=0x7f1f02d74900 wts=9 status=3
+ts=1 min_rts 12
+rv=0x7f1f03c024c0 wts=13 status=3
+ts=2 min_rts 12
+rv=0x7f1f04596440 wts=5 status=3
+backoff=0.000000 us
+ts=15 min_rts 12
+rv=0x7f1f043b9cc0 wts=8 status=3
+ts=12 min_rts 12
+rv=0x7f1f0459ae80 wts=5 status=3
+ts=0 min_rts 12
+rv=0x7f1efb69f580 wts=12 status=1
+ts=8 min_rts 12
+rv=0x7f1f04aa3e00 wts=9 status=3
+ts=4 min_rts 12
+rv=0x7f1f04aa77c0 wts=9 status=3
+ts=2 min_rts 12
+rv=0x7f1efafae500 wts=7 status=3
+ts=8 min_rts 12
+rv=0x7f1f03745ec0 wts=14 status=3
+backoff=0.000000 us
+ts=14 min_rts 12
+rv=0x7f1f0350af40 wts=11 status=3
+ts=8 min_rts 12
+rv=0x7f1f03a3ff00 wts=7 status=3
+ts=11 min_rts 12
+rv=0x7f1f039afdc0 wts=3 status=3
+ts=15 min_rts 12
+rv=0x7f1f046c3c00 wts=12 status=3
+ts=4 min_rts 12
+rv=0x7f1f03ea7dc0 wts=0 status=3
+ts=0 min_rts 12
+rv=0x7f1f03f3be40 wts=1 status=3
+backoff=0.000000 us
+ts=11 min_rts 12
+rv=0x7f1f046cd800 wts=4294967308 status=3
+ts=6 min_rts 12
+rv=0x7f1f03a4cf80 wts=7 status=3
+ts=12 min_rts 12
+rv=0x7f1f045b6000 wts=5 status=3
+ts=12 min_rts 12
+rv=0x7f1f0351be00 wts=11 status=3
+ts=13 min_rts 12
+rv=0x7f1f03f479c0 wts=1 status=3
+ts=12 min_rts 12
+rv=0x7f1f03a56dc0 wts=7 status=3
+ts=4 min_rts 12
+rv=0x7f1f03a58a40 wts=7 status=3
+ts=4 min_rts 12
+rv=0x7f1f03c30f00 wts=13 status=3
+backoff=0.000000 us
+ts=14 min_rts 12
+rv=0x7f1f043e6000 wts=8 status=3
+ts=8 min_rts 12
+rv=0x7f1f041d2080 wts=6 status=3
+ts=3 min_rts 12
+rv=0x7f1f046e4300 wts=12 status=3
+ts=15 min_rts 12
+rv=0x7f1f03ec6fc0 wts=0 status=3
+backoff=0.000000 us
+ts=12 min_rts 12
+rv=0x7f1f03776640 wts=14 status=3
+ts=7 min_rts 12
+rv=0x7f1f048cff00 wts=15 status=3
+ts=15 min_rts 12
+rv=0x7f1f03c46a40 wts=13 status=3
+ts=1 min_rts 12
+rv=0x7f1f03a74400 wts=7 status=3
+backoff=0.000000 us
+ts=4 min_rts 12
+rv=0x7f1f041ed5c0 wts=6 status=3
+ts=13 min_rts 12
+rv=0x7f1f03a7c680 wts=7 status=3
+ts=0 min_rts 12
+rv=0x7f1f039ea5c0 wts=3 status=3
+ts=8 min_rts 12
+rv=0x7f1f048e7780 wts=15 status=3
+ts=6 min_rts 12
+rv=0x7f1f0428bec0 wts=5 status=3
+ts=3 min_rts 12
+rv=0x7f1f03ee1180 wts=0 status=3
+ts=12 min_rts 12
+rv=0x7f1f048ea9c0 wts=15 status=3
+backoff=0.000000 us
+ts=11 min_rts 12
+rv=0x7f1f048ec700 wts=15 status=3
+ts=12 min_rts 12
+rv=0x7f1f048ec700 wts=15 status=3
+ts=1 min_rts 12
+rv=0x7f1f04b7dcc0 wts=10 status=3
+ts=9 min_rts 12
+rv=0x7f1f03796200 wts=4294967310 status=3
+ts=10 min_rts 12
+rv=0x7f1f03798300 wts=14 status=3
+ts=5 min_rts 12
+rv=0x7f1f04480c40 wts=4 status=3
+backoff=0.000000 us
+ts=8 min_rts 12
+rv=0x7f1f04b8b100 wts=10 status=3
+ts=14 min_rts 12
+rv=0x7f1f04487180 wts=4 status=3
+ts=12 min_rts 12
+rv=0x7f1f0421f080 wts=8 status=3
+ts=7 min_rts 12
+rv=0x7f1f04489400 wts=4 status=3
+ts=11 min_rts 12
+rv=0x7f1f04b8cb40 wts=10 status=3
+ts=15 min_rts 12
+rv=0x7f1f042237c0 wts=8 status=3
+ts=12 min_rts 12
+rv=0x7f1f03cfa980 wts=0 status=1
+ts=8 min_rts 12
+rv=0x7f1f03c72540 wts=4294967309 status=3
+backoff=0.000000 us
+ts=2 min_rts 12
+rv=0x7f1efa68a480 wts=1 status=3
+ts=8 min_rts 12
+rv=0x7f1f0472c180 wts=12 status=3
+ts=5 min_rts 12
+rv=0x7f1f0449c540 wts=4 status=3
+ts=10 min_rts 12
+rv=0x7f1f0449d980 wts=4 status=3
+backoff=0.000000 us
+ts=13 min_rts 12
+rv=0x7f1f03d0da00 wts=0 status=3
+ts=1 min_rts 12
+rv=0x7f1f042ba180 wts=5 status=3
+ts=9 min_rts 12
+rv=0x7f1f03822f80 wts=3 status=3
+ts=4294967311 min_rts 12
+rv=0x7f1f042c30c0 wts=5 status=3
+backoff=0.000000 us
+ts=10 min_rts 12
+rv=0x7f1f04ceacc0 wts=11 status=1
+ts=5 min_rts 12
+rv=0x7f1f03d22f40 wts=0 status=3
+ts=14 min_rts 12
+rv=0x7f1f03fb8e80 wts=1 status=3
+ts=14 min_rts 12
+rv=0x7f1f04930980 wts=15 status=3
+ts=12 min_rts 12
+rv=0x7f1f03c9c000 wts=13 status=3
+ts=6 min_rts 12
+rv=0x7f1f04931340 wts=15 status=3
+backoff=0.000000 us
+ts=3 min_rts 12
+rv=0x7f1f04cf2c40 wts=11 status=3
+ts=9 min_rts 12
+rv=0x7f1f04bbf540 wts=10 status=3
+ts=6 min_rts 12
+rv=0x7f1f03ca1580 wts=13 status=1
+ts=0 min_rts 12
+rv=0x7f1f04048a80 wts=6 status=3
+ts=15 min_rts 12
+rv=0x7f1f044c5880 wts=4 status=3
+backoff=0.000000 us
+ts=6 min_rts 12
+rv=0x7f1f03646980 wts=2 status=3
+ts=8 min_rts 12
+rv=0x7f1f042e3280 wts=5 status=3
+ts=2 min_rts 12
+rv=0x7f1efecb1c00 wts=6 status=3
+ts=8 min_rts 12
+rv=0x7f1f03fcde80 wts=1 status=3
+ts=11 min_rts 12
+rv=0x7f1f04269480 wts=8 status=3
+ts=12 min_rts 12
+rv=0x7f1f03d3f740 wts=0 status=3
+ts=7 min_rts 12
+rv=0x7f1f042eb5c0 wts=5 status=3
+backoff=0.000000 us
+ts=5 min_rts 12
+rv=0x7f1f03fd8980 wts=1 status=3
+ts=8 min_rts 12
+rv=0x7f1f047efe40 wts=15 status=3
+ts=0 min_rts 12
+rv=0x7f1f044dc500 wts=4 status=3
+ts=15 min_rts 12
+rv=0x7f1f0476be40 wts=12 status=3
+ts=15 min_rts 12
+rv=0x7f1efedae400 wts=4 status=3
+ts=0 min_rts 12
+rv=0x7f1f037fb3c0 wts=14 status=3
+ts=13 min_rts 12
+rv=0x7f1efc6bbf00 wts=3 status=1
+backoff=0.000000 us
+ts=7 min_rts 12
+rv=0x7f1f03cc7b00 wts=13 status=3
+ts=0 min_rts 12
+rv=0x7f1f03606540 wts=14 status=3
+ts=9 min_rts 12
+rv=0x7f1f04bf0800 wts=10 status=3
+ts=1 min_rts 12
+rv=0x7f1f04607740 wts=15 status=3
+ts=6 min_rts 12
+rv=0x7f1f03fe7a40 wts=1 status=3
+backoff=0.000000 us
+ts=6 min_rts 12
+rv=0x7f1f044f5ac0 wts=4 status=3
+ts=15 min_rts 12
+rv=0x7f1f04077100 wts=6 status=3
+ts=1 min_rts 12
+rv=0x7f1f04611880 wts=15 status=3
+ts=2 min_rts 12
+rv=0x7f1f03b06e00 wts=7 status=3
+backoff=0.000000 us
+ts=9 min_rts 12
+rv=0x7f1f0431a480 wts=5 status=3
+ts=6 min_rts 12
+rv=0x7f1f04118440 wts=8 status=3
+ts=14 min_rts 12
+rv=0x7f1f03d74d80 wts=0 status=3
+ts=0 min_rts 12
+rv=0x7f1f03622740 wts=14 status=1
+ts=0 min_rts 12
+rv=0x7f1f04d449c0 wts=11 status=3
+ts=11 min_rts 12
+rv=0x7f1f049f3500 wts=9 status=3
+backoff=0.000000 us
+ts=14 min_rts 12
+rv=0x7f1f04d50600 wts=11 status=3
+ts=4 min_rts 12
+rv=0x7f1f0462c4c0 wts=15 status=3
+ts=2 min_rts 12
+rv=0x7f1f04d51740 wts=11 status=1
+ts=12 min_rts 12
+rv=0x7f1f036993c0 wts=2 status=3
+ts=4 min_rts 12
+rv=0x7f1f04800b40 wts=9 status=3
+ts=7 min_rts 12
+rv=0x7f1f04d52d00 wts=11 status=3
+ts=0 min_rts 12
+rv=0x7f1f03b99080 wts=13 status=3
+ts=4294967298 min_rts 12
+rv=0x7f1f0412e280 wts=8 status=3
+backoff=0.000000 us
+ts=15 min_rts 12
+rv=0x7f1f0451f1c0 wts=4 status=3
+ts=6 min_rts 12
+rv=0x7f1f03b31f40 wts=7 status=3
+ts=10 min_rts 12
+rv=0x7f1f04340280 wts=5 status=3
+ts=14 min_rts 12
+rv=0x7f1f04813140 wts=9 status=3
+backoff=0.000000 us
+ts=12 min_rts 12
+rv=0x7f1f03593380 wts=14 status=3
+ts=11 min_rts 12
+rv=0x7f1f04814640 wts=9 status=3
+ts=7 min_rts 12
+rv=0x7f1f040a8480 wts=6 status=3
+ts=9 min_rts 12
+rv=0x7f1f04a29940 wts=10 status=3
+ts=4 min_rts 12
+rv=0x7f1f03598480 wts=14 status=3
+ts=8 min_rts 12
+rv=0x7f1f04a31e00 wts=10 status=3
+ts=14 min_rts 12
+rv=0x7f1f0464f080 wts=15 status=3
+backoff=0.000000 us
+ts=12 min_rts 12
+rv=0x7f1f040b3e80 wts=6 status=3
+ts=6 min_rts 12
+rv=0x7f1f047d0e80 wts=12 status=3
+ts=3 min_rts 12
+rv=0x7f1f03b45680 wts=7 status=3
+backoff=0.000000 us
+ts=4 min_rts 12
+rv=0x7f1f04158940 wts=8 status=3
+ts=2 min_rts 12
+rv=0x7f1f04ee3400 wts=14 status=3
+ts=6 min_rts 12
+rv=0x7f1f04a45e40 wts=10 status=3
+ts=3 min_rts 12
+rv=0x7f1f040cc480 wts=6 status=3
+ts=2 min_rts 12
+rv=0x7f1f0483a980 wts=9 status=3
+ts=4 min_rts 12
+rv=0x7f1f045eb940 wts=12 status=1
+backoff=0.000000 us
+ts=11 min_rts 12
+rv=0x7f1f04f59000 wts=3 status=3
+ts=8 min_rts 12
+rv=0x7f1f04add340 wts=11 status=3
+ts=12 min_rts 12
+rv=0x7f1f04844a00 wts=9 status=3
+ts=15 min_rts 12
+rv=0x7f1f04168e40 wts=8 status=3
+ts=9 min_rts 12
+rv=0x7f1f04558dc0 wts=4 status=3
+ts=3 min_rts 12
+rv=0x7f1f03dcbe40 wts=0 status=3
+ts=4 min_rts 12
+rv=0x7f1f03dcbe40 wts=0 status=3
+ts=12 min_rts 12
+rv=0x7f1f041704c0 wts=8 status=3
+backoff=0.000000 us
+ts=1 min_rts 12
+rv=0x7f1f045faf40 wts=12 status=3
+ts=12 min_rts 12
+rv=0x7f1f03be51c0 wts=13 status=3
+ts=9 min_rts 12
+rv=0x7f1f055d7540 wts=1 status=3
+backoff=0.000000 us
+ts=6 min_rts 12
+rv=0x7f1f04a6dd40 wts=10 status=3
+ts=5 min_rts 12
+rv=0x7f1f05551800 wts=8 status=3
+ts=14 min_rts 12
+rv=0x7f1f04af6600 wts=11 status=3
+ts=14 min_rts 12
+rv=0x7f1f050ea9c0 wts=7 status=3
+ts=13 min_rts 12
+rv=0x7f1f0440bdc0 wts=12 status=3
+ts=12 min_rts 12
+rv=0x7f1f055e1740 wts=4294967297 status=3
+ts=7 min_rts 12
+rv=0x7f1f04394e80 wts=5 status=3
+ts=11 min_rts 12
+rv=0x7f1efcfc5000 wts=13 status=3
+ts=8 min_rts 12
+rv=0x7f1f052db180 wts=2 status=3
+ts=0 min_rts 12
+rv=0x7f1f040f4a40 wts=6 status=3
+backoff=0.000000 us
+ts=9 min_rts 12
+rv=0x7f1f05a603c0 wts=12 status=3
+ts=10 min_rts 12
+rv=0x7f1f0468e5c0 wts=15 status=3
+ts=14 min_rts 12
+rv=0x7f1f0457e440 wts=4 status=3
+ts=5 min_rts 12
+rv=0x7f1f052e2380 wts=2 status=3
+ts=15 min_rts 12
+rv=0x7f1f055ea800 wts=1 status=3
+ts=13 min_rts 12
+rv=0x7f1f05d809c0 wts=5 status=3
+ts=4 min_rts 12
+rv=0x7f1f04f1fac0 wts=14 status=3
+backoff=0.000000 us
+ts=12 min_rts 12
+rv=0x7f1f04876ec0 wts=9 status=3
+ts=7 min_rts 12
+rv=0x7f1efb7b7e00 wts=5 status=3
+ts=8 min_rts 12
+rv=0x7f1f05aff900 wts=6 status=3
+ts=8 min_rts 12
+rv=0x7f1f04b15140 wts=11 status=3
+ts=0 min_rts 12
+rv=0x7f1efcfc6380 wts=13 status=1
+ts=12 min_rts 12
+rv=0x7f1f04f2f180 wts=14 status=3
+ts=3 min_rts 12
+rv=0x7f1f0487dac0 wts=9 status=3
+ts=1 min_rts 12
+rv=0x7f1f04a8e740 wts=10 status=3
+ts=7 min_rts 12
+rv=0x7f1f04a8e740 wts=10 status=3
+ts=0 min_rts 12
+rv=0x7f1f04b18500 wts=11 status=3
+ts=8 min_rts 12
+rv=0x7f1f04b1a0c0 wts=11 status=1
+backoff=0.000000 us
+ts=10 min_rts 12
+rv=0x7f1f05577300 wts=8 status=3
+ts=9 min_rts 12
+rv=0x7f1f05e9c180 wts=15 status=3
+ts=0 min_rts 12
+rv=0x7f1f05e9cfc0 wts=15 status=3
+backoff=0.000000 us
+ts=6 min_rts 12
+rv=0x7f1f04fac7c0 wts=3 status=3
+ts=13 min_rts 12
+rv=0x7f1f0530c740 wts=2 status=3
+ts=1 min_rts 12
+rv=0x7f1f05a885c0 wts=12 status=3
+ts=6 min_rts 12
+rv=0x7f1f04b28e80 wts=11 status=3
+ts=4294967302 min_rts 12
+rv=0x7f1f061e5c40 wts=9 status=3
+ts=13 min_rts 12
+rv=0x7f1f054174c0 wts=1 status=3
+ts=9 min_rts 12
+rv=0x7f1f056ab3c0 wts=0 status=3
+backoff=0.000000 us
+ts=8 min_rts 12
+rv=0x7f1f0541ce00 wts=1 status=3
+ts=15 min_rts 12
+rv=0x7f1f0590d280 wts=12 status=3
+ts=4 min_rts 12
+rv=0x7f1f0512e040 wts=7 status=3
+ts=10 min_rts 12
+rv=0x7f1efe1b5b00 wts=11 status=1
+ts=0 min_rts 12
+rv=0x7f1f05592780 wts=8 status=3
+ts=6 min_rts 12
+rv=0x7f1f0648f340 wts=11 status=3
+ts=5 min_rts 12
+rv=0x7f1f05eb37c0 wts=15 status=3
+ts=0 min_rts 12
+rv=0x7f1f054255c0 wts=1 status=3
+ts=3 min_rts 12
+rv=0x7f1f05b28f40 wts=6 status=3
+ts=0 min_rts 12
+rv=0x7f1f06491bc0 wts=11 status=3
+ts=11 min_rts 12
+rv=0x7f1f05e50400 wts=4 status=3
+ts=1 min_rts 12
+rv=0x7f1f05917fc0 wts=12 status=3
+backoff=0.000000 us
+ts=14 min_rts 12
+rv=0x7f1f05ebb680 wts=15 status=3
+ts=6 min_rts 12
+rv=0x7f1f06499300 wts=11 status=3
+ts=0 min_rts 12
+rv=0x7f1f061fec00 wts=9 status=3
+ts=4 min_rts 12
+rv=0x7f1f053a6700 wts=8 status=3
+ts=8 min_rts 12
+rv=0x7f1f04d9c740 wts=14 status=3
+ts=2 min_rts 12
+rv=0x7f1f05146ac0 wts=7 status=3
+backoff=0.000000 us
+ts=14 min_rts 12
+rv=0x7f1f05929300 wts=12 status=1
+ts=8 min_rts 12
+rv=0x7f1f0543cf00 wts=1 status=3
+ts=7 min_rts 12
+rv=0x7f1f04da6580 wts=14 status=3
+ts=2 min_rts 12
+rv=0x7f1f0543e400 wts=1 status=3
+ts=2 min_rts 12
+rv=0x7f1efa6a1400 wts=1 status=1
+ts=12 min_rts 12
+rv=0x7f1f0600e4c0 wts=9 status=3
+backoff=0.000000 us
+ts=15 min_rts 12
+rv=0x7f1f064b0040 wts=11 status=3
+ts=4 min_rts 12
+rv=0x7f1f05937940 wts=12 status=3
+ts=3 min_rts 12
+rv=0x7f1f0601a400 wts=9 status=3
+ts=13 min_rts 12
+rv=0x7f1f05b5bc40 wts=6 status=3
+ts=3 min_rts 12
+rv=0x7f1f0601ff80 wts=9 status=3
+backoff=0.000000 us
+ts=0 min_rts 12
+rv=0x7f1f04db8a00 wts=14 status=3
+ts=9 min_rts 12
+rv=0x7f1f064bcc40 wts=11 status=3
+ts=11 min_rts 12
+rv=0x7f1f04ff3740 wts=3 status=3
+ts=3 min_rts 12
+rv=0x7f1f064bed40 wts=11 status=3
+ts=15 min_rts 12
+rv=0x7f1f064c0180 wts=11 status=3
+ts=8 min_rts 12
+rv=0x7f1f05df1c40 wts=5 status=3
+ts=12 min_rts 12
+rv=0x7f1f04dbfb40 wts=14 status=3
+ts=4 min_rts 12
+rv=0x7f1f0602d3c0 wts=9 status=3
+backoff=0.000000 us
+ts=11 min_rts 12
+rv=0x7f1f05461f80 wts=1 status=3
+ts=13 min_rts 12
+rv=0x7f1f05952100 wts=12 status=3
+ts=11 min_rts 12
+rv=0x7f1f05175140 wts=7 status=3
+ts=0 min_rts 12
+rv=0x7f1f05175a40 wts=7 status=3
+ts=0 min_rts 12
+rv=0x7f1f04dcad00 wts=14 status=3
+ts=4 min_rts 12
+rv=0x7f1f0517c340 wts=7 status=3
+ts=5 min_rts 12
+rv=0x7f1f058d7a00 wts=13 status=3
+backoff=0.000000 us
+ts=0 min_rts 12
+rv=0x7f1efcfcde80 wts=13 status=3
+ts=3 min_rts 12
+rv=0x7f1f064d83c0 wts=11 status=3
+ts=1 min_rts 12
+rv=0x7f1f062cd440 wts=10 status=3
+ts=13 min_rts 12
+rv=0x7f1f054702c0 wts=1 status=3
+ts=10 min_rts 12
+rv=0x7f1f05180e40 wts=7 status=3
+ts=4 min_rts 12
+rv=0x7f1f04dd3d00 wts=14 status=3
+ts=4294967306 min_rts 12
+rv=0x7f1f05b7d0c0 wts=6 status=3
+ts=1 min_rts 12
+rv=0x7f1f04e18180 wts=3 status=3
+ts=12 min_rts 12
+rv=0x7f1f04dd76c0 wts=14 status=3
+ts=11 min_rts 12
+rv=0x7f1f0604a1c0 wts=9 status=3
+ts=14 min_rts 12
+rv=0x7f1f05c14880 wts=5 status=3
+backoff=0.000000 us
+ts=9 min_rts 12
+rv=0x7f1f04e22080 wts=3 status=3
+ts=8 min_rts 12
+rv=0x7f1f05b88a00 wts=6 status=3
+ts=6 min_rts 12
+rv=0x7f1f05191700 wts=7 status=3
+ts=13 min_rts 12
+rv=0x7f1f06369680 wts=11 status=3
+ts=9 min_rts 12
+rv=0x7f1f05485200 wts=1 status=3
+ts=0 min_rts 12
+rv=0x7f1f05caac40 wts=4 status=3
+ts=5 min_rts 12
+rv=0x7f1f05f16580 wts=15 status=3
+backoff=0.000000 us
+ts=14 min_rts 12
+rv=0x7f1f053fba80 wts=8 status=3
+ts=1 min_rts 12
+rv=0x7f1f0597d540 wts=12 status=3
+ts=0 min_rts 12
+rv=0x7f1f058ff6c0 wts=13 status=3
+ts=5 min_rts 12
+rv=0x7f1efa7a5d80 wts=0 status=3
+ts=13 min_rts 12
+rv=0x7f1f05390680 wts=2 status=3
+backoff=0.000000 us
+ts=3 min_rts 12
+rv=0x7f1f059881c0 wts=12 status=3
+ts=15 min_rts 12
+rv=0x7f1f05721c80 wts=0 status=3
+ts=4 min_rts 12
+rv=0x7f1f04e43bc0 wts=3 status=3
+backoff=0.000000 us
+ts=4 min_rts 12
+rv=0x7f1f06302a80 wts=10 status=3
+ts=7 min_rts 12
+rv=0x7f1f057b1ec0 wts=13 status=3
+ts=12 min_rts 12
+rv=0x7f1f05bb15c0 wts=6 status=3
+ts=11 min_rts 12
+rv=0x7f1f0607cec0 wts=9 status=3
+ts=11 min_rts 12
+rv=0x7f1f0521d940 wts=8 status=3
+ts=6 min_rts 12
+rv=0x7f1f05046bc0 wts=2 status=3
+backoff=0.000000 us
+ts=4294967305 min_rts 12
+rv=0x7f1f063a0400 wts=11 status=3
+ts=8 min_rts 12
+rv=0x7f1f059aa300 wts=12 status=3
+ts=0 min_rts 12
+rv=0x7f1f06310400 wts=10 status=3
+ts=0 min_rts 12
+rv=0x7f1f05c4fb00 wts=5 status=3
+ts=15 min_rts 12
+rv=0x7f1f04c14640 wts=14 status=3
+ts=12 min_rts 12
+rv=0x7f1f05bc1b80 wts=6 status=3
+ts=12 min_rts 12
+rv=0x7f1f0573d4c0 wts=0 status=3
+backoff=0.000000 us
+ts=4 min_rts 12
+rv=0x7f1f054bff40 wts=1 status=3
+ts=14 min_rts 12
+rv=0x7f1f054c0b40 wts=1 status=3
+ts=7 min_rts 12
+rv=0x7f1f0505e2c0 wts=2 status=3
+ts=5 min_rts 12
+rv=0x7f1f051d4d80 wts=7 status=3
+ts=7 min_rts 12
+rv=0x7f1f06099cc0 wts=9 status=1
+ts=9 min_rts 12
+rv=0x7f1f057d8440 wts=13 status=3
+ts=15 min_rts 12
+rv=0x7f1f04c27e40 wts=14 status=3
+ts=11 min_rts 12
+rv=0x7f1f05067740 wts=2 status=3
+backoff=0.000000 us
+ts=10 min_rts 12
+rv=0x7f1f04e7a400 wts=3 status=3
+ts=5 min_rts 12
+rv=0x7f1f059cd280 wts=12 status=3
+ts=0 min_rts 12
+rv=0x7f1f059cf800 wts=12 status=3
+backoff=0.000000 us
+ts=2 min_rts 12
+rv=0x7f1f05c77340 wts=5 status=3
+ts=6 min_rts 12
+rv=0x7f1f0575e940 wts=0 status=3
+ts=3 min_rts 12
+rv=0x7f1f060b1000 wts=9 status=3
+ts=15 min_rts 12
+rv=0x7f1f05d059c0 wts=4 status=3
+backoff=0.000000 us
+ts=14 min_rts 12
+rv=0x7f1f05081c00 wts=2 status=3
+ts=12 min_rts 12
+rv=0x7f1f05c83a00 wts=5 status=3
+ts=3 min_rts 12
+rv=0x7f1f051fed80 wts=7 status=3
+ts=6 min_rts 12
+rv=0x7f1f054e7d80 wts=1 status=3
+ts=14 min_rts 12
+rv=0x7f1f05258740 wts=8 status=3
+ts=7 min_rts 12
+rv=0x7f1f0525c580 wts=8 status=3
+ts=14 min_rts 12
+rv=0x7f1f05c89e80 wts=5 status=3
+ts=9 min_rts 12
+rv=0x7f1f04e97e00 wts=3 status=3
+ts=3 min_rts 12
+rv=0x7f1f0634cb80 wts=10 status=3
+ts=13 min_rts 12
+rv=0x7f1f0634eec0 wts=10 status=3
+ts=15 min_rts 12
+rv=0x7f1f0500b7c0 wts=7 status=3
+backoff=0.000000 us
+ts=13 min_rts 12
+rv=0x7f1f04ea59c0 wts=3 status=3
+ts=0 min_rts 12
+rv=0x7f1f05608dc0 wts=13 status=3
+ts=5 min_rts 12
+rv=0x7f1f0560bac0 wts=13 status=3
+backoff=0.000000 us
+ts=2 min_rts 12
+rv=0x7f1f04c61d40 wts=14 status=3
+ts=6 min_rts 12
+rv=0x7f1f05273380 wts=8 status=3
+ts=10 min_rts 12
+rv=0x7f1f05a11d00 wts=6 status=3
+ts=7 min_rts 12
+rv=0x7f1f05d275c0 wts=4 status=3
+ts=4294967298 min_rts 12
+rv=0x7f1f05804440 wts=12 status=3
+ts=5 min_rts 12
+rv=0x7f1f060d6f80 wts=9 status=3
+ts=10 min_rts 12
+rv=0x7f1f05616680 wts=13 status=3
+ts=0 min_rts 12
+rv=0x7f1f05805a00 wts=12 status=3
+ts=15 min_rts 12
+rv=0x7f1f04c678c0 wts=14 status=3
+backoff=0.000000 us
+ts=3 min_rts 12
+rv=0x7f1f04c69fc0 wts=14 status=3
+ts=6 min_rts 12
+rv=0x7f1f06201500 wts=11 status=3
+ts=2 min_rts 12
+rv=0x7f1f05fa9100 wts=15 status=3
+ts=2 min_rts 12
+rv=0x7f1f05fab200 wts=15 status=3
+ts=11 min_rts 12
+rv=0x7f1f05283c40 wts=8 status=3
+ts=2 min_rts 12
+rv=0x7f1f04ec0780 wts=3 status=3
+ts=3 min_rts 12
+rv=0x7f1f06206e40 wts=11 status=3
+backoff=0.000000 us
+ts=10 min_rts 12
+rv=0x7f1f057a1a80 wts=0 status=3
+ts=6 min_rts 12
+rv=0x7f1f05039c00 wts=7 status=3
+ts=10 min_rts 12
+rv=0x7f1f0581a280 wts=12 status=3
+ts=3 min_rts 12
+rv=0x7f1f061872c0 wts=10 status=3
+backoff=0.000000 us
+ts=3 min_rts 12
+rv=0x7f1f0621ca40 wts=11 status=3
+ts=7 min_rts 12
+rv=0x7f1f055b06c0 wts=0 status=3
+ts=14 min_rts 12
+rv=0x7f1f05ac5f40 wts=5 status=3
+ts=4 min_rts 12
+rv=0x7f1f050c5c40 wts=2 status=3
+ts=3 min_rts 12
+rv=0x7f1efa6afe00 wts=1 status=1
+backoff=0.000000 us
+ts=13 min_rts 12
+rv=0x7f1f06106980 wts=9 status=3
+ts=12 min_rts 12
+rv=0x7f1f06ec9e40 wts=3 status=3
+ts=9 min_rts 12
+rv=0x7f1f052a9a40 wts=8 status=3
+backoff=0.000000 us
+ts=1 min_rts 12
+rv=0x7f1f052b8680 wts=8 status=3
+ts=2 min_rts 12
+rv=0x7f1f05d707c0 wts=4294967300 status=3
+ts=7 min_rts 12
+rv=0x7f1f055d3340 wts=0 status=3
+backoff=0.000000 us
+ts=9 min_rts 12
+rv=0x7f1f06c4fe00 wts=7 status=3
+ts=15 min_rts 12
+rv=0x7f1f07f2b340 wts=0 status=3
+ts=6 min_rts 12
+rv=0x7f1f06ee2c80 wts=3 status=3
+ts=9 min_rts 12
+rv=0x7f1f06c53a00 wts=7 status=3
+ts=5 min_rts 12
+rv=0x7f1f06c56700 wts=7 status=3
+ts=9 min_rts 12
+rv=0x7f1f06ee7fc0 wts=3 status=3
+backoff=0.000000 us
+ts=1 min_rts 12
+rv=0x7f1f06f6e480 wts=2 status=3
+ts=12 min_rts 12
+rv=0x7f1f06553480 wts=14 status=3
+ts=8 min_rts 12
+rv=0x7f1f07f37dc0 wts=0 status=3
+ts=0 min_rts 12
+rv=0x7f1f06f72980 wts=2 status=3
+ts=14 min_rts 12
+rv=0x7f1f0854ec80 wts=4 status=3
+ts=5 min_rts 12
+rv=0x7f1f074d6f80 wts=1 status=3
+ts=11 min_rts 12
+rv=0x7f1f07f3a580 wts=0 status=1
+ts=2 min_rts 12
+rv=0x7f1f074daf40 wts=1 status=3
+backoff=0.000000 us
+ts=5 min_rts 12
+rv=0x7f1f07fd5380 wts=13 status=3
+ts=4 min_rts 12
+rv=0x7f1f07f48380 wts=0 status=1
+ts=0 min_rts 12
+rv=0x7f1f07cca680 wts=6 status=3
+ts=5 min_rts 12
+rv=0x7f1f086c7440 wts=15 status=3
+ts=3 min_rts 12
+rv=0x7f1f07ccdc80 wts=6 status=3
+backoff=0.000000 us
+ts=15 min_rts 12
+rv=0x7f1f06c77640 wts=7 status=3
+ts=10 min_rts 12
+rv=0x7f1f07f52640 wts=0 status=3
+ts=11 min_rts 12
+rv=0x7f1f06c7b900 wts=7 status=3
+ts=14 min_rts 12
+rv=0x7f1f07fe2100 wts=13 status=3
+ts=1 min_rts 12
+rv=0x7f1f06c7df40 wts=7 status=3
+ts=14 min_rts 12
+rv=0x7f1f08256040 wts=5 status=3
+ts=15 min_rts 12
+rv=0x7f1f08256400 wts=5 status=3
+ts=3 min_rts 12
+rv=0x7f1f07f57740 wts=0 status=3
+ts=12 min_rts 12
+rv=0x7f1f07fe6cc0 wts=13 status=3
+ts=4 min_rts 12
+rv=0x7f1f06f98540 wts=2 status=3
+ts=8 min_rts 12
+rv=0x7f1f0825b380 wts=5 status=1
+ts=4 min_rts 12
+rv=0x7f1f0825b8c0 wts=5 status=3
+ts=7 min_rts 12
+rv=0x7f1f06150f00 wts=9 status=3
+backoff=0.000000 us
+ts=7 min_rts 12
+rv=0x7f1f07cdf680 wts=6 status=3
+ts=8 min_rts 12
+rv=0x7f1f081d3b80 wts=12 status=3
+ts=12 min_rts 12
+rv=0x7f1f07ce3d00 wts=6 status=3
+ts=5 min_rts 12
+rv=0x7f1f0895b340 wts=10 status=3
+ts=1 min_rts 12
+rv=0x7f1f082678c0 wts=5 status=3
+ts=8 min_rts 12
+rv=0x7f1f07ff6680 wts=13 status=3
+backoff=0.000000 us
+ts=3 min_rts 12
+rv=0x7f1f07509800 wts=1 status=3
+ts=7 min_rts 12
+rv=0x7f1f086e82c0 wts=15 status=3
+ts=5 min_rts 12
+rv=0x7f1f07ceee00 wts=6 status=3
+ts=7 min_rts 12
+rv=0x7f1f081e0300 wts=12 status=3
+ts=5 min_rts 12
+rv=0x7f1f086eb800 wts=15 status=3
+ts=11 min_rts 12
+rv=0x7f1f08bcbe40 wts=9 status=3
+ts=4294967311 min_rts 12
+rv=0x7f1f08272cc0 wts=5 status=3
+ts=9 min_rts 12
+rv=0x7f1f08b5f540 wts=11 status=3
+ts=6 min_rts 12
+rv=0x7f1f07f75d40 wts=0 status=3
+ts=5 min_rts 12
+rv=0x7f1f085017c0 wts=8 status=3
+backoff=0.000000 us
+ts=10 min_rts 12
+rv=0x7f1f06f31940 wts=3 status=3
+ts=7 min_rts 12
+rv=0x7f1f081eaa40 wts=12 status=3
+ts=2 min_rts 12
+rv=0x7f1f08b68240 wts=11 status=3
+ts=2 min_rts 12
+rv=0x7f1f06597ac0 wts=14 status=3
+ts=12 min_rts 12
+rv=0x7f1f088057c0 wts=11 status=3
+ts=1 min_rts 12
+rv=0x7f1f0897c4c0 wts=10 status=3
+ts=0 min_rts 12
+rv=0x7f1efb7d4c80 wts=5 status=3
+backoff=0.000000 us
+ts=5 min_rts 12
+rv=0x7f1f0880d740 wts=11 status=3
+ts=2 min_rts 12
+rv=0x7f1f082876c0 wts=5 status=3
+ts=12 min_rts 12
+rv=0x7f1f06fccb00 wts=2 status=3
+ts=0 min_rts 12
+rv=0x7f1f0870d040 wts=15 status=3
+ts=11 min_rts 12
+rv=0x7f1f085a3ac0 wts=4 status=3
+backoff=0.000000 us
+ts=10 min_rts 12
+rv=0x7f1f085a5e00 wts=4 status=3
+ts=12 min_rts 12
+rv=0x7f1f08320fc0 wts=8 status=3
+ts=14 min_rts 12
+rv=0x7f1f06fd4000 wts=2 status=1
+ts=10 min_rts 12
+rv=0x7f1f07531880 wts=1 status=3
+ts=3 min_rts 12
+rv=0x7f1f0881d700 wts=11 status=3
+ts=14 min_rts 12
+rv=0x7f1f089959c0 wts=10 status=3
+ts=6 min_rts 12
+rv=0x7f1f0832bac0 wts=8 status=3
+backoff=0.000000 us
+ts=2 min_rts 12
+rv=0x7f1f0753d640 wts=1 status=3
+ts=5 min_rts 12
+rv=0x7f1f085b7980 wts=4 status=3
+ts=14 min_rts 12
+rv=0x7f1f06fe5040 wts=2 status=3
+ts=5 min_rts 12
+rv=0x7f1f07fa7c00 wts=0 status=3
+ts=4 min_rts 12
+rv=0x7f1f08336b00 wts=8 status=3
+ts=12 min_rts 12
+rv=0x7f1f06fe9540 wts=2 status=3
+ts=13 min_rts 12
+rv=0x7f1f065c2f00 wts=14 status=3
+backoff=0.000000 us
+ts=10 min_rts 12
+rv=0x7f1f082b2d40 wts=5 status=3
+ts=7 min_rts 12
+rv=0x7f1f08a0b340 wts=9 status=3
+ts=12 min_rts 12
+rv=0x7f1f06cd5f00 wts=7 status=3
+ts=6 min_rts 12
+rv=0x7f1f0833f5c0 wts=8 status=3
+ts=0 min_rts 12
+rv=0x7f1f06ff2240 wts=2 status=3
+ts=11 min_rts 12
+rv=0x7f1f08022680 wts=12 status=3
+ts=6 min_rts 12
+rv=0x7f1f0883df80 wts=11 status=3
+ts=11 min_rts 12
+rv=0x7f1f06d70f40 wts=3 status=3
+ts=8589934604 min_rts 12
+rv=0x7f1f085cb000 wts=4 status=3
+ts=13 min_rts 12
+rv=0x7f1f08347cc0 wts=8 status=3
+ts=7 min_rts 12
+rv=0x7f1f06d77480 wts=3 status=3
+backoff=0.000000 us
+ts=2 min_rts 12
+rv=0x7f1f08739380 wts=15 status=3
+ts=6 min_rts 12
+rv=0x7f1f0802bb00 wts=12 status=3
+ts=0 min_rts 12
+rv=0x7f1f07d48a40 wts=6 status=3
+ts=0 min_rts 12
+rv=0x7f1f08849bc0 wts=11 status=3
+ts=5 min_rts 12
+rv=0x7f1f080342c0 wts=12 status=3
+ts=2 min_rts 12
+rv=0x7f1f07d49640 wts=6 status=3
+ts=14 min_rts 12
+rv=0x7f1f06e01500 wts=2 status=3
+ts=9 min_rts 12
+rv=0x7f1f06ceda80 wts=7 status=3
+ts=5 min_rts 12
+rv=0x7f1f089bfd80 wts=10 status=3
+ts=12 min_rts 12
+rv=0x7f1f06d84bc0 wts=3 status=3
+backoff=0.000000 us
+ts=9 min_rts 12
+rv=0x7f1f065e4980 wts=14 status=3
+ts=10 min_rts 12
+rv=0x7f1f07e59a00 wts=13 status=3
+ts=6 min_rts 12
+rv=0x7f1f0874b5c0 wts=15 status=3
+ts=7 min_rts 12
+rv=0x7f1f0874dcc0 wts=15 status=3
+ts=14 min_rts 12
+rv=0x7f1f089cce00 wts=10 status=3
+ts=9 min_rts 12
+rv=0x7f1f085e3fc0 wts=4 status=3
+ts=3 min_rts 12
+rv=0x7f1f0756e600 wts=1 status=3
+ts=8 min_rts 12
+rv=0x7f1f08a2fc40 wts=9 status=3
+backoff=0.000000 us
+ts=1 min_rts 12
+rv=0x7f1f07d5c6c0 wts=6 status=3
+ts=4 min_rts 12
+rv=0x7f1f082dc140 wts=5 status=3
+ts=5 min_rts 12
+rv=0x7f1f08756fc0 wts=15 status=3
+ts=7 min_rts 12
+rv=0x7f1f07ddeec0 wts=0 status=3
+ts=6 min_rts 12
+rv=0x7f1f089d4b40 wts=10 status=3
+ts=4 min_rts 12
+rv=0x7f1f08048c00 wts=12 status=3
+ts=5 min_rts 12
+rv=0x7f1f06d05900 wts=7 status=3
+ts=11 min_rts 12
+rv=0x7f1f0804f380 wts=12 status=3
+backoff=0.000000 us
+ts=8589934602 min_rts 12
+rv=0x7f1efe0da580 wts=15 status=3
+ts=14 min_rts 12
+rv=0x7f1f06da4fc0 wts=3 status=1
+ts=12 min_rts 12
+rv=0x7f1f085fa7c0 wts=4 status=3
+ts=15 min_rts 12
+rv=0x7f1f085fbf00 wts=4 status=3
+ts=1 min_rts 12
+rv=0x7f1f089e1800 wts=10 status=3
+ts=5 min_rts 12
+rv=0x7f1f06daf940 wts=3 status=3
+backoff=0.000000 us
+ts=1 min_rts 12
+rv=0x7f1f07d779c0 wts=6 status=3
+ts=10 min_rts 12
+rv=0x7f1f06db7680 wts=3 status=3
+ts=0 min_rts 12
+rv=0x7f1f075923c0 wts=1 status=3
+ts=8 min_rts 12
+rv=0x7f1f07592840 wts=1 status=3
+ts=3 min_rts 12
+rv=0x7f1f07d7d480 wts=6 status=3
+ts=3 min_rts 12
+rv=0x7f1f089f3140 wts=10 status=3
+ts=9 min_rts 12
+rv=0x7f1f07d82d00 wts=6 status=3
+backoff=0.000000 us
+ts=14 min_rts 12
+rv=0x7f1f089f6500 wts=4294967306 status=3
+ts=4294967308 min_rts 12
+rv=0x7f1f089f6b00 wts=10 status=3
+ts=7 min_rts 12
+rv=0x7f1f089f6b00 wts=10 status=3
+ts=11 min_rts 12
+rv=0x7f1f07c07bc0 wts=0 status=3
+ts=15 min_rts 12
+rv=0x7f1f07e98c40 wts=13 status=3
+ts=9 min_rts 12
+rv=0x7f1f08416980 wts=4 status=3
+ts=2 min_rts 12
+rv=0x7f1f07c0ea00 wts=0 status=3
+ts=6 min_rts 12
+rv=0x7f1f08898c40 wts=11 status=3
+backoff=0.000000 us
+ts=7 min_rts 12
+rv=0x7f1efe0dd200 wts=15 status=1
+ts=4294967310 min_rts 12
+rv=0x7f1f07ea89c0 wts=13 status=3
+ts=3 min_rts 12
+rv=0x7f1f06433600 wts=14 status=3
+backoff=0.000000 us
+ts=3 min_rts 12
+rv=0x7f1f075b9cc0 wts=1 status=3
+ts=6 min_rts 12
+rv=0x7f1f07bac280 wts=13 status=1
+ts=0 min_rts 12
+rv=0x7f1f087a1540 wts=15 status=3
+ts=14 min_rts 12
+rv=0x7f1f06dea5c0 wts=3 status=3
+ts=9 min_rts 12
+rv=0x7f1f080957c0 wts=12 status=3
+backoff=0.000000 us
+ts=0 min_rts 12
+rv=0x7f1f06def240 wts=3 status=3
+ts=12 min_rts 12
+rv=0x7f1f08134dc0 wts=5 status=3
+ts=5 min_rts 12
+rv=0x7f1f06df3200 wts=3 status=3
+ts=9 min_rts 12
+rv=0x7f1f07c38e80 wts=0 status=3
+ts=11 min_rts 12
+rv=0x7f1f06e696c0 wts=2 status=3
+ts=10 min_rts 12
+rv=0x7f1f083c6d40 wts=8 status=3
+backoff=0.000000 us
+ts=4 min_rts 12
+rv=0x7f1f06452f80 wts=14 status=3
+ts=4 min_rts 12
+rv=0x7f1f06e72fc0 wts=2 status=3
+ts=9 min_rts 12
+rv=0x7f1f0862eec0 wts=10 status=3
+ts=7 min_rts 12
+rv=0x7f1f088cd440 wts=11 status=3
+backoff=0.000000 us
+ts=1 min_rts 12
+rv=0x7f1f08aa1e80 wts=9 status=3
+ts=7 min_rts 12
+rv=0x7f1f081479c0 wts=5 status=3
+ts=4 min_rts 12
+rv=0x7f1f075dce80 wts=1 status=3
+ts=2 min_rts 12
+rv=0x7f1f08452200 wts=4 status=3
+ts=11 min_rts 12
+rv=0x7f1f064e9dc0 wts=7 status=3
+ts=10 min_rts 12
+rv=0x7f1f0814ff40 wts=5 status=3
+ts=2 min_rts 12
+rv=0x7f1f084573c0 wts=4 status=3
+backoff=0.000000 us
+ts=7 min_rts 12
+rv=0x7f1f07c55f80 wts=0 status=3
+ts=14 min_rts 12
+rv=0x7f1f0747c440 wts=6 status=3
+ts=8 min_rts 12
+rv=0x7f1f07481840 wts=6 status=3
+ts=9 min_rts 12
+rv=0x7f1f087dc700 wts=15 status=3
+ts=7 min_rts 12
+rv=0x7f1f07c61440 wts=0 status=3
+ts=0 min_rts 12
+rv=0x7f1f06477580 wts=14 status=3
+ts=0 min_rts 12
+rv=0x7f1f086525c0 wts=10 status=3
+ts=1 min_rts 12
+rv=0x7f1f06477940 wts=14 status=3
+backoff=0.000000 us
+ts=1 min_rts 12
+rv=0x7f1f06500740 wts=7 status=3
+ts=10 min_rts 12
+rv=0x7f1f08202400 wts=8 status=3
+ts=14 min_rts 12
+rv=0x7f1f08ac78c0 wts=9 status=3
+ts=2 min_rts 12
+rv=0x7f1f0865cb80 wts=10 status=3
+ts=6 min_rts 12
+rv=0x7f1f0865f1c0 wts=10 status=3
+ts=13 min_rts 12
+rv=0x7f1f0865f340 wts=10 status=3
+backoff=0.000000 us
+ts=15 min_rts 12
+rv=0x7f1f07400900 wts=1 status=3
+ts=9 min_rts 12
+rv=0x7f1f08207080 wts=8 status=3
+ts=12 min_rts 12
+rv=0x7f1f0ca240c0 wts=7 status=3
+backoff=0.000000 us
+backoff=0.000000 us
+ts=1 min_rts 12
+rv=0x7f1f0cb9ff80 wts=3 status=3
+ts=12 min_rts 12
+rv=0x7f1f074099c0 wts=1 status=3
+ts=7 min_rts 12
+rv=0x7f1f07c82440 wts=0 status=3
+ts=9 min_rts 12
+rv=0x7f1f08480340 wts=4 status=3
+ts=12 min_rts 12
+rv=0x7f1f074a5d80 wts=6 status=3
+ts=3 min_rts 12
+rv=0x7f1f0c916940 wts=14 status=3
+ts=13 min_rts 12
+rv=0x7f1f07410740 wts=1 status=3
+backoff=0.000000 us
+ts=15 min_rts 12
+rv=0x7f1f07f10d00 wts=13 status=3
+ts=2 min_rts 12
+rv=0x7f1f0817e080 wts=5 status=3
+ts=3 min_rts 12
+rv=0x7f1f0cd45440 wts=6 status=3
+ts=2 min_rts 12
+rv=0x7f1f0741b780 wts=1 status=3
+ts=12 min_rts 12
+rv=0x7f1f08919f40 wts=11 status=3
+backoff=0.000000 us
+ts=5 min_rts 12
+rv=0x7f1f0891e440 wts=11 status=3
+ts=8 min_rts 12
+rv=0x7f1f086861c0 wts=10 status=3
+ts=9 min_rts 12
+rv=0x7f1f0cd4f7c0 wts=6 status=3
+ts=5 min_rts 12
+rv=0x7f1f085233c0 wts=15 status=1
+ts=0 min_rts 12
+rv=0x7f1f0cd53f00 wts=6 status=3
+ts=13 min_rts 12
+rv=0x7f1f08af1ec0 wts=9 status=3
+ts=14 min_rts 12
+rv=0x7f1f08527740 wts=15 status=3
+backoff=0.000000 us
+ts=9 min_rts 12
+rv=0x7f1f0d0471c0 wts=1 status=3
+ts=13 min_rts 12
+rv=0x7f1f0ca5c880 wts=7 status=3
+ts=5 min_rts 12
+rv=0x7f1f0cd5cc00 wts=6 status=3
+ts=12 min_rts 12
+rv=0x7f1f0d4c1b00 wts=0 status=3
+ts=7 min_rts 12
+rv=0x7f1f08935180 wts=11 status=3
+backoff=0.000000 us
+ts=3 min_rts 12
+rv=0x7f1f0d23c900 wts=13 status=3
+ts=11 min_rts 12
+rv=0x7f1f0c941a80 wts=14 status=3
+ts=15 min_rts 12
+rv=0x7f1f0d759000 wts=5 status=3
+ts=9 min_rts 12
+rv=0x7f1f0d05fdc0 wts=1 status=3
+ts=0 min_rts 12
+rv=0x7f1f0d249e00 wts=13 status=3
+backoff=0.000000 us
+ts=5 min_rts 12
+rv=0x7f1f08b0d400 wts=9 status=3
+ts=11 min_rts 12
+rv=0x7f1f0d2507c0 wts=13 status=3
+ts=1 min_rts 12
+rv=0x7f1f0d253880 wts=13 status=3
+ts=3 min_rts 12
+rv=0x7f1f0d76a280 wts=5 status=3
+ts=13 min_rts 12
+rv=0x7f1f086b2380 wts=10 status=3
+ts=14 min_rts 12
+rv=0x7f1f0d7d8740 wts=11 status=3
+backoff=0.000000 us
+ts=8 min_rts 12
+rv=0x7f1f0cbf1c40 wts=3 status=3
+ts=13 min_rts 12
+rv=0x7f1f0d072300 wts=1 status=3
+ts=15 min_rts 12
+rv=0x7f1f0d7dd900 wts=11 status=3
+ts=6 min_rts 12
+rv=0x7f1f0d1f7580 wts=8 status=3
+ts=1 min_rts 12
+rv=0x7f1f0cd84740 wts=6 status=3
+ts=0 min_rts 12
+rv=0x7f1f0cd851c0 wts=6 status=3
+ts=10 min_rts 12
+rv=0x7f1f0d260d80 wts=13 status=3
+ts=1 min_rts 12
+rv=0x7f1f0ce192c0 wts=2 status=3
+backoff=0.000000 us
+ts=5 min_rts 12
+rv=0x7f1f08b26a80 wts=9 status=3
+ts=13 min_rts 12
+rv=0x7f1f0d07e3c0 wts=1 status=3
+ts=13 min_rts 12
+rv=0x7f1f0d4f99c0 wts=0 status=3
+ts=6 min_rts 12
+rv=0x7f1f0d087900 wts=1 status=3
+ts=3 min_rts 12
+rv=0x7f1f0b799d80 wts=4 status=1
+ts=12 min_rts 12
+rv=0x7f1f0ca0bb80 wts=3 status=3
+ts=5 min_rts 12
+rv=0x7f1f0d08a480 wts=1 status=3
+backoff=0.000000 us
+ts=10 min_rts 12
+rv=0x7f1f0ca93fc0 wts=7 status=3
+ts=15 min_rts 12
+rv=0x7f1f0e3c6b00 wts=9 status=3
+ts=2 min_rts 12
+rv=0x7f1f0ca1af40 wts=3 status=3
+backoff=0.000000 us
+ts=1 min_rts 12
+rv=0x7f1f0de06180 wts=15 status=3
+ts=5 min_rts 12
+rv=0x7f1f0d27b3c0 wts=13 status=3
+ts=8 min_rts 12
+rv=0x7f1f0c989180 wts=14 status=3
+ts=9 min_rts 12
+rv=0x7f1f0c989180 wts=14 status=3
+ts=11 min_rts 12
+rv=0x7f1f0c989180 wts=14 status=3
+ts=6 min_rts 12
+rv=0x7f1f0d514480 wts=0 status=3
+ts=3 min_rts 12
+rv=0x7f1f0d60dec0 wts=11 status=3
+ts=11 min_rts 12
+rv=0x7f1f0d59d040 wts=5 status=3
+backoff=0.000000 us
+ts=7 min_rts 12
+rv=0x7f1f0deac380 wts=12 status=3
+ts=3 min_rts 12
+rv=0x7f1f0dead040 wts=12 status=3
+ts=7 min_rts 12
+rv=0x7f1f0de14f40 wts=15 status=3
+ts=2 min_rts 12
+rv=0x7f1f0cecd140 wts=8 status=3
+ts=12 min_rts 12
+rv=0x7f1f0de1e780 wts=15 status=3
+ts=12 min_rts 12
+rv=0x7f1f0dd95180 wts=4 status=3
+backoff=0.000000 us
+ts=0 min_rts 12
+rv=0x7f1f0cab8680 wts=7 status=3
+ts=1 min_rts 12
+rv=0x7f1f0e3e6fc0 wts=9 status=3
+ts=10 min_rts 12
+rv=0x7f1f0caba240 wts=7 status=3
+ts=2 min_rts 12
+rv=0x7f1f09c72d80 wts=6 status=1
+ts=1 min_rts 12
+rv=0x7f1f0d52d8c0 wts=0 status=3
+ts=12 min_rts 12
+rv=0x7f1f0de22140 wts=15 status=3
+ts=7 min_rts 12
+rv=0x7f1f0d6255c0 wts=11 status=3
+ts=11 min_rts 12
+rv=0x7f1f0de24c00 wts=15 status=3
+backoff=0.000000 us
+ts=10 min_rts 12
+rv=0x7f1f0d5bc900 wts=5 status=3
+ts=0 min_rts 12
+rv=0x7f1f0d0bdcc0 wts=1 status=3
+ts=15 min_rts 12
+rv=0x7f1f0c9ad300 wts=14 status=3
+ts=5 min_rts 12
+rv=0x7f1f0c846bc0 wts=3 status=3
+ts=7 min_rts 12
+rv=0x7f1f0d5c3980 wts=5 status=3
+ts=7 min_rts 12
+rv=0x7f1f0d542bc0 wts=0 status=3
+backoff=0.000000 us
+ts=14 min_rts 12
+rv=0x7f1f0de390c0 wts=15 status=3
+ts=5 min_rts 12
+rv=0x7f1f0c9bba00 wts=14 status=3
+ts=5 min_rts 12
+rv=0x7f1f0c8531c0 wts=3 status=3
+ts=7 min_rts 12
+rv=0x7f1f0e028ec0 wts=10 status=3
+ts=15 min_rts 12
+rv=0x7f1f0ded1040 wts=12 status=3
+ts=11 min_rts 12
+rv=0x7f1f0ddb6780 wts=4 status=3
+ts=12 min_rts 12
+rv=0x7f1f0d2bb8c0 wts=13 status=3
+ts=15 min_rts 12
+rv=0x7f1f0ce71f40 wts=2 status=3
+ts=1 min_rts 12
+rv=0x7f1f0d643680 wts=11 status=3
+backoff=0.000000 us
+ts=11 min_rts 12
+rv=0x7f1f0cadb840 wts=7 status=3
+ts=12 min_rts 12
+rv=0x7f1f0e20bf40 wts=9 status=1
+ts=15 min_rts 12
+rv=0x7f1f0ce82c80 wts=2 status=3
+backoff=0.000000 us
+ts=3 min_rts 12
+rv=0x7f1f0c9d4780 wts=14 status=3
+ts=9 min_rts 12
+rv=0x7f1f0cdfc440 wts=6 status=3
+ts=12 min_rts 12
+rv=0x7f1f0e042b40 wts=10 status=3
+ts=11 min_rts 12
+rv=0x7f1f0d0e2440 wts=1 status=3
+ts=4 min_rts 12
+rv=0x7f1f0ce8a780 wts=2 status=3
+ts=12 min_rts 12
+rv=0x7f1f0d0e4f00 wts=1 status=3
+ts=10 min_rts 12
+rv=0x7f1f0e223a00 wts=9 status=3
+ts=12 min_rts 12
+rv=0x7f1f0c9dd9c0 wts=14 status=3
+backoff=0.000000 us
+ts=14 min_rts 12
+rv=0x7f1f0ce924c0 wts=2 status=3
+ts=0 min_rts 12
+rv=0x7f1f0cc0ba00 wts=6 status=3
+ts=3 min_rts 12
+rv=0x7f1f0cafc540 wts=7 status=3
+ts=1 min_rts 12
+rv=0x7f1f0c87ecc0 wts=3 status=3
+ts=10 min_rts 12
+rv=0x7f1f0e2276c0 wts=9 status=3
+ts=6 min_rts 12
+rv=0x7f1f0e052b00 wts=4294967306 status=3
+ts=10 min_rts 12
+rv=0x7f1f0cf17000 wts=8 status=3
+ts=7 min_rts 12
+rv=0x7f1f0ddd9c40 wts=4 status=3
+ts=10 min_rts 12
+rv=0x7f1f0ddda000 wts=4 status=3
+ts=15 min_rts 12
+rv=0x7f1f0d5f3e00 wts=5 status=3
+ts=6 
