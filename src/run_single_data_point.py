@@ -4,6 +4,8 @@ import subprocess
 
 import enum
 
+import grpc
+
 import cicada_server
 import constants
 import csv_utils
@@ -109,7 +111,7 @@ def set_cluster_settings(nodes):
         set_cluster_settings_on_single_node(node)
 
 
-def setup_hotnode(node, commit_branch, concurrency, log_dir):
+def setup_hotnode(node, commit_branch, concurrency, log_dir, threshold):
     """ Kills node (if running) and (re-)starts it.
 
     Args:
@@ -122,7 +124,7 @@ def setup_hotnode(node, commit_branch, concurrency, log_dir):
     """
     cicada_server.kill(node)
     cicada_server.build_server(node, commit_branch)
-    cicada_server.run_server(node, concurrency, log_dir)
+    cicada_server.run_server(node, concurrency, log_dir, threshold)
 
 
 def kill_hotnode(node):
@@ -295,9 +297,10 @@ def run(config, log_dir):
     # start hot node
     min_key = 0
     if hot_node:
-        setup_hotnode(hot_node, config["hot_node_commit_branch"],
-                      config["hot_node_concurrency"], log_dir)
         min_key = config["hot_node_threshold"]
+        setup_hotnode(hot_node, config["hot_node_commit_branch"],
+                      config["hot_node_concurrency"], log_dir,
+                      min_key)
 
     # build and start crdb cluster
     build_cockroachdb_commit(server_nodes + client_nodes, commit_hash)

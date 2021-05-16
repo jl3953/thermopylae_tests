@@ -3,6 +3,11 @@ import shlex
 import subprocess
 import time
 
+import grpc
+import smdbrpc_pb2
+import smdbrpc_pb2_grpc
+
+
 import async_server
 import system_utils
 
@@ -31,7 +36,7 @@ def build_client(client_node, commit_branch):
     async_server.build_client(client_node, commit_branch)
 
 
-def run_server(server_node, concurrency, log_dir):
+def run_server(server_node, concurrency, log_dir, threshold):
     server_url = server_node["ip"]
 
     cmd = "/root/cicada-engine/build/hotshard_gateway_server {0}" \
@@ -45,7 +50,27 @@ def run_server(server_node, concurrency, log_dir):
     cicada_log = os.path.join(log_fpath, "cicada_log.txt")
     with open(cicada_log, "w") as f:
         process = subprocess.Popen(shlex.split(ssh_wrapped_cmd), stdout=f)
-    time.sleep(30)
+
+    #pre-populate the data
+    with grpc.insecure_channel(server_url + ":50051") as channel:
+        stub = smdbrpc_pb2_grpc.HotshardGatewayStub(channel)
+        request = smdbrpc_pb2.HotshardRequest(
+            hlctimestamp=smdbrpc_pb2.HLCTimestamp(
+                walltime=1,
+                logicaltime=0,
+            ),
+        )
+        request.write_keyset = []
+        for i in range(threshold):
+            request.write_keyset.append(smdbrpc_pb2.KVPair(
+                key=i, value=i))
+
+        try_again = True
+        while try_again:
+            response = stub.ContactHotshard(request)
+            if response.is_committed:
+                try_again = False
+
     return process
 
 
