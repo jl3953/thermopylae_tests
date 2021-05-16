@@ -59,8 +59,8 @@ def run_server(server_node, concurrency, log_dir, threshold):
                 walltime=1,
                 logicaltime=0,
             ),
+            write_keyset=[]
         )
-        request.write_keyset = []
         for i in range(threshold):
             request.write_keyset.append(smdbrpc_pb2.KVPair(
                 key=i, value=i))
