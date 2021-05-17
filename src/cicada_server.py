@@ -7,7 +7,6 @@ import grpc
 import smdbrpc_pb2
 import smdbrpc_pb2_grpc
 
-
 import async_server
 import system_utils
 
@@ -50,8 +49,9 @@ def run_server(server_node, concurrency, log_dir, threshold):
     cicada_log = os.path.join(log_fpath, "cicada_log.txt")
     with open(cicada_log, "w") as f:
         process = subprocess.Popen(shlex.split(ssh_wrapped_cmd), stdout=f)
+    time.sleep(10)
 
-    #pre-populate the data
+    # pre-populate the data
     with grpc.insecure_channel(server_url + ":50051") as channel:
         stub = smdbrpc_pb2_grpc.HotshardGatewayStub(channel)
         request = smdbrpc_pb2.HotshardRequest(
