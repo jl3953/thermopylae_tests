@@ -55,22 +55,31 @@ def run_server(server_node, concurrency, log_dir, threshold):
     print(server_url)
     with grpc.insecure_channel("node-11:50051") as channel:
         stub = smdbrpc_pb2_grpc.HotshardGatewayStub(channel)
-        request = smdbrpc_pb2.HotshardRequest(
-            hlctimestamp=smdbrpc_pb2.HLCTimestamp(
-                walltime=1,
-                logicaltime=0,
-            ),
-            write_keyset=[]
-        )
+        write_keyset = []
         for i in range(threshold):
-            request.write_keyset.append(smdbrpc_pb2.KVPair(
+            write_keyset.append(smdbrpc_pb2.KVPair(
                 key=i, value=i))
 
         try_again = True
         while try_again:
-            response = stub.ContactHotshard(request)
+            response = stub.ContactHotshard(smdbrpc_pb2.HotshardRequest(
+                hlctimestamp=smdbrpc_pb2.HLCTimestamp(
+                    walltime=1,
+                    logicaltime=0,
+                ),
+                write_keyset=write_keyset
+            ))
             if response.is_committed:
                 try_again = False
+            else:
+                response = stub.ContactHotshard(smdbrpc_pb2.HotshardRequest(
+                    hlctimestamp=smdbrpc_pb2.HLCTimestamp(
+                        walltime=2,
+                        logicaltime=0,
+                    ),
+                    read_keyset=[threshold-1],
+                ))
+                print(response)
 
     return process
 
