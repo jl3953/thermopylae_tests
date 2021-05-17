@@ -52,6 +52,7 @@ def run_server(server_node, concurrency, log_dir, threshold):
     time.sleep(10)
 
     # pre-populate the data
+    print(server_url)
     with grpc.insecure_channel(server_url + ":50051") as channel:
         stub = smdbrpc_pb2_grpc.HotshardGatewayStub(channel)
         request = smdbrpc_pb2.HotshardRequest(
