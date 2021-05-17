@@ -27,7 +27,7 @@ def build_server(server_node, commit_branch):
           "cmake -DLTO=ON -DDEBUG=OFF ..; " \
           "make -j; " \
           "/root/cicada-engine/script/setup.sh 16384 16384; " \
-          "cp /root/cicada-engine/src/mica/test/*.json /root/cicada-engine/build/"
+          "cp /root/cicada-engine/src/mica/test/test_tx.json /root/cicada-engine/build/"
     print(system_utils.call_remote(server_url, cmd))
 
 
