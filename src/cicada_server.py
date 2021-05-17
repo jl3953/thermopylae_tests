@@ -53,33 +53,33 @@ def run_server(server_node, concurrency, log_dir, threshold):
 
     # pre-populate the data
     print(server_url)
-    with grpc.insecure_channel("node-11:50051") as channel:
+    with grpc.insecure_channel(server_url + ":50051") as channel:
         stub = smdbrpc_pb2_grpc.HotshardGatewayStub(channel)
-        write_keyset = []
-        for i in range(threshold):
-            write_keyset.append(smdbrpc_pb2.KVPair(
-                key=i, value=i))
-
-        try_again = True
-        while try_again:
-            response = stub.ContactHotshard(smdbrpc_pb2.HotshardRequest(
-                hlctimestamp=smdbrpc_pb2.HLCTimestamp(
-                    walltime=1,
-                    logicaltime=0,
-                ),
-                write_keyset=write_keyset
-            ))
-            if response.is_committed:
-                try_again = False
-            else:
+        for i in range(0, threshold, 4):
+            try_again = True
+            while try_again:
                 response = stub.ContactHotshard(smdbrpc_pb2.HotshardRequest(
                     hlctimestamp=smdbrpc_pb2.HLCTimestamp(
-                        walltime=2,
+                        walltime=10,
                         logicaltime=0,
                     ),
-                    read_keyset=[threshold-1],
+                    write_keyset=[smdbrpc_pb2.KVPair(key=i, value=i),
+                                  smdbrpc_pb2.KVPair(key=i+1, value=i+1),
+                                  smdbrpc_pb2.KVPair(key=i+2, value=i+2),
+                                  smdbrpc_pb2.KVPair(key=i+3, value=i+3),
+                                  ],
                 ))
-                print(response)
+                if response.is_committed:
+                    try_again = False
+
+        response = stub.ContactHotshard(smdbrpc_pb2.HotshardRequest(
+            hlctimestamp=smdbrpc_pb2.HLCTimestamp(
+                walltime=20,
+                logicaltime=0,
+            ),
+            read_keyset=[threshold-1],
+        ))
+        print(response)
 
     return process
 
