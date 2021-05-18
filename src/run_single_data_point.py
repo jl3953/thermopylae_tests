@@ -87,8 +87,8 @@ def start_cockroach_node(node, other_urls=[]):
 def partition_affinity(a_server_node, driver_node, threshold):
     settings_cmd = "echo \"ALTER TABLE kv PARTITION BY RANGE (k) (" \
                    "    PARTITION hot VALUES FROM (MINVALUE) TO (250000)," \
-                   "    PARTITION not1 VALUES FROM (250000) TO (500000))," \
-                   "    PARTITION not2 VALUES FROM (500000) TO (750000))," \
+                   "    PARTITION not1 VALUES FROM (250000) TO (500000)," \
+                   "    PARTITION not2 VALUES FROM (500000) TO (750000)," \
                    "    PARTITION not3 VALUES FROM (750000) TO (MAXVALUE));\"" \
                    " | " \
                    "{0} sql --insecure --database=kv --url=\"postgresql://root@{1}?sslmode=disable\""\
