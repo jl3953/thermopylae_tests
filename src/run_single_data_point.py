@@ -84,6 +84,54 @@ def start_cockroach_node(node, other_urls=[]):
     return subprocess.Popen(cmd, shell=True)
 
 
+def partition_affinity(a_server_node, driver_node, threshold):
+    settings_cmd = "echo \"ALTER TABLE kv PARTITION BY RANGE (k) (" \
+                   "    PARTITION hot VALUES FROM (MINVALUE) TO (250000)," \
+                   "    PARTITION not1 VALUES FROM (250000) TO (500000))," \
+                   "    PARTITION not2 VALUES FROM (500000) TO (750000))," \
+                   "    PARTITION not3 VALUES FROM (750000) TO (MAXVALUE));\"" \
+                   " | " \
+                   "{0} sql --insecure --database=kv --url=\"postgresql://root@{1}?sslmode=disable\""\
+        .format(EXE, a_server_node["ip"], threshold)
+    system_utils.call_remote(driver_node["ip"], settings_cmd)
+
+    settings_cmd = 'echo \\"ALTER PARTITION hot OF TABLE kv' \
+                   "    CONFIGURE ZONE USING constraints='[+region=singapore," \
+                   "    -region=newyork,-region=london,-region=tokyo]';" \
+                   '\\"' \
+                   " | " \
+                   "{0} sql --insecure --database=kv --url=\"postgresql://root@{1}?sslmode=disable\""\
+        .format(EXE, a_server_node["ip"])
+    system_utils.call_remote_double_quote(driver_node["ip"], settings_cmd)
+
+    settings_cmd = 'echo \\"ALTER PARTITION not1 OF TABLE kv' \
+                   "    CONFIGURE ZONE USING constraints='[+region=newyork," \
+                   "    -region=singapore,-region=london,-region=tokyo]';" \
+                   '\\"' \
+                   " | " \
+                   "{0} sql --insecure --database=kv --url=\"postgresql://root@{1}?sslmode=disable\""\
+        .format(EXE, a_server_node["ip"])
+    system_utils.call_remote_double_quote(driver_node["ip"], settings_cmd)
+
+    settings_cmd = 'echo \\"ALTER PARTITION not2 OF TABLE kv' \
+                   "    CONFIGURE ZONE USING constraints='[+region=london," \
+                   "    -region=newyork,-region=singapore,-region=tokyo]';" \
+                   '\\"' \
+                   " | " \
+                   "{0} sql --insecure --database=kv --url=\"postgresql://root@{1}?sslmode=disable\""\
+        .format(EXE, a_server_node["ip"])
+    system_utils.call_remote_double_quote(driver_node["ip"], settings_cmd)
+
+    settings_cmd = 'echo \\"ALTER PARTITION not3 OF TABLE kv' \
+                   "    CONFIGURE ZONE USING constraints='[+region=tokyo," \
+                   "    -region=newyork,-region=london,-region=singapore]';" \
+                   '\\"' \
+                   " | " \
+                   "{0} sql --insecure --database=kv --url=\"postgresql://root@{1}?sslmode=disable\""\
+        .format(EXE, a_server_node["ip"])
+    system_utils.call_remote_double_quote(driver_node["ip"], settings_cmd)
+
+
 def start_cluster(nodes):
     # first = nodes[0]
     # start_cockroach_node(first).wait()
@@ -213,6 +261,8 @@ def run_kv_workload(client_nodes, server_nodes, concurrency, keyspace, warm_up_d
                    '{0} sql --insecure --database=kv --url="postgresql://root@{1}?sslmode=disable"' \
         .format(EXE, a_server_node["ip"])
     system_utils.call_remote(driver_node["ip"], settings_cmd)
+
+    partition_affinity(a_server_node, driver_node, 250000)
 
     # prepopulate data
     data_csv_leaf = "init_data.csv"
