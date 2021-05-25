@@ -38,8 +38,8 @@ def build_client(client_node, commit_branch):
 def run_server(server_node, concurrency, log_dir, threshold):
     server_url = server_node["ip"]
 
-    cmd = "/root/cicada-engine/build/hotshard_gateway_server {0}" \
-        .format(concurrency)
+    cmd = "/root/cicada-engine/build/hotshard_gateway_server {0} {1}" \
+        .format(concurrency, threshold)
     ssh_wrapped_cmd = "sudo ssh {0} '{1}'".format(server_url, cmd)
 
     log_fpath = os.path.join(log_dir, "logs")
@@ -54,32 +54,38 @@ def run_server(server_node, concurrency, log_dir, threshold):
     # pre-populate the data
     print(server_url)
     with grpc.insecure_channel(server_url + ":50051") as channel:
-        stub = smdbrpc_pb2_grpc.HotshardGatewayStub(channel)
-        for i in range(0, threshold, 4):
+        for i in range(0, threshold):
+            stub = smdbrpc_pb2_grpc.HotshardGatewayStub(channel)
             try_again = True
             while try_again:
                 response = stub.ContactHotshard(smdbrpc_pb2.HotshardRequest(
                     hlctimestamp=smdbrpc_pb2.HLCTimestamp(
-                        walltime=10,
+                        walltime=time.time_ns(),
                         logicaltime=0,
                     ),
                     write_keyset=[smdbrpc_pb2.KVPair(key=i, value=i),
-                                  smdbrpc_pb2.KVPair(key=i+1, value=i+1),
-                                  smdbrpc_pb2.KVPair(key=i+2, value=i+2),
-                                  smdbrpc_pb2.KVPair(key=i+3, value=i+3),
                                   ],
                 ))
                 if response.is_committed:
                     try_again = False
+                else:
+                    print("Retrying insertion k={} into Cicada...".format(i))
+
+            if i % 1000:
+                print("Successfully inserted {} keys into Cicada".format(i))
 
         response = stub.ContactHotshard(smdbrpc_pb2.HotshardRequest(
             hlctimestamp=smdbrpc_pb2.HLCTimestamp(
-                walltime=20,
+                walltime=time.time_ns() + 100,
                 logicaltime=0,
             ),
             read_keyset=[threshold-1],
         ))
-        print(response)
+        if response.is_committed and response.read_valueset[0].value == threshold-1:
+            print("successfully inserted {} keys into Cicada!".format(threshold))
+        else:
+            print("failed to insert {} keys into Cicada, debug now".format(threshold))
+            raise BaseException
 
     return process
 
