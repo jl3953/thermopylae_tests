@@ -49,7 +49,7 @@ def run_server(server_node, concurrency, log_dir, threshold):
     cicada_log = os.path.join(log_fpath, "cicada_log.txt")
     with open(cicada_log, "w") as f:
         process = subprocess.Popen(shlex.split(ssh_wrapped_cmd), stdout=f)
-    time.sleep(10)
+    time.sleep(40)
 
     # pre-populate the data
     print(server_url)
