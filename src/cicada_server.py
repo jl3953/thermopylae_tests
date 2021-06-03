@@ -17,7 +17,7 @@ def build_server(server_node, commit_branch):
     cmd = "cd /root/cicada-engine; " \
           "git fetch origin {0}; " \
           "git stash; " \
-          "git checkout origin {0}; " \
+          "git checkout {0}; " \
           "git pull origin {0}; ".format(commit_branch)
     print(system_utils.call_remote(server_url, cmd))
 
