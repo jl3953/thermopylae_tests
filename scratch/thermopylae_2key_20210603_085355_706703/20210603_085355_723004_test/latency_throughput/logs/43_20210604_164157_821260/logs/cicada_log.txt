@@ -1,0 +1,126 @@
+HugeTLBFS_SHM: syncing and sleeping for 1 second
+initialized PagePool on numa node 0 with 12.885 GB
+initialized PagePool on numa node 1 with 12.885 GB
+num_rows = 250000
+reqs_per_tx = 16
+read_ratio = 0.950000
+zipf_theta = 0.000000
+tx_count = 1000000
+num_threads = 16
+
+thread count = 16
+NUMA count = 1
+
+RowHead size: 8 bytes
+RowVersion size: 56 bytes
+column family 0
+  data size hint: 100 bytes
+  rh size: 192 bytes (inlining=yes)
+maximum table size: 1073741824 rows (131072 * 8192)
+
+RowHead size: 8 bytes
+RowVersion size: 56 bytes
+column family 0
+  data size hint: 24 bytes
+  rh size: 128 bytes (inlining=yes)
+maximum table size: 1073741824 rows (131072 * 8192)
+
+initializing table
+generating workload
+warming up
+executing workload
+
+throughput:                     2.428 M/sec
+elapsed:                        6.509 sec
+
+transactions:                15810823 (  2.429 M/sec)
+committed:                   15801922 (  2.428 M/sec;  99.94% attempts,  99.93% time)
+aborted: get_row:                   0 (  0.000 M/sec;   0.00% attempts,   0.00% time)
+aborted: pre_validation:            0 (  0.000 M/sec;   0.00% attempts,   0.00% time)
+aborted: d_version_insert:          0 (  0.000 M/sec;   0.00% attempts,   0.00% time)
+aborted: main_validation:        8901 (  0.001 M/sec;   0.06% attempts,   0.07% time)
+aborted: logging:                   0 (  0.000 M/sec;   0.00% attempts,   0.00% time)
+aborted: application:               0 (  0.000 M/sec;   0.00% attempts,   0.00% time)
+
+commit count: 988303 989230 995579 986083 983780 987219 992765 993468 947666 990147 996227 985947 983847 988682 992979 1000000
+commit rate (%):  99.9  99.9  99.9  99.9  99.9  99.9  99.9  99.9  99.9  99.9 100.0  99.9  99.9  99.9  99.9  99.9
+
+inter-commit latency (us): min=3, max=3968, avg=6; 50-th=6, 95-th=8, 99-th=8, 99.9-th=18
+
+total row count:     262144
+net row count:       250000
+column family 0
+   i pending:             0
+   i committed:      236045
+   i aborted:           117
+   i unused:          25982
+  ni pending:             0
+  ni committed:       14083
+  ni aborted:             0
+  total:             276227 ( 10.49% overhead)
+  avg chain len: 0.06
+  memory use:        53.036 MB
+  net data:          25.000 MB
+
+total row count:    4194304
+net row count:      4194304
+column family 0
+   i pending:             0
+   i committed:     4194304
+   i aborted:             0
+   i unused:              0
+  ni pending:             0
+  ni committed:           0
+  ni aborted:             0
+  total:            4194304 (  0.00% overhead)
+  avg chain len: 0.00
+  memory use:       536.871 MB
+  net data:         100.663 MB
+
+row version class 1 (128 bytes):
+  in use:                 0 rows     (  0.000 GB)
+    free:            262144 rows     (  0.034 GB)
+   total:            262144 rows     (  0.034 GB)
+  shared pool 0:     245760 rows free
+  local pool  0:      10312 rows free
+  local pool  1:       6072 rows free
+  local pool  2:          0 rows free
+  local pool  3:          0 rows free
+  local pool  4:          0 rows free
+  local pool  5:          0 rows free
+  local pool  6:          0 rows free
+  local pool  7:          0 rows free
+  local pool  8:          0 rows free
+  local pool  9:          0 rows free
+  local pool 10:          0 rows free
+  local pool 11:          0 rows free
+  local pool 12:          0 rows free
+  local pool 13:          0 rows free
+  local pool 14:          0 rows free
+  local pool 15:          0 rows free
+
+row version class 2 (192 bytes):
+  in use:             14083 rows     (  0.003 GB)
+    free:            116981 rows     (  0.022 GB)
+   total:            131064 rows     (  0.025 GB)
+  shared pool 0:       4096 rows free
+  local pool  0:       9344 rows free
+  local pool  1:       5629 rows free
+  local pool  2:       5518 rows free
+  local pool  3:       9257 rows free
+  local pool  4:       5917 rows free
+  local pool  5:       7830 rows free
+  local pool  6:       6687 rows free
+  local pool  7:       8770 rows free
+  local pool  8:       6599 rows free
+  local pool  9:       6147 rows free
+  local pool 10:       8461 rows free
+  local pool 11:       7211 rows free
+  local pool 12:       7017 rows free
+  local pool 13:       5115 rows free
+  local pool 14:       8829 rows free
+  local pool 15:       4554 rows free
+
+cleaning up
+concurrency 16
+Server listening on 0.0.0.0:50051
