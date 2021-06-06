@@ -4,8 +4,6 @@ import subprocess
 
 import enum
 
-import grpc
-
 import cicada_server
 import constants
 import csv_utils
