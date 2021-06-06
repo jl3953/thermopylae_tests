@@ -49,43 +49,7 @@ def run_server(server_node, concurrency, log_dir, threshold):
     cicada_log = os.path.join(log_fpath, "cicada_log.txt")
     with open(cicada_log, "w") as f:
         process = subprocess.Popen(shlex.split(ssh_wrapped_cmd), stdout=f)
-    time.sleep(40)
-
-    # pre-populate the data
-    print(server_url)
-    with grpc.insecure_channel(server_url + ":50051") as channel:
-        for i in range(0, threshold):
-            stub = smdbrpc_pb2_grpc.HotshardGatewayStub(channel)
-            try_again = True
-            while try_again:
-                response = stub.ContactHotshard(smdbrpc_pb2.HotshardRequest(
-                    hlctimestamp=smdbrpc_pb2.HLCTimestamp(
-                        walltime=time.time_ns(),
-                        logicaltime=0,
-                    ),
-                    write_keyset=[smdbrpc_pb2.KVPair(key=i, value=i),
-                                  ],
-                ))
-                if response.is_committed:
-                    try_again = False
-                else:
-                    print("Retrying insertion k={} into Cicada...".format(i))
-
-            if i % 1000:
-                print("Successfully inserted {} keys into Cicada".format(i))
-
-        response = stub.ContactHotshard(smdbrpc_pb2.HotshardRequest(
-            hlctimestamp=smdbrpc_pb2.HLCTimestamp(
-                walltime=time.time_ns() + 100,
-                logicaltime=0,
-            ),
-            read_keyset=[threshold-1],
-        ))
-        if response.is_committed and response.read_valueset[0].value == threshold-1:
-            print("successfully inserted {} keys into Cicada!".format(threshold))
-        else:
-            print("failed to insert {} keys into Cicada, debug now".format(threshold))
-            raise BaseException
+    time.sleep(25)
 
     return process
 
