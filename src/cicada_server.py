@@ -3,10 +3,6 @@ import shlex
 import subprocess
 import time
 
-import grpc
-import smdbrpc_pb2
-import smdbrpc_pb2_grpc
-
 import async_server
 import system_utils
 
